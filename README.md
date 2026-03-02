@@ -1,1 +1,3 @@
-# Projekt-Cpp
+# Projekt C++
+
+Repozytorium zawiera projekt C++.
