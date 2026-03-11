@@ -1,0 +1,160 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "Threads::Threads::@6746522484b1c52deeae",
+					"jsonFile" : "target-Threads__Threads-Debug-bb622280222eac6c91c6.json",
+					"name" : "Threads::Threads",
+					"projectIndex" : 1
+				}
+			],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f040eec181a89de70dbe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"build" : "libs/glfw",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.glfw-Debug-d6be46bb5a7080cc750c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "libs/glfw",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "libs/glfw/src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.glfw.src-Debug-78c44f60f3bc6bb5ee8d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "libs/glfw/src",
+					"targetIndexes" : 
+					[
+						1,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "FitPlanner",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"directoryIndexes" : 
+					[
+						1,
+						2
+					],
+					"name" : "GLFW",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "FitPlanner::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FitPlanner-Debug-0cd18f2fe44061f3ab94.json",
+					"name" : "FitPlanner",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "glfw::@9d94ad66e13f8aab41f7",
+					"jsonFile" : "target-glfw-Debug-f67945a9417ac6581357.json",
+					"name" : "glfw",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "uninstall::@6746522484b1c52deeae",
+					"jsonFile" : "target-uninstall-Debug-bc14f8d0b8a56c0129fc.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "update_mappings::@9d94ad66e13f8aab41f7",
+					"jsonFile" : "target-update_mappings-Debug-dc7dc9214c18fa38e20a.json",
+					"name" : "update_mappings",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build",
+		"source" : "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 10
+	}
+}

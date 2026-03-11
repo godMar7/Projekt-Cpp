@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/cmake_install.cmake",
+		"C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/libs/glfw/cmake_install.cmake",
+		"C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/libs/glfw/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
