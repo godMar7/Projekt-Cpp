@@ -1,0 +1,27 @@
+[
+    {
+        "nazwa": "Wyciskanie sztangi lezac",
+        "kategoria": "Klatka piersiowa",
+        "trudnosc": 3
+    },
+    {
+        "nazwa": "Przysiady ze sztanga",
+        "kategoria": "Nogi",
+        "trudnosc": 5
+    },
+    {
+        "nazwa": "Martwy ciag",
+        "kategoria": "Plecy",
+        "trudnosc": 5
+    },
+    {
+        "nazwa": "Uginanie ramion z hantlami",
+        "kategoria": "Biceps",
+        "trudnosc": 1
+    },
+    {
+        "nazwa": "Deska (Plank)",
+        "kategoria": "Brzuch",
+        "trudnosc": 2
+    }
+]
