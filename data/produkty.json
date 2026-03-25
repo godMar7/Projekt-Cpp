@@ -1,0 +1,37 @@
+[
+    {
+        "nazwa": "Piers z kurczaka",
+        "kcal": 99,
+        "bialko": 21.5,
+        "weglowodany": 0.0,
+        "tluszcze": 1.3
+    },
+    {
+        "nazwa": "Ryz bialy",
+        "kcal": 344,
+        "bialko": 6.7,
+        "weglowodany": 78.9,
+        "tluszcze": 0.7
+    },
+    {
+        "nazwa": "Jajko kurze (cale)",
+        "kcal": 143,
+        "bialko": 12.5,
+        "weglowodany": 0.6,
+        "tluszcze": 9.7
+    },
+    {
+        "nazwa": "Oliwa z oliwek",
+        "kcal": 884,
+        "bialko": 0.0,
+        "weglowodany": 0.0,
+        "tluszcze": 100.0
+    },
+    {
+        "nazwa": "Banan",
+        "kcal": 89,
+        "bialko": 1.1,
+        "weglowodany": 22.8,
+        "tluszcze": 0.3
+    }
+]

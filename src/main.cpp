@@ -11,11 +11,73 @@
 using namespace std;
 using json = nlohmann::json;
 
-// klasy
+//klasy
 struct Cwiczenie {
     string nazwa;
     string kategoria;
-    int trudnosc; // Skala 1-5
+    int trudnosc; 
+};
+
+struct ProduktSpozywczy {
+    string nazwa;
+    float kcal;
+    float bialko;
+    float weglowodany;
+    float tluszcze;
+};
+
+// plan treningowy
+//klasa pobiera cwiczenie z bazy i bedzie pobierac ustawienia uzytkownika
+struct CwiczenieWPlanie {
+    Cwiczenie baza;
+    int serie;            
+    int powtorzenia;      
+    float ciezar;         
+};
+
+//caly trening z dnia np nazwaPlanu: wtorek - nogi, a w wektorze trzymamy zapisane cwiczenia
+struct PlanTreningowy {
+    string nazwaPlanu;                  
+    vector<CwiczenieWPlanie> cwiczenia; 
+};
+
+// dieta
+// pobiera wage produktu od uzytkownika i produkt z bazy - pozniej liczenie makro tu
+struct SkladnikPosilku {
+    ProduktSpozywczy baza; 
+    float wagaGramy;       
+    // liczenie makro chyba tu np: obliczKcal, obliczBialko, obliczWegle, obliczTluszcze
+};
+
+// analogicznie do PlanTreningowy: nazwaPosilku - np obiad i trzyma skladniki w wektorze
+struct Posilek {
+    string nazwaPosilku; 
+    vector<SkladnikPosilku> skladniki;
+};
+
+//caly dzien jedzeniowy, trzyma posilki i makro z calego dnia
+struct PlanDietetyczny {
+    vector<Posilek> posilki;
+    float sumaKcal = 0.0f;
+    float sumaBialko = 0.0f;
+    float sumaWegle = 0.0f;
+    float sumaTluszcze = 0.0f;
+};
+
+//dane fizyczne osoby korzystajacej z aplikacji
+struct ProfilUzytkownika {
+    float waga;
+    float wzrost;
+    int wiek;
+    int plec;
+    int aktywnosc;
+
+    float wyliczoneBmi;
+    float zapotrzebowanieKcal;
+    
+    //polaczenie z planem treningowym i dieta
+    PlanTreningowy aktualnyTrening;
+    PlanDietetyczny aktualnaDieta;
 };
 
 int main() {
@@ -35,10 +97,8 @@ int main() {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 130");
 
-    // wczytywanie bazy danych
+    // wczytywanie bazy cwiczen
     vector<Cwiczenie> bazaCwiczen;
-    
-    // Zabezpieczenie ścieżki (zależnie czy odpalasz z VSCode czy bezpośrednio z /build)
     ifstream plikJSON("data/cwiczenia.json");
     if (!plikJSON.is_open()) plikJSON.open("../data/cwiczenia.json");
 
@@ -54,6 +114,27 @@ int main() {
         cout << "[OK] Wczytano " << bazaCwiczen.size() << " cwiczen z bazy JSON." << endl;
     } else {
         cerr << "[ERROR] Nie udalo sie otworzyc pliku data/cwiczenia.json!" << endl;
+    }
+
+    // wczytywanie bazy produktow spozywczych
+    vector<ProduktSpozywczy> bazaProduktow;
+    ifstream plikJSON_Dieta("data/produkty.json");
+    if (!plikJSON_Dieta.is_open()) plikJSON_Dieta.open("../data/produkty.json");
+
+    if (plikJSON_Dieta.is_open()) {
+        json daneDieta = json::parse(plikJSON_Dieta);
+        for (const auto& item : daneDieta) {
+            bazaProduktow.push_back({
+                item["nazwa"], 
+                item["kcal"], 
+                item["bialko"],
+                item["weglowodany"],
+                item["tluszcze"]
+            });
+        }
+        cout << "[OK] Wczytano " << bazaProduktow.size() << " produktow z bazy JSON." << endl;
+    } else {
+        cerr << "[ERROR] Nie udalo sie otworzyc pliku data/produkty.json!" << endl;
     }
 
     // zmienne do bmi
@@ -132,7 +213,7 @@ int main() {
                 ImGui::EndTabItem();
             }
 
-            // ZAKLADKA TRENINGOWA (WYSWIETLANIE I RYSOWANIE TRUDNOSCI)
+            // ZAKLADKA TRENINGOWA
             if (ImGui::BeginTabItem("Plan Treningowy")) {
                 ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "Baza dostepnych cwiczen:");
                 ImGui::Text("Wybierz cwiczenia, zeby zbudowac swoj plan.");
@@ -165,9 +246,9 @@ int main() {
                         for (int i = 1; i <= 5; ++i) {
                             if (i <= cw.trudnosc) {
                                 // kolor gwiazdek
-                                ImVec4 color = (cw.trudnosc <= 2) ? ImVec4(0.2f, 1.0f, 0.2f, 1.0f) : // Zielony
-                                               (cw.trudnosc == 3) ? ImVec4(1.0f, 0.8f, 0.0f, 1.0f) : // Żółty
-                                                                    ImVec4(1.0f, 0.3f, 0.3f, 1.0f);  // Czerwony
+                                ImVec4 color = (cw.trudnosc <= 2) ? ImVec4(0.2f, 1.0f, 0.2f, 1.0f) : // zielony
+                                               (cw.trudnosc == 3) ? ImVec4(1.0f, 0.8f, 0.0f, 1.0f) : // zołty
+                                                                    ImVec4(1.0f, 0.3f, 0.3f, 1.0f);  // czerwony
                                 ImGui::TextColored(color, "*"); // swiecaca
                             } else {
                                 ImGui::TextColored(ImVec4(0.3f, 0.3f, 0.3f, 1.0f), "*"); // pusta
@@ -193,10 +274,52 @@ int main() {
                 ImGui::EndTabItem();
             }
 
-            // ZAKLADKA 3: DIETA
+            // zakladka dieta i wyswietlanie z jsona
             if (ImGui::BeginTabItem("Dieta i Makro")) {
-                ImGui::Text("Modul ukladania diety i liczenia makroelementow.");
-                ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "(Zgodnie z harmonogramem: Tydzien 8)");
+                ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "Baza dostepnych produktow (wartosci na 100g):");
+                ImGui::Separator();
+                ImGui::Spacing();
+
+                if (ImGui::BeginTable("TabelaProduktow", 6, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg)) {
+                    // Naglowki
+                    ImGui::TableSetupColumn("Nazwa Produktu", ImGuiTableColumnFlags_WidthStretch);
+                    ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+                    ImGui::TableSetupColumn("Bialko (g)", ImGuiTableColumnFlags_WidthFixed, 80.0f);
+                    ImGui::TableSetupColumn("Wegle (g)", ImGuiTableColumnFlags_WidthFixed, 80.0f);
+                    ImGui::TableSetupColumn("Tluszcze (g)", ImGuiTableColumnFlags_WidthFixed, 90.0f);
+                    ImGui::TableSetupColumn("Akcja", ImGuiTableColumnFlags_WidthFixed, 80.0f);
+                    ImGui::TableHeadersRow();
+
+                    for (const auto& prod : bazaProduktow) {
+                        ImGui::TableNextRow();
+                        
+                        ImGui::TableSetColumnIndex(0);
+                        ImGui::Text("%s", prod.nazwa.c_str());
+
+                        // wyswietlanie makro i kolorowanie ich
+                        ImGui::TableSetColumnIndex(1);
+                        ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.0f, 1.0f), "%.1f", prod.kcal);
+
+                        ImGui::TableSetColumnIndex(2);
+                        ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "%.1f", prod.bialko);
+
+                        ImGui::TableSetColumnIndex(3);
+                        ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "%.1f", prod.weglowodany);
+
+                        ImGui::TableSetColumnIndex(4);
+                        ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), "%.1f", prod.tluszcze);
+
+                        // Przycisk dodawania
+                        ImGui::TableSetColumnIndex(5);
+                        ImGui::PushID(prod.nazwa.c_str());
+                        if (ImGui::Button("Dodaj", ImVec2(80, 0))) {
+                            cout << "Dodano produkt: " << prod.nazwa << endl;
+                        }
+                        ImGui::PopID();
+                    }   
+                    ImGui::EndTable();
+                }
+
                 ImGui::EndTabItem();
             }
 
