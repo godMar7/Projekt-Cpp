@@ -11,7 +11,6 @@
 using namespace std;
 using json = nlohmann::json;
 
-//klasy
 struct Cwiczenie {
     string nazwa;
     string kategoria;
@@ -26,56 +25,61 @@ struct ProduktSpozywczy {
     float tluszcze;
 };
 
-// plan treningowy
-//klasa pobiera cwiczenie z bazy i bedzie pobierac ustawienia uzytkownika
 struct CwiczenieWPlanie {
-    Cwiczenie baza;
+    Cwiczenie baza;       
     int serie;            
     int powtorzenia;      
     float ciezar;         
 };
 
-//caly trening z dnia np nazwaPlanu: wtorek - nogi, a w wektorze trzymamy zapisane cwiczenia
 struct PlanTreningowy {
     string nazwaPlanu;                  
     vector<CwiczenieWPlanie> cwiczenia; 
 };
 
-// dieta
-// pobiera wage produktu od uzytkownika i produkt z bazy - pozniej liczenie makro tu
 struct SkladnikPosilku {
     ProduktSpozywczy baza; 
     float wagaGramy;       
-    // liczenie makro chyba tu np: obliczKcal, obliczBialko, obliczWegle, obliczTluszcze
+    
+    float obliczKcal() const { return (wagaGramy / 100.0f) * baza.kcal; }
+    float obliczBialko() const { return (wagaGramy / 100.0f) * baza.bialko; }
+    float obliczWegle() const { return (wagaGramy / 100.0f) * baza.weglowodany; }
+    float obliczTluszcze() const { return (wagaGramy / 100.0f) * baza.tluszcze; }
 };
 
-// analogicznie do PlanTreningowy: nazwaPosilku - np obiad i trzyma skladniki w wektorze
 struct Posilek {
     string nazwaPosilku; 
     vector<SkladnikPosilku> skladniki;
 };
 
-//caly dzien jedzeniowy, trzyma posilki i makro z calego dnia
 struct PlanDietetyczny {
     vector<Posilek> posilki;
     float sumaKcal = 0.0f;
     float sumaBialko = 0.0f;
     float sumaWegle = 0.0f;
     float sumaTluszcze = 0.0f;
+
+    void przeliczSumy() {
+        sumaKcal = 0; sumaBialko = 0; sumaWegle = 0; sumaTluszcze = 0;
+        for(const auto& posilek : posilki) {
+            for(const auto& sk : posilek.skladniki) {
+                sumaKcal += sk.obliczKcal();
+                sumaBialko += sk.obliczBialko();
+                sumaWegle += sk.obliczWegle();
+                sumaTluszcze += sk.obliczTluszcze();
+            }
+        }
+    }
 };
 
-//dane fizyczne osoby korzystajacej z aplikacji
 struct ProfilUzytkownika {
     float waga;
     float wzrost;
     int wiek;
     int plec;
     int aktywnosc;
-
     float wyliczoneBmi;
     float zapotrzebowanieKcal;
-    
-    //polaczenie z planem treningowym i dieta
     PlanTreningowy aktualnyTrening;
     PlanDietetyczny aktualnaDieta;
 };
@@ -85,7 +89,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "FitPlanner - System Treningowy", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(1600, 900, "FitPlanner - Dashboard Treningowy", NULL, NULL);
     if (window == NULL) { glfwTerminate(); return -1; }
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);
@@ -97,52 +101,28 @@ int main() {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 130");
 
-    // wczytywanie bazy cwiczen
     vector<Cwiczenie> bazaCwiczen;
     ifstream plikJSON("data/cwiczenia.json");
     if (!plikJSON.is_open()) plikJSON.open("../data/cwiczenia.json");
-
     if (plikJSON.is_open()) {
         json dane = json::parse(plikJSON);
-        for (const auto& item : dane) {
-            bazaCwiczen.push_back({
-                item["nazwa"], 
-                item["kategoria"], 
-                item["trudnosc"]
-            });
-        }
-        cout << "[OK] Wczytano " << bazaCwiczen.size() << " cwiczen z bazy JSON." << endl;
-    } else {
-        cerr << "[ERROR] Nie udalo sie otworzyc pliku data/cwiczenia.json!" << endl;
+        for (const auto& item : dane) bazaCwiczen.push_back({item["nazwa"], item["kategoria"], item["trudnosc"]});
     }
 
-    // wczytywanie bazy produktow spozywczych
     vector<ProduktSpozywczy> bazaProduktow;
     ifstream plikJSON_Dieta("data/produkty.json");
     if (!plikJSON_Dieta.is_open()) plikJSON_Dieta.open("../data/produkty.json");
-
     if (plikJSON_Dieta.is_open()) {
         json daneDieta = json::parse(plikJSON_Dieta);
-        for (const auto& item : daneDieta) {
-            bazaProduktow.push_back({
-                item["nazwa"], 
-                item["kcal"], 
-                item["bialko"],
-                item["weglowodany"],
-                item["tluszcze"]
-            });
-        }
-        cout << "[OK] Wczytano " << bazaProduktow.size() << " produktow z bazy JSON." << endl;
-    } else {
-        cerr << "[ERROR] Nie udalo sie otworzyc pliku data/produkty.json!" << endl;
+        for (const auto& item : daneDieta) bazaProduktow.push_back({item["nazwa"], item["kcal"], item["bialko"], item["weglowodany"], item["tluszcze"]});
     }
 
-    // zmienne do bmi
-    float waga = 70.0f, wzrost = 175.0f, wyliczoneBmi = 0.0f, wyliczoneBmr = 0.0f, zapotrzebowanie = 0.0f;
-    int wiek = 25, plec = 0, aktywnosc = 1;
+    ProfilUzytkownika user = {70.0f, 175.0f, 25, 0, 1, 0.0f, 2500.0f}; 
     string kategoriaBmi = "";
+    PlanTreningowy mojPlan;
+    PlanDietetyczny mojaDieta;
+    mojaDieta.posilki.push_back({"Caly Dzien", {}});
 
-    // Glowna petla programu
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
         ImGui_ImplOpenGL3_NewFrame();
@@ -157,174 +137,225 @@ int main() {
                                         ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | 
                                         ImGuiWindowFlags_NoBringToFrontOnFocus;
         
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
-
         ImGui::Begin("FitPlanner Workspace", nullptr, window_flags);
-        ImGui::PopStyleVar(2);
 
-        if (ImGui::BeginTabBar("GlowneZakladki")) {
-            
-            // ZAKLADKA 1: PROFIL
-            if (ImGui::BeginTabItem("Profil i BMI")) {
-                ImGui::Text("Uzupelnij dane, aby wyliczyc BMI oraz zapotrzebowanie kaloryczne.");
-                ImGui::Separator(); ImGui::Spacing();
-                ImGui::Columns(2, "kolumny_profil", false); 
+        float calcWidth = ImGui::GetContentRegionAvail().x;
+        float calcHeight = ImGui::GetContentRegionAvail().y;
 
-                ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "Wymiary:");
-                ImGui::InputFloat("Waga (kg)", &waga, 1.0f, 5.0f, "%.1f");
-                ImGui::InputFloat("Wzrost (cm)", &wzrost, 1.0f, 5.0f, "%.1f");
-                ImGui::InputInt("Wiek (lata)", &wiek);
-                ImGui::NextColumn();
+        // MODUL 1: PROFIL (GORNY PANEL)
+        ImGui::BeginChild("PanelProfil", ImVec2(calcWidth, 180), true);
+        
+        // Naglowek
+        const char* tytulProfil = "M O J   P R O F I L";
+        float windowWidth = ImGui::GetWindowSize().x;
+        float textWidth = ImGui::CalcTextSize(tytulProfil).x;
+        ImGui::SetCursorPosX((windowWidth - textWidth) * 0.5f);
+        ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "%s", tytulProfil);
+        ImGui::Separator();
+        ImGui::Spacing();
 
-                ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "Plec:");
-                ImGui::RadioButton("Mezczyzna", &plec, 0); ImGui::SameLine();
-                ImGui::RadioButton("Kobieta", &plec, 1);
-                ImGui::Spacing();
-                ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "Aktywnosc fizyczna:");
-                ImGui::RadioButton("Niska", &aktywnosc, 0); ImGui::SameLine();
-                ImGui::RadioButton("Srednia", &aktywnosc, 1); ImGui::SameLine();
-                ImGui::RadioButton("Wysoka", &aktywnosc, 2);
+        ImGui::Columns(3, "kolumny_profil", false); 
+        
+        // Kolumna 1
+        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Podstawowe wymiary:");
+        ImGui::SetNextItemWidth(120); ImGui::InputFloat("Waga (kg)", &user.waga, 1.0f, 5.0f, "%.1f");
+        ImGui::SetNextItemWidth(120); ImGui::InputFloat("Wzrost (cm)", &user.wzrost, 1.0f, 5.0f, "%.1f");
+        ImGui::SetNextItemWidth(120); ImGui::InputInt("Wiek (lata)", &user.wiek);
+        ImGui::NextColumn();
 
-                ImGui::Columns(1); ImGui::Spacing(); ImGui::Separator(); ImGui::Spacing();
+        // Kolumna 2
+        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Plec i aktywnosc:");
+        ImGui::RadioButton("Mezczyzna", &user.plec, 0); ImGui::SameLine();
+        ImGui::RadioButton("Kobieta", &user.plec, 1);
+        ImGui::Spacing();
+        ImGui::RadioButton("Niska aktywnosc", &user.aktywnosc, 0); 
+        ImGui::RadioButton("Srednia aktywnosc", &user.aktywnosc, 1); 
+        ImGui::RadioButton("Wysoka aktywnosc", &user.aktywnosc, 2);
+        ImGui::NextColumn();
 
-                if (ImGui::Button("Oblicz parametry", ImVec2(200, 45))) {
-                    if (wzrost > 0 && waga > 0 && wiek > 0) {
-                        float wzrostMetry = wzrost / 100.0f;
-                        wyliczoneBmi = waga / (wzrostMetry * wzrostMetry);
-                        if (wyliczoneBmi < 18.5f) kategoriaBmi = "Niedowaga";
-                        else if (wyliczoneBmi < 25.0f) kategoriaBmi = "Waga w normie";
-                        else if (wyliczoneBmi < 30.0f) kategoriaBmi = "Nadwaga";
-                        else kategoriaBmi = "Otylosc";
+        // Kolumna 3
+        if (ImGui::Button("Oblicz BMR i BMI", ImVec2(-1, 40))) {
+            if (user.wzrost > 0 && user.waga > 0 && user.wiek > 0) {
+                float wzrostMetry = user.wzrost / 100.0f;
+                user.wyliczoneBmi = user.waga / (wzrostMetry * wzrostMetry);
+                if (user.wyliczoneBmi < 18.5f) kategoriaBmi = "Niedowaga";
+                else if (user.wyliczoneBmi < 25.0f) kategoriaBmi = "Waga w normie";
+                else if (user.wyliczoneBmi < 30.0f) kategoriaBmi = "Nadwaga";
+                else kategoriaBmi = "Otylosc";
 
-                        wyliczoneBmr = (plec == 0) ? ((10.0f * waga) + (6.25f * wzrost) - (5.0f * wiek) + 5.0f) 
-                                                   : ((10.0f * waga) + (6.25f * wzrost) - (5.0f * wiek) - 161.0f);
-                        float mnoznik = (aktywnosc == 0) ? 1.2f : (aktywnosc == 1 ? 1.55f : 1.725f);
-                        zapotrzebowanie = wyliczoneBmr * mnoznik;
-                    }
-                }
-
-                if (wyliczoneBmi > 0.0f) {
-                    ImGui::Spacing();
-                    ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "TWOJE WYNIKI:");
-                    ImGui::Text("BMI: %.2f (%s)", wyliczoneBmi, kategoriaBmi.c_str());
-                    ImGui::Text("Zapotrzebowanie na utrzymanie wagi: %.0f kcal", zapotrzebowanie);
-                }
-                ImGui::EndTabItem();
+                float wyliczoneBmr = (user.plec == 0) ? ((10.0f * user.waga) + (6.25f * user.wzrost) - (5.0f * user.wiek) + 5.0f) : ((10.0f * user.waga) + (6.25f * user.wzrost) - (5.0f * user.wiek) - 161.0f);
+                float mnoznik = (user.aktywnosc == 0) ? 1.2f : (user.aktywnosc == 1 ? 1.55f : 1.725f);
+                user.zapotrzebowanieKcal = wyliczoneBmr * mnoznik;
             }
-
-            // ZAKLADKA TRENINGOWA
-            if (ImGui::BeginTabItem("Plan Treningowy")) {
-                ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "Baza dostepnych cwiczen:");
-                ImGui::Text("Wybierz cwiczenia, zeby zbudowac swoj plan.");
-                ImGui::Separator();
-                ImGui::Spacing();
-
-                // tabele do wyswietlania
-                if (ImGui::BeginTable("TabelaCwiczen", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg)) {
-                    // naglowki kolumn
-                    ImGui::TableSetupColumn("Nazwa Cwiczenia", ImGuiTableColumnFlags_WidthStretch);
-                    ImGui::TableSetupColumn("Kategoria", ImGuiTableColumnFlags_WidthFixed, 150.0f);
-                    ImGui::TableSetupColumn("Poziom Trudnosci", ImGuiTableColumnFlags_WidthFixed, 150.0f);
-                    ImGui::TableSetupColumn("Akcja", ImGuiTableColumnFlags_WidthFixed, 80.0f);
-                    ImGui::TableHeadersRow();
-
-                    // pobieranie wierszy z pliku JSON
-                    for (const auto& cw : bazaCwiczen) {
-                        ImGui::TableNextRow();
-                        
-                        // Kolumna 1: Nazwa
-                        ImGui::TableSetColumnIndex(0);
-                        ImGui::Text("%s", cw.nazwa.c_str());
-
-                        // Kolumna 2: Kategoria
-                        ImGui::TableSetColumnIndex(1);
-                        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "%s", cw.kategoria.c_str());
-
-                       // Kolumna 3: Rysowanie poziomu trudnosci
-                        ImGui::TableSetColumnIndex(2);
-                        for (int i = 1; i <= 5; ++i) {
-                            if (i <= cw.trudnosc) {
-                                // kolor gwiazdek
-                                ImVec4 color = (cw.trudnosc <= 2) ? ImVec4(0.2f, 1.0f, 0.2f, 1.0f) : // zielony
-                                               (cw.trudnosc == 3) ? ImVec4(1.0f, 0.8f, 0.0f, 1.0f) : // zołty
-                                                                    ImVec4(1.0f, 0.3f, 0.3f, 1.0f);  // czerwony
-                                ImGui::TextColored(color, "*"); // swiecaca
-                            } else {
-                                ImGui::TextColored(ImVec4(0.3f, 0.3f, 0.3f, 1.0f), "*"); // pusta
-                            }
-                            
-                            // Odstęp miedzy gwiadkamii
-                            if (i < 5) {
-                                ImGui::SameLine();
-                                ImGui::SetCursorPosX(ImGui::GetCursorPosX() - 3.0f);
-                            }
-                        }
-                        // Kolumna 4: Przycisk dodawania, jeszcze bez dzialania
-                        ImGui::TableSetColumnIndex(3);
-                        ImGui::PushID(cw.nazwa.c_str()); // id przycisku
-                        if (ImGui::Button("Dodaj", ImVec2(80, 0))) {
-                            cout << "Dodano cwiczenie: " << cw.nazwa << endl;
-                        }
-                        ImGui::PopID();
-                    }
-                    ImGui::EndTable();
-                }
-
-                ImGui::EndTabItem();
-            }
-
-            // zakladka dieta i wyswietlanie z jsona
-            if (ImGui::BeginTabItem("Dieta i Makro")) {
-                ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "Baza dostepnych produktow (wartosci na 100g):");
-                ImGui::Separator();
-                ImGui::Spacing();
-
-                if (ImGui::BeginTable("TabelaProduktow", 6, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg)) {
-                    // Naglowki
-                    ImGui::TableSetupColumn("Nazwa Produktu", ImGuiTableColumnFlags_WidthStretch);
-                    ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 60.0f);
-                    ImGui::TableSetupColumn("Bialko (g)", ImGuiTableColumnFlags_WidthFixed, 80.0f);
-                    ImGui::TableSetupColumn("Wegle (g)", ImGuiTableColumnFlags_WidthFixed, 80.0f);
-                    ImGui::TableSetupColumn("Tluszcze (g)", ImGuiTableColumnFlags_WidthFixed, 90.0f);
-                    ImGui::TableSetupColumn("Akcja", ImGuiTableColumnFlags_WidthFixed, 80.0f);
-                    ImGui::TableHeadersRow();
-
-                    for (const auto& prod : bazaProduktow) {
-                        ImGui::TableNextRow();
-                        
-                        ImGui::TableSetColumnIndex(0);
-                        ImGui::Text("%s", prod.nazwa.c_str());
-
-                        // wyswietlanie makro i kolorowanie ich
-                        ImGui::TableSetColumnIndex(1);
-                        ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.0f, 1.0f), "%.1f", prod.kcal);
-
-                        ImGui::TableSetColumnIndex(2);
-                        ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "%.1f", prod.bialko);
-
-                        ImGui::TableSetColumnIndex(3);
-                        ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "%.1f", prod.weglowodany);
-
-                        ImGui::TableSetColumnIndex(4);
-                        ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), "%.1f", prod.tluszcze);
-
-                        // Przycisk dodawania
-                        ImGui::TableSetColumnIndex(5);
-                        ImGui::PushID(prod.nazwa.c_str());
-                        if (ImGui::Button("Dodaj", ImVec2(80, 0))) {
-                            cout << "Dodano produkt: " << prod.nazwa << endl;
-                        }
-                        ImGui::PopID();
-                    }   
-                    ImGui::EndTable();
-                }
-
-                ImGui::EndTabItem();
-            }
-
-            ImGui::EndTabBar();
         }
+        ImGui::Spacing();
+        if (user.wyliczoneBmi > 0.0f) {
+            ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "Wynik BMI: %.1f (%s)", user.wyliczoneBmi, kategoriaBmi.c_str());
+            ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.0f, 1.0f), "Zapotrzebowanie: %.0f kcal", user.zapotrzebowanieKcal);
+        } else {
+            ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Uzupelnij dane i kliknij oblicz...");
+        }
+
+        ImGui::Columns(1);
+        ImGui::EndChild();
+
+        ImGui::Spacing();
+
+        // PODZIAL EKRANU NA POLOWY
+        float polowaSzerokosci = (calcWidth / 2.0f) - 4.0f;
+        float wysokoscDolnych = ImGui::GetContentRegionAvail().y;
+
+        // MODUL 2: PLAN TRENINGOWY (LEWA STRONA)
+        ImGui::BeginChild("PanelTrening", ImVec2(polowaSzerokosci, wysokoscDolnych), true);
+        
+        const char* tytulTrening = "P L A N   T R E N I N G O W Y";
+        ImGui::SetCursorPosX((ImGui::GetWindowSize().x - ImGui::CalcTextSize(tytulTrening).x) * 0.5f);
+        ImGui::TextColored(ImVec4(1.0f, 0.5f, 0.0f, 1.0f), "%s", tytulTrening);
+        ImGui::Separator();
+        ImGui::Spacing();
+
+        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Baza cwiczen:");
+        if (ImGui::BeginTable("TabelaCwiczen", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 150))) {
+            ImGui::TableSetupColumn("Nazwa", ImGuiTableColumnFlags_WidthStretch);
+            ImGui::TableSetupColumn("Kat.", ImGuiTableColumnFlags_WidthFixed, 80.0f);
+            ImGui::TableSetupColumn("Trud.", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+            ImGui::TableSetupColumn("Akcja", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+            ImGui::TableHeadersRow();
+
+            for (const auto& cw : bazaCwiczen) {
+                ImGui::TableNextRow();
+                ImGui::TableSetColumnIndex(0); ImGui::Text("%s", cw.nazwa.c_str());
+                ImGui::TableSetColumnIndex(1); ImGui::TextColored(ImVec4(0.6f, 0.6f, 0.6f, 1.0f), "%s", cw.kategoria.c_str());
+                ImGui::TableSetColumnIndex(2);
+                for (int i = 1; i <= 5; ++i) {
+                    if (i <= cw.trudnosc) ImGui::TextColored((cw.trudnosc <= 2) ? ImVec4(0.2f,1.f,0.2f,1.f) : (cw.trudnosc == 3) ? ImVec4(1.f,0.8f,0.f,1.f) : ImVec4(1.f,0.3f,0.3f,1.f), "*");
+                    else ImGui::TextColored(ImVec4(0.3f, 0.3f, 0.3f, 1.0f), "*");
+                    if (i < 5) { ImGui::SameLine(); ImGui::SetCursorPosX(ImGui::GetCursorPosX() - 3.0f); }
+                }
+                ImGui::TableSetColumnIndex(3);
+                ImGui::PushID(cw.nazwa.c_str()); 
+                if (ImGui::Button("+", ImVec2(50, 0))) mojPlan.cwiczenia.push_back({cw, 3, 10, 0.0f});
+                ImGui::PopID();
+            }
+            ImGui::EndTable();
+        }
+
+        ImGui::Spacing();
+        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany trening:");
+        if (mojPlan.cwiczenia.empty()) {
+            ImGui::TextColored(ImVec4(0.4f, 0.4f, 0.4f, 1.0f), "Brak cwiczen w planie.");
+        } else {
+            if (ImGui::BeginTable("MojPlan", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY)) {
+                ImGui::TableSetupColumn("Cwiczenie", ImGuiTableColumnFlags_WidthStretch);
+                ImGui::TableSetupColumn("Serie", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+                ImGui::TableSetupColumn("Powt", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+                ImGui::TableSetupColumn("Kg", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+                ImGui::TableSetupColumn("X", ImGuiTableColumnFlags_WidthFixed, 40.0f);
+                ImGui::TableHeadersRow();
+
+                for (int i = 0; i < mojPlan.cwiczenia.size(); ++i) {
+                    ImGui::TableNextRow();
+                    ImGui::PushID(i + 1000); 
+                    ImGui::TableSetColumnIndex(0); ImGui::Text("%s", mojPlan.cwiczenia[i].baza.nazwa.c_str());
+                    ImGui::TableSetColumnIndex(1); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##s", &mojPlan.cwiczenia[i].serie, 0);
+                    ImGui::TableSetColumnIndex(2); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##p", &mojPlan.cwiczenia[i].powtorzenia, 0);
+                    ImGui::TableSetColumnIndex(3); ImGui::SetNextItemWidth(50.0f); ImGui::InputFloat("##kg", &mojPlan.cwiczenia[i].ciezar, 0, 0, "%.1f");
+                    ImGui::TableSetColumnIndex(4);
+                    if (ImGui::Button("X", ImVec2(40, 0))) { mojPlan.cwiczenia.erase(mojPlan.cwiczenia.begin() + i); i--; }
+                    ImGui::PopID();
+                }
+                ImGui::EndTable();
+            }
+        }
+        ImGui::EndChild();
+
+        ImGui::SameLine();
+
+        // MODUL 3: PLAN DIETETYCZNY (PRAWA STRONA)
+        ImGui::BeginChild("PanelDieta", ImVec2(0, wysokoscDolnych), true);
+        
+        mojaDieta.przeliczSumy();
+
+        const char* tytulDieta = "P L A N   D I E T E T Y C Z N Y";
+        ImGui::SetCursorPosX((ImGui::GetWindowSize().x - ImGui::CalcTextSize(tytulDieta).x) * 0.5f);
+        ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "%s", tytulDieta);
+        ImGui::Separator();
+        ImGui::Spacing();
+
+        // progress bar
+        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Zjedzone: %.0f kcal / %.0f kcal", mojaDieta.sumaKcal, user.zapotrzebowanieKcal);
+        float postepKcal = user.zapotrzebowanieKcal > 0.0f ? (mojaDieta.sumaKcal / user.zapotrzebowanieKcal) : 0.0f;
+        if (postepKcal > 1.0f) ImGui::PushStyleColor(ImGuiCol_PlotHistogram, ImVec4(1.0f, 0.2f, 0.2f, 1.0f)); 
+        ImGui::ProgressBar(postepKcal, ImVec2(-1.0f, 15.0f), "");
+        if (postepKcal > 1.0f) ImGui::PopStyleColor();
+
+        ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "B: %.1f g", mojaDieta.sumaBialko); ImGui::SameLine();
+        ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), " | W: %.1f g", mojaDieta.sumaWegle); ImGui::SameLine();
+        ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), " | T: %.1f g", mojaDieta.sumaTluszcze);
+        ImGui::Spacing();
+
+        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Baza produktow (100g):");
+        if (ImGui::BeginTable("BazaProduktow", 6, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 150))) {
+            ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_WidthStretch);
+            ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 40.0f);
+            ImGui::TableSetupColumn("B", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+            ImGui::TableSetupColumn("W", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+            ImGui::TableSetupColumn("T", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+            ImGui::TableSetupColumn("+", ImGuiTableColumnFlags_WidthFixed, 40.0f);
+            ImGui::TableHeadersRow();
+
+            for (const auto& prod : bazaProduktow) {
+                ImGui::TableNextRow();
+                ImGui::TableSetColumnIndex(0); ImGui::Text("%s", prod.nazwa.c_str());
+                ImGui::TableSetColumnIndex(1); ImGui::TextColored(ImVec4(1.f, 0.8f, 0.f, 1.f), "%.0f", prod.kcal);
+                ImGui::TableSetColumnIndex(2); ImGui::TextColored(ImVec4(0.2f, 1.f, 0.2f, 1.f), "%.1f", prod.bialko);
+                ImGui::TableSetColumnIndex(3); ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.f, 1.f), "%.1f", prod.weglowodany);
+                ImGui::TableSetColumnIndex(4); ImGui::TextColored(ImVec4(1.f, 0.4f, 0.4f, 1.f), "%.1f", prod.tluszcze);
+                ImGui::TableSetColumnIndex(5);
+                ImGui::PushID(prod.nazwa.c_str());
+                if (ImGui::Button("+", ImVec2(40, 0))) mojaDieta.posilki[0].skladniki.push_back({prod, 100.0f});
+                ImGui::PopID();
+            }
+            ImGui::EndTable();
+        }
+
+        ImGui::Spacing();
+        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany talerz:");
+        if (mojaDieta.posilki[0].skladniki.empty()) {
+            ImGui::TextColored(ImVec4(0.4f, 0.4f, 0.4f, 1.0f), "Brak jedzenia na talerzu.");
+        } else {
+            if (ImGui::BeginTable("MojTalerz", 7, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY)) {
+                ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_WidthStretch);
+                ImGui::TableSetupColumn("Waga(g)", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+                ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 40.0f);
+                ImGui::TableSetupColumn("B", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+                ImGui::TableSetupColumn("W", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+                ImGui::TableSetupColumn("T", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+                ImGui::TableSetupColumn("X", ImGuiTableColumnFlags_WidthFixed, 40.0f);
+                ImGui::TableHeadersRow();
+
+                for (int i = 0; i < mojaDieta.posilki[0].skladniki.size(); ++i) {
+                    ImGui::TableNextRow();
+                    auto& sk = mojaDieta.posilki[0].skladniki[i];
+                    ImGui::PushID(i + 2000); 
+
+                    ImGui::TableSetColumnIndex(0); ImGui::Text("%s", sk.baza.nazwa.c_str());
+                    ImGui::TableSetColumnIndex(1); ImGui::SetNextItemWidth(50.0f); ImGui::InputFloat("##w", &sk.wagaGramy, 0, 0, "%.0f");
+                    if (sk.wagaGramy < 0) sk.wagaGramy = 0; 
+                    
+                    ImGui::TableSetColumnIndex(2); ImGui::TextColored(ImVec4(1.f, 0.8f, 0.f, 1.f), "%.0f", sk.obliczKcal());
+                    ImGui::TableSetColumnIndex(3); ImGui::TextColored(ImVec4(0.2f, 1.f, 0.2f, 1.f), "%.1f", sk.obliczBialko());
+                    ImGui::TableSetColumnIndex(4); ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.f, 1.f), "%.1f", sk.obliczWegle());
+                    ImGui::TableSetColumnIndex(5); ImGui::TextColored(ImVec4(1.f, 0.4f, 0.4f, 1.f), "%.1f", sk.obliczTluszcze());
+                    
+                    ImGui::TableSetColumnIndex(6);
+                    if (ImGui::Button("X", ImVec2(40, 0))) { mojaDieta.posilki[0].skladniki.erase(mojaDieta.posilki[0].skladniki.begin() + i); i--; }
+                    ImGui::PopID();
+                }
+                ImGui::EndTable();
+            }
+        }
+        ImGui::EndChild();
 
         ImGui::End();
 

@@ -1,27 +1,14 @@
 [
-    {
-        "nazwa": "Wyciskanie sztangi lezac",
-        "kategoria": "Klatka piersiowa",
-        "trudnosc": 3
-    },
-    {
-        "nazwa": "Przysiady ze sztanga",
-        "kategoria": "Nogi",
-        "trudnosc": 5
-    },
-    {
-        "nazwa": "Martwy ciag",
-        "kategoria": "Plecy",
-        "trudnosc": 5
-    },
-    {
-        "nazwa": "Uginanie ramion z hantlami",
-        "kategoria": "Biceps",
-        "trudnosc": 1
-    },
-    {
-        "nazwa": "Deska (Plank)",
-        "kategoria": "Brzuch",
-        "trudnosc": 2
-    }
+    { "nazwa": "Wyciskanie sztangi lezac", "kategoria": "Klatka piersiowa", "trudnosc": 3 },
+    { "nazwa": "Przysiady ze sztanga", "kategoria": "Nogi", "trudnosc": 5 },
+    { "nazwa": "Martwy ciag", "kategoria": "Plecy", "trudnosc": 5 },
+    { "nazwa": "Uginanie ramion z hantlami", "kategoria": "Biceps", "trudnosc": 1 },
+    { "nazwa": "Deska (Plank)", "kategoria": "Brzuch", "trudnosc": 2 },
+    { "nazwa": "Wyciskanie zolnierskie", "kategoria": "Barki", "trudnosc": 4 },
+    { "nazwa": "Podciaganie na drazku", "kategoria": "Plecy", "trudnosc": 4 },
+    { "nazwa": "Wykroki z hantlami", "kategoria": "Nogi", "trudnosc": 3 },
+    { "nazwa": "Wyciskanie francuskie", "kategoria": "Triceps", "trudnosc": 2 },
+    { "nazwa": "Rozpietki na lawce", "kategoria": "Klatka piersiowa", "trudnosc": 2 },
+    { "nazwa": "Allahy (spiecia na wyciagu)", "kategoria": "Brzuch", "trudnosc": 3 },
+    { "nazwa": "Wznosy bokiem z hantlami", "kategoria": "Barki", "trudnosc": 2 }
 ]
