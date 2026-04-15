@@ -6,10 +6,20 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <algorithm>
+#include <cctype>
 #include <nlohmann/json.hpp>
 
 using namespace std;
 using json = nlohmann::json;
+
+// Funkcja pomocnicza do wyszukiwarki ignorujaca wielkosc liter
+bool containsIgnoreCase(const string& str, const string& sub) {
+    if (sub.empty()) return true;
+    auto it = search(str.begin(), str.end(), sub.begin(), sub.end(),
+        [](char ch1, char ch2) { return tolower(ch1) == tolower(ch2); });
+    return it != str.end();
+}
 
 struct Cwiczenie {
     string nazwa;
@@ -123,6 +133,12 @@ int main() {
     PlanDietetyczny mojaDieta;
     mojaDieta.posilki.push_back({"Caly Dzien", {}});
 
+    // Zmienne do wyszukiwarki i filtrowania
+    static char szukajCw[128] = "";
+    static int wybranaKategoriaCw = 0;
+    const char* kategorieCw[] = {"Wszystkie", "Klatka piersiowa", "Nogi", "Plecy", "Barki", "Biceps", "Triceps", "Brzuch"};
+    static char szukajProd[128] = "";
+
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
         ImGui_ImplOpenGL3_NewFrame();
@@ -214,6 +230,14 @@ int main() {
         ImGui::Separator();
         ImGui::Spacing();
 
+        // Wyszukiwarka i filtrowanie cwiczen
+        ImGui::SetNextItemWidth(150);
+        ImGui::InputText("Szukaj##cw", szukajCw, IM_ARRAYSIZE(szukajCw));
+        ImGui::SameLine();
+        ImGui::SetNextItemWidth(120);
+        ImGui::Combo("Partia##cw", &wybranaKategoriaCw, kategorieCw, IM_ARRAYSIZE(kategorieCw));
+        ImGui::Spacing();
+
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Baza cwiczen:");
         if (ImGui::BeginTable("TabelaCwiczen", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 150))) {
             ImGui::TableSetupColumn("Nazwa", ImGuiTableColumnFlags_WidthStretch);
@@ -223,6 +247,10 @@ int main() {
             ImGui::TableHeadersRow();
 
             for (const auto& cw : bazaCwiczen) {
+                // Filtrowanie z menu rozwijanego i pola tekstowego
+                if (wybranaKategoriaCw != 0 && cw.kategoria != kategorieCw[wybranaKategoriaCw]) continue;
+                if (szukajCw[0] != '\0' && !containsIgnoreCase(cw.nazwa, szukajCw)) continue;
+
                 ImGui::TableNextRow();
                 ImGui::TableSetColumnIndex(0); ImGui::Text("%s", cw.nazwa.c_str());
                 ImGui::TableSetColumnIndex(1); ImGui::TextColored(ImVec4(0.6f, 0.6f, 0.6f, 1.0f), "%s", cw.kategoria.c_str());
@@ -294,17 +322,43 @@ int main() {
         ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), " | T: %.1f g", mojaDieta.sumaTluszcze);
         ImGui::Spacing();
 
+        // Wyszukiwarka produktow
+        ImGui::SetNextItemWidth(180);
+        ImGui::InputText("Szukaj##prod", szukajProd, IM_ARRAYSIZE(szukajProd));
+        ImGui::Spacing();
+
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Baza produktow (100g):");
-        if (ImGui::BeginTable("BazaProduktow", 6, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 150))) {
-            ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_WidthStretch);
+        // Flaga ImGuiTableFlags_Sortable dodaje mozliwosc klikania w naglowki
+        if (ImGui::BeginTable("BazaProduktow", 6, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY | ImGuiTableFlags_Sortable, ImVec2(0, 150))) {
+            ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_DefaultSort | ImGuiTableColumnFlags_WidthStretch);
             ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 40.0f);
             ImGui::TableSetupColumn("B", ImGuiTableColumnFlags_WidthFixed, 35.0f);
             ImGui::TableSetupColumn("W", ImGuiTableColumnFlags_WidthFixed, 35.0f);
             ImGui::TableSetupColumn("T", ImGuiTableColumnFlags_WidthFixed, 35.0f);
-            ImGui::TableSetupColumn("+", ImGuiTableColumnFlags_WidthFixed, 40.0f);
+            ImGui::TableSetupColumn("+", ImGuiTableColumnFlags_NoSort | ImGuiTableColumnFlags_WidthFixed, 40.0f);
             ImGui::TableHeadersRow();
 
+            // Logika wywolywana podczas klikniecia w naglowek
+            if (ImGuiTableSortSpecs* sorts_specs = ImGui::TableGetSortSpecs()) {
+                if (sorts_specs->SpecsDirty) {
+                    std::sort(bazaProduktow.begin(), bazaProduktow.end(), [sorts_specs](const ProduktSpozywczy& a, const ProduktSpozywczy& b) {
+                        const auto& spec = sorts_specs->Specs[0];
+                        bool asc = spec.SortDirection == ImGuiSortDirection_Ascending;
+                        if (spec.ColumnIndex == 0) return asc ? (a.nazwa < b.nazwa) : (a.nazwa > b.nazwa);
+                        if (spec.ColumnIndex == 1) return asc ? (a.kcal < b.kcal) : (a.kcal > b.kcal);
+                        if (spec.ColumnIndex == 2) return asc ? (a.bialko < b.bialko) : (a.bialko > b.bialko);
+                        if (spec.ColumnIndex == 3) return asc ? (a.weglowodany < b.weglowodany) : (a.weglowodany > b.weglowodany);
+                        if (spec.ColumnIndex == 4) return asc ? (a.tluszcze < b.tluszcze) : (a.tluszcze > b.tluszcze);
+                        return false;
+                    });
+                    sorts_specs->SpecsDirty = false;
+                }
+            }
+
             for (const auto& prod : bazaProduktow) {
+                // Filtrowanie wyszukiwarka
+                if (szukajProd[0] != '\0' && !containsIgnoreCase(prod.nazwa, szukajProd)) continue;
+
                 ImGui::TableNextRow();
                 ImGui::TableSetColumnIndex(0); ImGui::Text("%s", prod.nazwa.c_str());
                 ImGui::TableSetColumnIndex(1); ImGui::TextColored(ImVec4(1.f, 0.8f, 0.f, 1.f), "%.0f", prod.kcal);
