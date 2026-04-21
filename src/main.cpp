@@ -13,13 +13,15 @@
 using namespace std;
 using json = nlohmann::json;
 
-// Funkcja pomocnicza do wyszukiwarki ignorujaca wielkosc liter
+// Funkcja pomocnicza do wyszukiwarki
 bool containsIgnoreCase(const string& str, const string& sub) {
     if (sub.empty()) return true;
     auto it = search(str.begin(), str.end(), sub.begin(), sub.end(),
         [](char ch1, char ch2) { return tolower(ch1) == tolower(ch2); });
     return it != str.end();
 }
+
+// KLASY I STRUKTURY DANYCH
 
 struct Cwiczenie {
     string nazwa;
@@ -42,9 +44,13 @@ struct CwiczenieWPlanie {
     float ciezar;         
 };
 
+struct DzienTreningowy {
+    string nazwaDnia;
+    vector<CwiczenieWPlanie> cwiczenia;
+};
+
 struct PlanTreningowy {
-    string nazwaPlanu;                  
-    vector<CwiczenieWPlanie> cwiczenia; 
+    vector<DzienTreningowy> dni; 
 };
 
 struct SkladnikPosilku {
@@ -89,10 +95,149 @@ struct ProfilUzytkownika {
     int plec;
     int aktywnosc;
     float wyliczoneBmi;
+    string kategoriaBmi; // Przeniesione do profilu zeby mozna bylo zapisac
     float zapotrzebowanieKcal;
     PlanTreningowy aktualnyTrening;
     PlanDietetyczny aktualnaDieta;
 };
+
+// FUNKCJE DO ZAPISU I ODCZYTU
+
+bool ZapiszProfil(const ProfilUzytkownika& user) {
+    json j;
+    j["waga"] = user.waga;
+    j["wzrost"] = user.wzrost;
+    j["wiek"] = user.wiek;
+    j["plec"] = user.plec;
+    j["aktywnosc"] = user.aktywnosc;
+    j["zapotrzebowanieKcal"] = user.zapotrzebowanieKcal;
+    j["wyliczoneBmi"] = user.wyliczoneBmi;
+    j["kategoriaBmi"] = user.kategoriaBmi;
+
+    json jTrening = json::array();
+    for (const auto& dzien : user.aktualnyTrening.dni) {
+        json jDzien;
+        jDzien["nazwaDnia"] = dzien.nazwaDnia;
+        json jCwiczenia = json::array();
+        for (const auto& cw : dzien.cwiczenia) {
+            json jCw;
+            jCw["baza"]["nazwa"] = cw.baza.nazwa;
+            jCw["baza"]["kategoria"] = cw.baza.kategoria;
+            jCw["baza"]["trudnosc"] = cw.baza.trudnosc;
+            jCw["serie"] = cw.serie;
+            jCw["powtorzenia"] = cw.powtorzenia;
+            jCw["ciezar"] = cw.ciezar;
+            jCwiczenia.push_back(jCw);
+        }
+        jDzien["cwiczenia"] = jCwiczenia;
+        jTrening.push_back(jDzien);
+    }
+    j["aktualnyTrening"] = jTrening;
+
+    json jDieta = json::array();
+    for (const auto& posilek : user.aktualnaDieta.posilki) {
+        json jPosilek;
+        jPosilek["nazwaPosilku"] = posilek.nazwaPosilku;
+        json jSkladniki = json::array();
+        for (const auto& sk : posilek.skladniki) {
+            json jSk;
+            jSk["baza"]["nazwa"] = sk.baza.nazwa;
+            jSk["baza"]["kcal"] = sk.baza.kcal;
+            jSk["baza"]["bialko"] = sk.baza.bialko;
+            jSk["baza"]["weglowodany"] = sk.baza.weglowodany;
+            jSk["baza"]["tluszcze"] = sk.baza.tluszcze;
+            jSk["wagaGramy"] = sk.wagaGramy;
+            jSkladniki.push_back(jSk);
+        }
+        jPosilek["skladniki"] = jSkladniki;
+        jDieta.push_back(jPosilek);
+    }
+    j["aktualnaDieta"] = jDieta;
+
+    // Proba zapisu z zabezpieczeniem na folder build
+    ofstream file("data/profil.json");
+    if (!file.is_open()) {
+        file.open("../data/profil.json");
+    }
+    
+    if (file.is_open()) {
+        file << j.dump(4);
+        file.close();
+        return true;
+    }
+    return false;
+}
+
+void WczytajProfil(ProfilUzytkownika& user) {
+    ifstream file("data/profil.json");
+    if (!file.is_open()) file.open("../data/profil.json");
+    if (!file.is_open()) return; 
+
+    try {
+        json j;
+        file >> j;
+        
+        user.waga = j.value("waga", 70.0f);
+        user.wzrost = j.value("wzrost", 175.0f);
+        user.wiek = j.value("wiek", 25);
+        user.plec = j.value("plec", 0);
+        user.aktywnosc = j.value("aktywnosc", 1);
+        user.zapotrzebowanieKcal = j.value("zapotrzebowanieKcal", 2500.0f);
+        user.wyliczoneBmi = j.value("wyliczoneBmi", 0.0f);
+        user.kategoriaBmi = j.value("kategoriaBmi", "");
+
+        if (j.contains("aktualnyTrening")) {
+            user.aktualnyTrening.dni.clear();
+            for (const auto& jDzien : j["aktualnyTrening"]) {
+                DzienTreningowy dt;
+                dt.nazwaDnia = jDzien.value("nazwaDnia", "");
+                for (const auto& jCw : jDzien["cwiczenia"]) {
+                    CwiczenieWPlanie cw;
+                    cw.baza.nazwa = jCw["baza"].value("nazwa", "");
+                    cw.baza.kategoria = jCw["baza"].value("kategoria", "");
+                    cw.baza.trudnosc = jCw["baza"].value("trudnosc", 1);
+                    cw.serie = jCw.value("serie", 3);
+                    cw.powtorzenia = jCw.value("powtorzenia", 10);
+                    cw.ciezar = jCw.value("ciezar", 0.0f);
+                    dt.cwiczenia.push_back(cw);
+                }
+                user.aktualnyTrening.dni.push_back(dt);
+            }
+        }
+
+        if (j.contains("aktualnaDieta")) {
+            user.aktualnaDieta.posilki.clear();
+            for (const auto& jPosilek : j["aktualnaDieta"]) {
+                Posilek p;
+                p.nazwaPosilku = jPosilek.value("nazwaPosilku", "");
+                for (const auto& jSk : jPosilek["skladniki"]) {
+                    SkladnikPosilku sk;
+                    sk.baza.nazwa = jSk["baza"].value("nazwa", "");
+                    sk.baza.kcal = jSk["baza"].value("kcal", 0.0f);
+                    sk.baza.bialko = jSk["baza"].value("bialko", 0.0f);
+                    sk.baza.weglowodany = jSk["baza"].value("weglowodany", 0.0f);
+                    sk.baza.tluszcze = jSk["baza"].value("tluszcze", 0.0f);
+                    sk.wagaGramy = jSk.value("wagaGramy", 100.0f);
+                    p.skladniki.push_back(sk);
+                }
+                user.aktualnaDieta.posilki.push_back(p);
+            }
+        }
+    } catch (...) {
+        cout << "Blad podczas wczytywania profilu. Wczytuje wartosci domyslne." << endl;
+    }
+}
+
+void InicjalizujPusteDniIPosilki(ProfilUzytkownika& user) {
+    if (user.aktualnyTrening.dni.empty()) {
+        const char* dni[] = {"Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela"};
+        for(int i=0; i<7; i++) user.aktualnyTrening.dni.push_back({dni[i], {}});
+    }
+    if (user.aktualnaDieta.posilki.empty()) {
+        const char* posilki[] = {"Sniadanie", "Drugie Sniadanie", "Obiad", "Przekaska", "Kolacja"};
+        for(int i=0; i<5; i++) user.aktualnaDieta.posilki.push_back({posilki[i], {}});
+    }
+}
 
 int main() {
     if (!glfwInit()) return -1;
@@ -127,17 +272,26 @@ int main() {
         for (const auto& item : daneDieta) bazaProduktow.push_back({item["nazwa"], item["kcal"], item["bialko"], item["weglowodany"], item["tluszcze"]});
     }
 
-    ProfilUzytkownika user = {70.0f, 175.0f, 25, 0, 1, 0.0f, 2500.0f}; 
-    string kategoriaBmi = "";
-    PlanTreningowy mojPlan;
-    PlanDietetyczny mojaDieta;
-    mojaDieta.posilki.push_back({"Caly Dzien", {}});
+    ProfilUzytkownika user = {70.0f, 175.0f, 25, 0, 1, 0.0f, "", 2500.0f}; 
+    
+    WczytajProfil(user);
+    InicjalizujPusteDniIPosilki(user);
 
-    // Zmienne do wyszukiwarki i filtrowania
+    // Zmienne do interfejsu (Trening)
     static char szukajCw[128] = "";
     static int wybranaKategoriaCw = 0;
     const char* kategorieCw[] = {"Wszystkie", "Klatka piersiowa", "Nogi", "Plecy", "Barki", "Biceps", "Triceps", "Brzuch"};
+    static int wybranyDzienDoDodania = 0;
+    const char* nazwyDniUzytkowe[] = {"Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela"};
+
+    // Zmienne do interfejsu (Dieta)
     static char szukajProd[128] = "";
+    static int wybranyPosilekDoDodania = 0;
+    const char* nazwyPosilkowUzytkowe[] = {"Sniadanie", "Drugie Sniadanie", "Obiad", "Przekaska", "Kolacja"};
+
+    // Zmienne do wyswietlania statusu zapisu
+    static string statusZapisu = "";
+    static float czasWyswietlaniaStatusu = 0.0f;
 
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
@@ -158,10 +312,9 @@ int main() {
         float calcWidth = ImGui::GetContentRegionAvail().x;
         float calcHeight = ImGui::GetContentRegionAvail().y;
 
-        // MODUL 1: PROFIL (GORNY PANEL)
+        // MODUL 1: PROFIL
         ImGui::BeginChild("PanelProfil", ImVec2(calcWidth, 180), true);
         
-        // Naglowek
         const char* tytulProfil = "M O J   P R O F I L";
         float windowWidth = ImGui::GetWindowSize().x;
         float textWidth = ImGui::CalcTextSize(tytulProfil).x;
@@ -172,14 +325,12 @@ int main() {
 
         ImGui::Columns(3, "kolumny_profil", false); 
         
-        // Kolumna 1
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Podstawowe wymiary:");
         ImGui::SetNextItemWidth(120); ImGui::InputFloat("Waga (kg)", &user.waga, 1.0f, 5.0f, "%.1f");
         ImGui::SetNextItemWidth(120); ImGui::InputFloat("Wzrost (cm)", &user.wzrost, 1.0f, 5.0f, "%.1f");
         ImGui::SetNextItemWidth(120); ImGui::InputInt("Wiek (lata)", &user.wiek);
         ImGui::NextColumn();
 
-        // Kolumna 2
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Plec i aktywnosc:");
         ImGui::RadioButton("Mezczyzna", &user.plec, 0); ImGui::SameLine();
         ImGui::RadioButton("Kobieta", &user.plec, 1);
@@ -189,15 +340,14 @@ int main() {
         ImGui::RadioButton("Wysoka aktywnosc", &user.aktywnosc, 2);
         ImGui::NextColumn();
 
-        // Kolumna 3
         if (ImGui::Button("Oblicz BMR i BMI", ImVec2(-1, 40))) {
             if (user.wzrost > 0 && user.waga > 0 && user.wiek > 0) {
                 float wzrostMetry = user.wzrost / 100.0f;
                 user.wyliczoneBmi = user.waga / (wzrostMetry * wzrostMetry);
-                if (user.wyliczoneBmi < 18.5f) kategoriaBmi = "Niedowaga";
-                else if (user.wyliczoneBmi < 25.0f) kategoriaBmi = "Waga w normie";
-                else if (user.wyliczoneBmi < 30.0f) kategoriaBmi = "Nadwaga";
-                else kategoriaBmi = "Otylosc";
+                if (user.wyliczoneBmi < 18.5f) user.kategoriaBmi = "Niedowaga";
+                else if (user.wyliczoneBmi < 25.0f) user.kategoriaBmi = "Waga w normie";
+                else if (user.wyliczoneBmi < 30.0f) user.kategoriaBmi = "Nadwaga";
+                else user.kategoriaBmi = "Otylosc";
 
                 float wyliczoneBmr = (user.plec == 0) ? ((10.0f * user.waga) + (6.25f * user.wzrost) - (5.0f * user.wiek) + 5.0f) : ((10.0f * user.waga) + (6.25f * user.wzrost) - (5.0f * user.wiek) - 161.0f);
                 float mnoznik = (user.aktywnosc == 0) ? 1.2f : (user.aktywnosc == 1 ? 1.55f : 1.725f);
@@ -206,22 +356,39 @@ int main() {
         }
         ImGui::Spacing();
         if (user.wyliczoneBmi > 0.0f) {
-            ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "Wynik BMI: %.1f (%s)", user.wyliczoneBmi, kategoriaBmi.c_str());
+            ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "Wynik BMI: %.1f (%s)", user.wyliczoneBmi, user.kategoriaBmi.c_str());
             ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.0f, 1.0f), "Zapotrzebowanie: %.0f kcal", user.zapotrzebowanieKcal);
         } else {
             ImGui::TextColored(ImVec4(0.5f, 0.5f, 0.5f, 1.0f), "Uzupelnij dane i kliknij oblicz...");
+        }
+
+        ImGui::Spacing();
+        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.6f, 0.0f, 1.0f));
+        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(1.0f, 0.8f, 0.0f, 1.0f));
+        ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.6f, 0.4f, 0.0f, 1.0f));
+        if (ImGui::Button("ZAPISZ DANE DO PLIKU", ImVec2(-1, 30))) {
+            if (ZapiszProfil(user)) {
+                statusZapisu = "Zapisano profil pomyslnie!";
+            } else {
+                statusZapisu = "Blad! Brak folderu 'data' obok programu.";
+            }
+            czasWyswietlaniaStatusu = 3.0f; // Komunikat na 3 sekundy
+        }
+        ImGui::PopStyleColor(3);
+
+        if (czasWyswietlaniaStatusu > 0.0f) {
+            czasWyswietlaniaStatusu -= ImGui::GetIO().DeltaTime;
+            ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "%s", statusZapisu.c_str());
         }
 
         ImGui::Columns(1);
         ImGui::EndChild();
 
         ImGui::Spacing();
-
-        // PODZIAL EKRANU NA POLOWY
         float polowaSzerokosci = (calcWidth / 2.0f) - 4.0f;
         float wysokoscDolnych = ImGui::GetContentRegionAvail().y;
 
-        // MODUL 2: PLAN TRENINGOWY (LEWA STRONA)
+        // MODUL 2: PLAN TRENINGOWY
         ImGui::BeginChild("PanelTrening", ImVec2(polowaSzerokosci, wysokoscDolnych), true);
         
         const char* tytulTrening = "P L A N   T R E N I N G O W Y";
@@ -230,12 +397,14 @@ int main() {
         ImGui::Separator();
         ImGui::Spacing();
 
-        // Wyszukiwarka i filtrowanie cwiczen
         ImGui::SetNextItemWidth(150);
         ImGui::InputText("Szukaj##cw", szukajCw, IM_ARRAYSIZE(szukajCw));
         ImGui::SameLine();
         ImGui::SetNextItemWidth(120);
         ImGui::Combo("Partia##cw", &wybranaKategoriaCw, kategorieCw, IM_ARRAYSIZE(kategorieCw));
+        
+        ImGui::SetNextItemWidth(150);
+        ImGui::Combo("Dodaj do##dzien", &wybranyDzienDoDodania, nazwyDniUzytkowe, IM_ARRAYSIZE(nazwyDniUzytkowe));
         ImGui::Spacing();
 
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Baza cwiczen:");
@@ -247,7 +416,6 @@ int main() {
             ImGui::TableHeadersRow();
 
             for (const auto& cw : bazaCwiczen) {
-                // Filtrowanie z menu rozwijanego i pola tekstowego
                 if (wybranaKategoriaCw != 0 && cw.kategoria != kategorieCw[wybranaKategoriaCw]) continue;
                 if (szukajCw[0] != '\0' && !containsIgnoreCase(cw.nazwa, szukajCw)) continue;
 
@@ -262,47 +430,65 @@ int main() {
                 }
                 ImGui::TableSetColumnIndex(3);
                 ImGui::PushID(cw.nazwa.c_str()); 
-                if (ImGui::Button("+", ImVec2(50, 0))) mojPlan.cwiczenia.push_back({cw, 3, 10, 0.0f});
+                if (ImGui::Button("+", ImVec2(50, 0))) user.aktualnyTrening.dni[wybranyDzienDoDodania].cwiczenia.push_back({cw, 3, 10, 0.0f});
                 ImGui::PopID();
             }
             ImGui::EndTable();
         }
 
-        ImGui::Spacing();
-        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany trening:");
-        if (mojPlan.cwiczenia.empty()) {
-            ImGui::TextColored(ImVec4(0.4f, 0.4f, 0.4f, 1.0f), "Brak cwiczen w planie.");
-        } else {
-            if (ImGui::BeginTable("MojPlan", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY)) {
-                ImGui::TableSetupColumn("Cwiczenie", ImGuiTableColumnFlags_WidthStretch);
-                ImGui::TableSetupColumn("Serie", ImGuiTableColumnFlags_WidthFixed, 60.0f);
-                ImGui::TableSetupColumn("Powt", ImGuiTableColumnFlags_WidthFixed, 60.0f);
-                ImGui::TableSetupColumn("Kg", ImGuiTableColumnFlags_WidthFixed, 60.0f);
-                ImGui::TableSetupColumn("X", ImGuiTableColumnFlags_WidthFixed, 40.0f);
-                ImGui::TableHeadersRow();
+        ImGui::Spacing(); ImGui::Separator(); ImGui::Spacing();
+        
+        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany tydzien treningowy:");
+        
+        if (ImGui::BeginTable("MojPlan", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY)) {
+            ImGui::TableSetupColumn("Cwiczenie", ImGuiTableColumnFlags_WidthStretch);
+            ImGui::TableSetupColumn("Serie", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+            ImGui::TableSetupColumn("Powt", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+            ImGui::TableSetupColumn("Kg", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+            ImGui::TableSetupColumn("X", ImGuiTableColumnFlags_WidthFixed, 40.0f);
+            ImGui::TableHeadersRow();
 
-                for (int i = 0; i < mojPlan.cwiczenia.size(); ++i) {
+            for (int d = 0; d < user.aktualnyTrening.dni.size(); ++d) {
+                auto& dzien = user.aktualnyTrening.dni[d];
+                
+                ImGui::TableNextRow();
+                ImGui::TableSetColumnIndex(0);
+                ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "[ %s ]", dzien.nazwaDnia.c_str());
+
+                if (dzien.cwiczenia.empty()) {
                     ImGui::TableNextRow();
-                    ImGui::PushID(i + 1000); 
-                    ImGui::TableSetColumnIndex(0); ImGui::Text("%s", mojPlan.cwiczenia[i].baza.nazwa.c_str());
-                    ImGui::TableSetColumnIndex(1); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##s", &mojPlan.cwiczenia[i].serie, 0);
-                    ImGui::TableSetColumnIndex(2); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##p", &mojPlan.cwiczenia[i].powtorzenia, 0);
-                    ImGui::TableSetColumnIndex(3); ImGui::SetNextItemWidth(50.0f); ImGui::InputFloat("##kg", &mojPlan.cwiczenia[i].ciezar, 0, 0, "%.1f");
-                    ImGui::TableSetColumnIndex(4);
-                    if (ImGui::Button("X", ImVec2(40, 0))) { mojPlan.cwiczenia.erase(mojPlan.cwiczenia.begin() + i); i--; }
-                    ImGui::PopID();
+                    ImGui::TableSetColumnIndex(0); 
+                    ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 10.0f);
+                    ImGui::TextColored(ImVec4(0.4f, 0.8f, 0.4f, 1.0f), "- Odpoczynek (Rest day)");
+                } else {
+                    for (int i = 0; i < dzien.cwiczenia.size(); ++i) {
+                        ImGui::TableNextRow();
+                        ImGui::PushID((d * 1000) + i + 5000); 
+                        
+                        ImGui::TableSetColumnIndex(0); 
+                        ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 10.0f);
+                        ImGui::Text("- %s", dzien.cwiczenia[i].baza.nazwa.c_str());
+                        
+                        ImGui::TableSetColumnIndex(1); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##s", &dzien.cwiczenia[i].serie, 0);
+                        ImGui::TableSetColumnIndex(2); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##p", &dzien.cwiczenia[i].powtorzenia, 0);
+                        ImGui::TableSetColumnIndex(3); ImGui::SetNextItemWidth(50.0f); ImGui::InputFloat("##kg", &dzien.cwiczenia[i].ciezar, 0, 0, "%.1f");
+                        
+                        ImGui::TableSetColumnIndex(4);
+                        if (ImGui::Button("X", ImVec2(40, 0))) { dzien.cwiczenia.erase(dzien.cwiczenia.begin() + i); i--; }
+                        ImGui::PopID();
+                    }
                 }
-                ImGui::EndTable();
             }
+            ImGui::EndTable();
         }
         ImGui::EndChild();
 
         ImGui::SameLine();
 
-        // MODUL 3: PLAN DIETETYCZNY (PRAWA STRONA)
+        // MODUL 3: PLAN DIETETYCZNY
         ImGui::BeginChild("PanelDieta", ImVec2(0, wysokoscDolnych), true);
         
-        mojaDieta.przeliczSumy();
+        user.aktualnaDieta.przeliczSumy();
 
         const char* tytulDieta = "P L A N   D I E T E T Y C Z N Y";
         ImGui::SetCursorPosX((ImGui::GetWindowSize().x - ImGui::CalcTextSize(tytulDieta).x) * 0.5f);
@@ -310,25 +496,25 @@ int main() {
         ImGui::Separator();
         ImGui::Spacing();
 
-        // progress bar
-        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Zjedzone: %.0f kcal / %.0f kcal", mojaDieta.sumaKcal, user.zapotrzebowanieKcal);
-        float postepKcal = user.zapotrzebowanieKcal > 0.0f ? (mojaDieta.sumaKcal / user.zapotrzebowanieKcal) : 0.0f;
+        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Zjedzone dzisiaj: %.0f kcal / %.0f kcal", user.aktualnaDieta.sumaKcal, user.zapotrzebowanieKcal);
+        float postepKcal = user.zapotrzebowanieKcal > 0.0f ? (user.aktualnaDieta.sumaKcal / user.zapotrzebowanieKcal) : 0.0f;
         if (postepKcal > 1.0f) ImGui::PushStyleColor(ImGuiCol_PlotHistogram, ImVec4(1.0f, 0.2f, 0.2f, 1.0f)); 
         ImGui::ProgressBar(postepKcal, ImVec2(-1.0f, 15.0f), "");
         if (postepKcal > 1.0f) ImGui::PopStyleColor();
 
-        ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "B: %.1f g", mojaDieta.sumaBialko); ImGui::SameLine();
-        ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), " | W: %.1f g", mojaDieta.sumaWegle); ImGui::SameLine();
-        ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), " | T: %.1f g", mojaDieta.sumaTluszcze);
+        ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "B: %.1f g", user.aktualnaDieta.sumaBialko); ImGui::SameLine();
+        ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), " | W: %.1f g", user.aktualnaDieta.sumaWegle); ImGui::SameLine();
+        ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), " | T: %.1f g", user.aktualnaDieta.sumaTluszcze);
         ImGui::Spacing();
 
-        // Wyszukiwarka produktow
         ImGui::SetNextItemWidth(180);
         ImGui::InputText("Szukaj##prod", szukajProd, IM_ARRAYSIZE(szukajProd));
+        ImGui::SameLine();
+        ImGui::SetNextItemWidth(150);
+        ImGui::Combo("Dodaj do##posilek", &wybranyPosilekDoDodania, nazwyPosilkowUzytkowe, IM_ARRAYSIZE(nazwyPosilkowUzytkowe));
         ImGui::Spacing();
 
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Baza produktow (100g):");
-        // Flaga ImGuiTableFlags_Sortable dodaje mozliwosc klikania w naglowki
         if (ImGui::BeginTable("BazaProduktow", 6, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY | ImGuiTableFlags_Sortable, ImVec2(0, 150))) {
             ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_DefaultSort | ImGuiTableColumnFlags_WidthStretch);
             ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 40.0f);
@@ -338,7 +524,6 @@ int main() {
             ImGui::TableSetupColumn("+", ImGuiTableColumnFlags_NoSort | ImGuiTableColumnFlags_WidthFixed, 40.0f);
             ImGui::TableHeadersRow();
 
-            // Logika wywolywana podczas klikniecia w naglowek
             if (ImGuiTableSortSpecs* sorts_specs = ImGui::TableGetSortSpecs()) {
                 if (sorts_specs->SpecsDirty) {
                     std::sort(bazaProduktow.begin(), bazaProduktow.end(), [sorts_specs](const ProduktSpozywczy& a, const ProduktSpozywczy& b) {
@@ -356,7 +541,6 @@ int main() {
             }
 
             for (const auto& prod : bazaProduktow) {
-                // Filtrowanie wyszukiwarka
                 if (szukajProd[0] != '\0' && !containsIgnoreCase(prod.nazwa, szukajProd)) continue;
 
                 ImGui::TableNextRow();
@@ -367,33 +551,41 @@ int main() {
                 ImGui::TableSetColumnIndex(4); ImGui::TextColored(ImVec4(1.f, 0.4f, 0.4f, 1.f), "%.1f", prod.tluszcze);
                 ImGui::TableSetColumnIndex(5);
                 ImGui::PushID(prod.nazwa.c_str());
-                if (ImGui::Button("+", ImVec2(40, 0))) mojaDieta.posilki[0].skladniki.push_back({prod, 100.0f});
+                if (ImGui::Button("+", ImVec2(40, 0))) user.aktualnaDieta.posilki[wybranyPosilekDoDodania].skladniki.push_back({prod, 100.0f});
                 ImGui::PopID();
             }
             ImGui::EndTable();
         }
 
-        ImGui::Spacing();
-        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany talerz:");
-        if (mojaDieta.posilki[0].skladniki.empty()) {
-            ImGui::TextColored(ImVec4(0.4f, 0.4f, 0.4f, 1.0f), "Brak jedzenia na talerzu.");
-        } else {
-            if (ImGui::BeginTable("MojTalerz", 7, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY)) {
-                ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_WidthStretch);
-                ImGui::TableSetupColumn("Waga(g)", ImGuiTableColumnFlags_WidthFixed, 60.0f);
-                ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 40.0f);
-                ImGui::TableSetupColumn("B", ImGuiTableColumnFlags_WidthFixed, 35.0f);
-                ImGui::TableSetupColumn("W", ImGuiTableColumnFlags_WidthFixed, 35.0f);
-                ImGui::TableSetupColumn("T", ImGuiTableColumnFlags_WidthFixed, 35.0f);
-                ImGui::TableSetupColumn("X", ImGuiTableColumnFlags_WidthFixed, 40.0f);
-                ImGui::TableHeadersRow();
+        ImGui::Spacing(); ImGui::Separator(); ImGui::Spacing();
+        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany jadlospis:");
+        
+        if (ImGui::BeginTable("MojTalerz", 7, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY)) {
+            ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_WidthStretch);
+            ImGui::TableSetupColumn("Waga(g)", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+            ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 40.0f);
+            ImGui::TableSetupColumn("B", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+            ImGui::TableSetupColumn("W", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+            ImGui::TableSetupColumn("T", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+            ImGui::TableSetupColumn("X", ImGuiTableColumnFlags_WidthFixed, 40.0f);
+            ImGui::TableHeadersRow();
 
-                for (int i = 0; i < mojaDieta.posilki[0].skladniki.size(); ++i) {
+            for (int m = 0; m < user.aktualnaDieta.posilki.size(); ++m) {
+                auto& posilek = user.aktualnaDieta.posilki[m];
+                
+                ImGui::TableNextRow();
+                ImGui::TableSetColumnIndex(0);
+                ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "[ %s ]", posilek.nazwaPosilku.c_str());
+
+                for (int i = 0; i < posilek.skladniki.size(); ++i) {
                     ImGui::TableNextRow();
-                    auto& sk = mojaDieta.posilki[0].skladniki[i];
-                    ImGui::PushID(i + 2000); 
+                    auto& sk = posilek.skladniki[i];
+                    ImGui::PushID((m * 1000) + i); 
 
-                    ImGui::TableSetColumnIndex(0); ImGui::Text("%s", sk.baza.nazwa.c_str());
+                    ImGui::TableSetColumnIndex(0); 
+                    ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 10.0f); 
+                    ImGui::Text("- %s", sk.baza.nazwa.c_str());
+                    
                     ImGui::TableSetColumnIndex(1); ImGui::SetNextItemWidth(50.0f); ImGui::InputFloat("##w", &sk.wagaGramy, 0, 0, "%.0f");
                     if (sk.wagaGramy < 0) sk.wagaGramy = 0; 
                     
@@ -403,12 +595,13 @@ int main() {
                     ImGui::TableSetColumnIndex(5); ImGui::TextColored(ImVec4(1.f, 0.4f, 0.4f, 1.f), "%.1f", sk.obliczTluszcze());
                     
                     ImGui::TableSetColumnIndex(6);
-                    if (ImGui::Button("X", ImVec2(40, 0))) { mojaDieta.posilki[0].skladniki.erase(mojaDieta.posilki[0].skladniki.begin() + i); i--; }
+                    if (ImGui::Button("X", ImVec2(40, 0))) { posilek.skladniki.erase(posilek.skladniki.begin() + i); i--; }
                     ImGui::PopID();
                 }
-                ImGui::EndTable();
             }
+            ImGui::EndTable();
         }
+        
         ImGui::EndChild();
 
         ImGui::End();
