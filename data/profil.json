@@ -92,7 +92,58 @@
             "nazwaDnia": "Poniedzialek"
         },
         {
-            "cwiczenia": [],
+            "cwiczenia": [
+                {
+                    "baza": {
+                        "kategoria": "Klatka piersiowa",
+                        "nazwa": "Wyciskanie sztangi lezac",
+                        "trudnosc": 3
+                    },
+                    "ciezar": 0.0,
+                    "powtorzenia": 10,
+                    "serie": 3
+                },
+                {
+                    "baza": {
+                        "kategoria": "Nogi",
+                        "nazwa": "Przysiady ze sztanga",
+                        "trudnosc": 5
+                    },
+                    "ciezar": 0.0,
+                    "powtorzenia": 10,
+                    "serie": 3
+                },
+                {
+                    "baza": {
+                        "kategoria": "Nogi",
+                        "nazwa": "Przysiady ze sztanga",
+                        "trudnosc": 5
+                    },
+                    "ciezar": 0.0,
+                    "powtorzenia": 10,
+                    "serie": 3
+                },
+                {
+                    "baza": {
+                        "kategoria": "Nogi",
+                        "nazwa": "Przysiady ze sztanga",
+                        "trudnosc": 5
+                    },
+                    "ciezar": 0.0,
+                    "powtorzenia": 10,
+                    "serie": 3
+                },
+                {
+                    "baza": {
+                        "kategoria": "Nogi",
+                        "nazwa": "Przysiady ze sztanga",
+                        "trudnosc": 5
+                    },
+                    "ciezar": 0.0,
+                    "powtorzenia": 10,
+                    "serie": 3
+                }
+            ],
             "nazwaDnia": "Wtorek"
         },
         {

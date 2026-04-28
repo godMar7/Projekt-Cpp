@@ -1,14 +1,93 @@
 [
-    { "nazwa": "Piers z kurczaka", "kcal": 99, "bialko": 21.5, "weglowodany": 0.0, "tluszcze": 1.3 },
-    { "nazwa": "Ryz bialy", "kcal": 344, "bialko": 6.7, "weglowodany": 78.9, "tluszcze": 0.7 },
-    { "nazwa": "Jajko kurze (cale)", "kcal": 143, "bialko": 12.5, "weglowodany": 0.6, "tluszcze": 9.7 },
-    { "nazwa": "Oliwa z oliwek", "kcal": 884, "bialko": 0.0, "weglowodany": 0.0, "tluszcze": 100.0 },
-    { "nazwa": "Banan", "kcal": 89, "bialko": 1.1, "weglowodany": 22.8, "tluszcze": 0.3 },
-    { "nazwa": "Platki owsiane", "kcal": 379, "bialko": 13.1, "weglowodany": 67.7, "tluszcze": 6.5 },
-    { "nazwa": "Twarog chudy", "kcal": 86, "bialko": 18.0, "weglowodany": 3.5, "tluszcze": 0.0 },
-    { "nazwa": "Maslo orzechowe", "kcal": 588, "bialko": 25.0, "weglowodany": 20.0, "tluszcze": 50.0 },
-    { "nazwa": "Mleko 2%", "kcal": 50, "bialko": 3.3, "weglowodany": 4.8, "tluszcze": 2.0 },
-    { "nazwa": "Losos swiezy", "kcal": 201, "bialko": 19.9, "weglowodany": 0.0, "tluszcze": 13.6 },
-    { "nazwa": "Makaron z pszenicy durum", "kcal": 360, "bialko": 12.0, "weglowodany": 73.0, "tluszcze": 1.5 },
-    { "nazwa": "Odzywka bialkowa (WPC)", "kcal": 395, "bialko": 78.0, "weglowodany": 6.0, "tluszcze": 6.5 }
+    {
+        "bialko": 18.0,
+        "kcal": 86.0,
+        "nazwa": "Twarog chudy",
+        "tluszcze": 0.0,
+        "weglowodany": 3.5
+    },
+    {
+        "bialko": 1.100000023841858,
+        "kcal": 89.0,
+        "nazwa": "Banan",
+        "tluszcze": 0.30000001192092896,
+        "weglowodany": 22.799999237060547
+    },
+    {
+        "bialko": 6.699999809265137,
+        "kcal": 344.0,
+        "nazwa": "Ryz bialy",
+        "tluszcze": 0.699999988079071,
+        "weglowodany": 78.9000015258789
+    },
+    {
+        "bialko": 21.5,
+        "kcal": 99.0,
+        "nazwa": "Piers z kurczaka",
+        "tluszcze": 1.2999999523162842,
+        "weglowodany": 0.0
+    },
+    {
+        "bialko": 12.0,
+        "kcal": 360.0,
+        "nazwa": "Makaron z pszenicy durum",
+        "tluszcze": 1.5,
+        "weglowodany": 73.0
+    },
+    {
+        "bialko": 3.299999952316284,
+        "kcal": 50.0,
+        "nazwa": "Mleko 2%",
+        "tluszcze": 2.0,
+        "weglowodany": 4.800000190734863
+    },
+    {
+        "bialko": 13.100000381469727,
+        "kcal": 379.0,
+        "nazwa": "Platki owsiane",
+        "tluszcze": 6.5,
+        "weglowodany": 67.69999694824219
+    },
+    {
+        "bialko": 78.0,
+        "kcal": 395.0,
+        "nazwa": "Odzywka bialkowa (WPC)",
+        "tluszcze": 6.5,
+        "weglowodany": 6.0
+    },
+    {
+        "bialko": 12.5,
+        "kcal": 143.0,
+        "nazwa": "Jajko kurze (cale)",
+        "tluszcze": 9.699999809265137,
+        "weglowodany": 0.6000000238418579
+    },
+    {
+        "bialko": 19.899999618530273,
+        "kcal": 201.0,
+        "nazwa": "Losos swiezy",
+        "tluszcze": 13.600000381469727,
+        "weglowodany": 0.0
+    },
+    {
+        "bialko": 25.0,
+        "kcal": 588.0,
+        "nazwa": "Maslo orzechowe",
+        "tluszcze": 50.0,
+        "weglowodany": 20.0
+    },
+    {
+        "bialko": 0.0,
+        "kcal": 884.0,
+        "nazwa": "Oliwa z oliwek",
+        "tluszcze": 100.0,
+        "weglowodany": 0.0
+    },
+    {
+        "bialko": 15.0,
+        "kcal": 45.0,
+        "nazwa": "Jablko",
+        "tluszcze": 12.0,
+        "weglowodany": 1.0
+    }
 ]
