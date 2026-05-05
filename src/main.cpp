@@ -390,9 +390,7 @@ int main() {
         float calcWidth = ImGui::GetContentRegionAvail().x;
         float calcHeight = ImGui::GetContentRegionAvail().y;
 
-        // ==========================================
-        // MODUL 1: PROFIL
-        // ==========================================
+        //PROFIL
         ImGui::BeginChild("PanelProfil", ImVec2(calcWidth, 160), true);
         
         const char* tytulProfil = "M O J   P R O F I L";
@@ -474,9 +472,8 @@ int main() {
         float polowaSzerokosci = (calcWidth / 2.0f) - 4.0f;
         float wysokoscDolnych = ImGui::GetContentRegionAvail().y;
 
-        // ==========================================
-        // MODUL 2: PLAN TRENINGOWY (LEWA STRONA)
-        // ==========================================
+        //PLAN TRENINGOWY (LEWA STRONA)
+
         ImGui::BeginChild("PanelTrening", ImVec2(polowaSzerokosci, wysokoscDolnych), true);
         
         const char* tytulTrening = "P L A N   T R E N I N G O W Y";
@@ -485,7 +482,7 @@ int main() {
         ImGui::Separator();
         ImGui::Spacing();
 
-        // 2.1 TWÓJ PLAN (Tym razem na samej górze!)
+        // PLAN
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany tydzien treningowy:");
         if (ImGui::BeginTable("MojPlan", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 250))) {
             ImGui::TableSetupColumn("Cwiczenie", ImGuiTableColumnFlags_WidthStretch);
@@ -533,7 +530,7 @@ int main() {
 
         ImGui::Spacing(); ImGui::Separator(); ImGui::Spacing();
 
-        // 2.2 BAZA I DODAWANIE (W rozwijanym menu - Akordionie)
+        // BAZA I DODAWANIE
         if (ImGui::CollapsingHeader("Przegladaj Baze Cwiczen i Dodaj do Planu")) {
             ImGui::SetNextItemWidth(150);
             ImGui::InputText("Szukaj##cw", szukajCw, IM_ARRAYSIZE(szukajCw));
@@ -602,9 +599,7 @@ int main() {
         ImGui::EndChild();
         ImGui::SameLine();
 
-        // ==========================================
-        // MODUL 3: PLAN DIETETYCZNY (PRAWA STRONA)
-        // ==========================================
+        // PLAN DIETETYCZNY 
         ImGui::BeginChild("PanelDieta", ImVec2(0, wysokoscDolnych), true);
         
         user.aktualnaDieta.przeliczSumy();
@@ -615,7 +610,7 @@ int main() {
         ImGui::Separator();
         ImGui::Spacing();
 
-        // 3.1 Pasek Postepu
+        //Pasek Postepu
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Zjedzone dzisiaj: %.0f kcal / %.0f kcal", user.aktualnaDieta.sumaKcal, user.zapotrzebowanieKcal);
         float postepKcal = user.zapotrzebowanieKcal > 0.0f ? (user.aktualnaDieta.sumaKcal / user.zapotrzebowanieKcal) : 0.0f;
         if (postepKcal > 1.0f) ImGui::PushStyleColor(ImGuiCol_PlotHistogram, ImVec4(1.0f, 0.2f, 0.2f, 1.0f)); 
@@ -627,7 +622,7 @@ int main() {
         ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), " | T: %.1f g", user.aktualnaDieta.sumaTluszcze);
         ImGui::Spacing();
 
-        // 3.2 Talerz (Na samej gorze!)
+        //Talerz
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany jadlospis:");
         if (ImGui::BeginTable("MojTalerz", 7, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 250))) {
             ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_WidthStretch);
@@ -673,7 +668,7 @@ int main() {
         
         ImGui::Spacing(); ImGui::Separator(); ImGui::Spacing();
 
-        // 3.3 Baza i dodawanie (Akordion)
+        //Baza i dodawanie
         if (ImGui::CollapsingHeader("Przegladaj Baze Produktow i Dodaj do Talerza")) {
             ImGui::SetNextItemWidth(180);
             ImGui::InputText("Szukaj##prod", szukajProd, IM_ARRAYSIZE(szukajProd));
