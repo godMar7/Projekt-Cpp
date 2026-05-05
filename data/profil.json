@@ -72,6 +72,7 @@
                     "baza": {
                         "kategoria": "Biceps",
                         "nazwa": "Uginanie ramion z hantlami",
+                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
                         "trudnosc": 1
                     },
                     "ciezar": 0.0,
@@ -82,6 +83,7 @@
                     "baza": {
                         "kategoria": "Biceps",
                         "nazwa": "Uginanie ramion z hantlami",
+                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
                         "trudnosc": 1
                     },
                     "ciezar": 0.0,
@@ -97,47 +99,8 @@
                     "baza": {
                         "kategoria": "Klatka piersiowa",
                         "nazwa": "Wyciskanie sztangi lezac",
+                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
                         "trudnosc": 3
-                    },
-                    "ciezar": 0.0,
-                    "powtorzenia": 10,
-                    "serie": 3
-                },
-                {
-                    "baza": {
-                        "kategoria": "Nogi",
-                        "nazwa": "Przysiady ze sztanga",
-                        "trudnosc": 5
-                    },
-                    "ciezar": 0.0,
-                    "powtorzenia": 10,
-                    "serie": 3
-                },
-                {
-                    "baza": {
-                        "kategoria": "Nogi",
-                        "nazwa": "Przysiady ze sztanga",
-                        "trudnosc": 5
-                    },
-                    "ciezar": 0.0,
-                    "powtorzenia": 10,
-                    "serie": 3
-                },
-                {
-                    "baza": {
-                        "kategoria": "Nogi",
-                        "nazwa": "Przysiady ze sztanga",
-                        "trudnosc": 5
-                    },
-                    "ciezar": 0.0,
-                    "powtorzenia": 10,
-                    "serie": 3
-                },
-                {
-                    "baza": {
-                        "kategoria": "Nogi",
-                        "nazwa": "Przysiady ze sztanga",
-                        "trudnosc": 5
                     },
                     "ciezar": 0.0,
                     "powtorzenia": 10,
@@ -152,6 +115,7 @@
                     "baza": {
                         "kategoria": "Nogi",
                         "nazwa": "Przysiady ze sztanga",
+                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
                         "trudnosc": 5
                     },
                     "ciezar": 0.0,
@@ -162,6 +126,7 @@
                     "baza": {
                         "kategoria": "Plecy",
                         "nazwa": "Martwy ciag",
+                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
                         "trudnosc": 5
                     },
                     "ciezar": 0.0,
@@ -185,6 +150,7 @@
                     "baza": {
                         "kategoria": "Nogi",
                         "nazwa": "Przysiady ze sztanga",
+                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
                         "trudnosc": 5
                     },
                     "ciezar": 0.0,

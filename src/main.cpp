@@ -27,6 +27,7 @@ struct Cwiczenie {
     string nazwa;
     string kategoria;
     int trudnosc; 
+    string opis; // Podpowiedz jak wykonywac
 };
 
 struct ProduktSpozywczy {
@@ -101,7 +102,7 @@ struct ProfilUzytkownika {
     PlanDietetyczny aktualnaDieta;
 };
 
-// FUNKCJE DO ZAPISU I ODCZYTU JSON ORAZ TXT
+// FUNKCJE DO ZAPISU I ODCZYTU
 
 bool ZapiszProfil(const ProfilUzytkownika& user) {
     json j;
@@ -124,6 +125,7 @@ bool ZapiszProfil(const ProfilUzytkownika& user) {
             jCw["baza"]["nazwa"] = cw.baza.nazwa;
             jCw["baza"]["kategoria"] = cw.baza.kategoria;
             jCw["baza"]["trudnosc"] = cw.baza.trudnosc;
+            jCw["baza"]["opis"] = cw.baza.opis;
             jCw["serie"] = cw.serie;
             jCw["powtorzenia"] = cw.powtorzenia;
             jCw["ciezar"] = cw.ciezar;
@@ -167,7 +169,7 @@ bool ZapiszProfil(const ProfilUzytkownika& user) {
 bool ZapiszBazeCwiczen(const vector<Cwiczenie>& baza) {
     json j = json::array();
     for(const auto& cw : baza) {
-        j.push_back({{"nazwa", cw.nazwa}, {"kategoria", cw.kategoria}, {"trudnosc", cw.trudnosc}});
+        j.push_back({{"nazwa", cw.nazwa}, {"kategoria", cw.kategoria}, {"trudnosc", cw.trudnosc}, {"opis", cw.opis}});
     }
     ofstream file("data/cwiczenia.json");
     if(!file.is_open()) file.open("../data/cwiczenia.json");
@@ -262,6 +264,7 @@ void WczytajProfil(ProfilUzytkownika& user) {
                     cw.baza.nazwa = jCw["baza"].value("nazwa", "");
                     cw.baza.kategoria = jCw["baza"].value("kategoria", "");
                     cw.baza.trudnosc = jCw["baza"].value("trudnosc", 1);
+                    cw.baza.opis = jCw["baza"].value("opis", "Technika jest najwazniejsza. Utrzymuj napiecie.");
                     cw.serie = jCw.value("serie", 3);
                     cw.powtorzenia = jCw.value("powtorzenia", 10);
                     cw.ciezar = jCw.value("ciezar", 0.0f);
@@ -327,7 +330,9 @@ int main() {
     if (!plikJSON.is_open()) plikJSON.open("../data/cwiczenia.json");
     if (plikJSON.is_open()) {
         json dane = json::parse(plikJSON);
-        for (const auto& item : dane) bazaCwiczen.push_back({item["nazwa"], item["kategoria"], item["trudnosc"]});
+        for (const auto& item : dane) {
+            bazaCwiczen.push_back({item["nazwa"], item["kategoria"], item["trudnosc"], item.value("opis", "Technika jest najwazniejsza. Utrzymuj napiecie.")});
+        }
     }
 
     vector<ProduktSpozywczy> bazaProduktow;
@@ -361,6 +366,7 @@ int main() {
     static char noweCwNazwa[128] = "";
     static int nowaCwKategoria = 0;
     static int noweCwTrudnosc = 3;
+    static char noweCwOpis[256] = "";
 
     static char nowyProdNazwa[128] = "";
     static float nowyProdKcal = 0, nowyProdB = 0, nowyProdW = 0, nowyProdT = 0;
@@ -384,8 +390,10 @@ int main() {
         float calcWidth = ImGui::GetContentRegionAvail().x;
         float calcHeight = ImGui::GetContentRegionAvail().y;
 
+        // ==========================================
         // MODUL 1: PROFIL
-        ImGui::BeginChild("PanelProfil", ImVec2(calcWidth, 180), true);
+        // ==========================================
+        ImGui::BeginChild("PanelProfil", ImVec2(calcWidth, 160), true);
         
         const char* tytulProfil = "M O J   P R O F I L";
         float windowWidth = ImGui::GetWindowSize().x;
@@ -431,7 +439,7 @@ int main() {
         ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.6f, 0.0f, 1.0f));
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(1.0f, 0.8f, 0.0f, 1.0f));
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.6f, 0.4f, 0.0f, 1.0f));
-        if (ImGui::Button("ZAPISZ DANE DO PLIKU", ImVec2(180, 30))) {
+        if (ImGui::Button("ZAPISZ DANE", ImVec2(140, 30))) {
             if (ZapiszProfil(user)) statusAkcji = "Zapisano profil pomyslnie!";
             else statusAkcji = "Blad zapisu profilu.";
             czasWyswietlaniaStatusu = 3.0f; 
@@ -443,7 +451,7 @@ int main() {
         ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.0f, 0.4f, 0.8f, 1.0f));
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.0f, 0.6f, 1.0f, 1.0f));
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.0f, 0.3f, 0.6f, 1.0f));
-        if (ImGui::Button("EKSPORTUJ DO TXT", ImVec2(180, 30))) {
+        if (ImGui::Button("EKSPORT TXT", ImVec2(140, 30))) {
             if (EksportujPlanTXT(user)) statusAkcji = "Wyeksportowano do moj_plan.txt!";
             else statusAkcji = "Blad eksportu TXT.";
             czasWyswietlaniaStatusu = 3.0f;
@@ -466,7 +474,9 @@ int main() {
         float polowaSzerokosci = (calcWidth / 2.0f) - 4.0f;
         float wysokoscDolnych = ImGui::GetContentRegionAvail().y;
 
-        // MODUL 2: PLAN TRENINGOWY
+        // ==========================================
+        // MODUL 2: PLAN TRENINGOWY (LEWA STRONA)
+        // ==========================================
         ImGui::BeginChild("PanelTrening", ImVec2(polowaSzerokosci, wysokoscDolnych), true);
         
         const char* tytulTrening = "P L A N   T R E N I N G O W Y";
@@ -475,62 +485,9 @@ int main() {
         ImGui::Separator();
         ImGui::Spacing();
 
-        ImGui::SetNextItemWidth(150);
-        ImGui::InputText("Szukaj##cw", szukajCw, IM_ARRAYSIZE(szukajCw));
-        ImGui::SameLine();
-        ImGui::SetNextItemWidth(120);
-        ImGui::Combo("Partia##cw", &wybranaKategoriaCw, kategorieCw, IM_ARRAYSIZE(kategorieCw));
-        
-        ImGui::SetNextItemWidth(150);
-        ImGui::Combo("Dodaj do##dzien", &wybranyDzienDoDodania, nazwyDniUzytkowe, IM_ARRAYSIZE(nazwyDniUzytkowe));
-        ImGui::Spacing();
-
-        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Baza cwiczen:");
-        if (ImGui::BeginTable("TabelaCwiczen", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 150))) {
-            ImGui::TableSetupColumn("Nazwa", ImGuiTableColumnFlags_WidthStretch);
-            ImGui::TableSetupColumn("Kat.", ImGuiTableColumnFlags_WidthFixed, 80.0f);
-            ImGui::TableSetupColumn("Trud.", ImGuiTableColumnFlags_WidthFixed, 60.0f);
-            ImGui::TableSetupColumn("Akcja", ImGuiTableColumnFlags_WidthFixed, 50.0f);
-            ImGui::TableHeadersRow();
-
-            for (const auto& cw : bazaCwiczen) {
-                if (wybranaKategoriaCw != 0 && cw.kategoria != kategorieCw[wybranaKategoriaCw]) continue;
-                if (szukajCw[0] != '\0' && !containsIgnoreCase(cw.nazwa, szukajCw)) continue;
-
-                ImGui::TableNextRow();
-                ImGui::TableSetColumnIndex(0); ImGui::Text("%s", cw.nazwa.c_str());
-                ImGui::TableSetColumnIndex(1); ImGui::TextColored(ImVec4(0.6f, 0.6f, 0.6f, 1.0f), "%s", cw.kategoria.c_str());
-                ImGui::TableSetColumnIndex(2);
-                for (int i = 1; i <= 5; ++i) {
-                    if (i <= cw.trudnosc) ImGui::TextColored((cw.trudnosc <= 2) ? ImVec4(0.2f,1.f,0.2f,1.f) : (cw.trudnosc == 3) ? ImVec4(1.f,0.8f,0.f,1.f) : ImVec4(1.f,0.3f,0.3f,1.f), "*");
-                    else ImGui::TextColored(ImVec4(0.3f, 0.3f, 0.3f, 1.0f), "*");
-                    if (i < 5) { ImGui::SameLine(); ImGui::SetCursorPosX(ImGui::GetCursorPosX() - 3.0f); }
-                }
-                ImGui::TableSetColumnIndex(3);
-                ImGui::PushID(cw.nazwa.c_str()); 
-                if (ImGui::Button("+", ImVec2(50, 0))) user.aktualnyTrening.dni[wybranyDzienDoDodania].cwiczenia.push_back({cw, 3, 10, 0.0f});
-                ImGui::PopID();
-            }
-            ImGui::EndTable();
-        }
-
-        ImGui::Spacing();
-        ImGui::TextColored(ImVec4(0.9f, 0.9f, 0.9f, 1.0f), "Dodaj wlasne cwiczenie:");
-        ImGui::SetNextItemWidth(150); ImGui::InputText("Nazwa##noweCw", noweCwNazwa, IM_ARRAYSIZE(noweCwNazwa)); ImGui::SameLine();
-        ImGui::SetNextItemWidth(100); ImGui::Combo("Kat.##noweCw", &nowaCwKategoria, &kategorieCw[1], 7); ImGui::SameLine();
-        ImGui::SetNextItemWidth(80);  ImGui::SliderInt("Trud.##noweCw", &noweCwTrudnosc, 1, 5); ImGui::SameLine();
-        if (ImGui::Button("Dodaj do Bazy##btnCw")) {
-            if (strlen(noweCwNazwa) > 0) {
-                bazaCwiczen.push_back({noweCwNazwa, kategorieCw[nowaCwKategoria+1], noweCwTrudnosc});
-                ZapiszBazeCwiczen(bazaCwiczen);
-                noweCwNazwa[0] = '\0';
-            }
-        }
-        ImGui::Separator(); ImGui::Spacing();
-        
+        // 2.1 TWÓJ PLAN (Tym razem na samej górze!)
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany tydzien treningowy:");
-        
-        if (ImGui::BeginTable("MojPlan", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY)) {
+        if (ImGui::BeginTable("MojPlan", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 250))) {
             ImGui::TableSetupColumn("Cwiczenie", ImGuiTableColumnFlags_WidthStretch);
             ImGui::TableSetupColumn("Serie", ImGuiTableColumnFlags_WidthFixed, 60.0f);
             ImGui::TableSetupColumn("Powt", ImGuiTableColumnFlags_WidthFixed, 60.0f);
@@ -558,6 +515,8 @@ int main() {
                         ImGui::TableSetColumnIndex(0); 
                         ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 10.0f);
                         ImGui::Text("- %s", dzien.cwiczenia[i].baza.nazwa.c_str());
+                        // Tooltip na hover:
+                        if (ImGui::IsItemHovered()) ImGui::SetTooltip("%s", dzien.cwiczenia[i].baza.opis.c_str());
                         
                         ImGui::TableSetColumnIndex(1); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##s", &dzien.cwiczenia[i].serie, 0);
                         ImGui::TableSetColumnIndex(2); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##p", &dzien.cwiczenia[i].powtorzenia, 0);
@@ -571,11 +530,81 @@ int main() {
             }
             ImGui::EndTable();
         }
-        ImGui::EndChild();
 
+        ImGui::Spacing(); ImGui::Separator(); ImGui::Spacing();
+
+        // 2.2 BAZA I DODAWANIE (W rozwijanym menu - Akordionie)
+        if (ImGui::CollapsingHeader("Przegladaj Baze Cwiczen i Dodaj do Planu")) {
+            ImGui::SetNextItemWidth(150);
+            ImGui::InputText("Szukaj##cw", szukajCw, IM_ARRAYSIZE(szukajCw));
+            ImGui::SameLine();
+            ImGui::SetNextItemWidth(120);
+            ImGui::Combo("Partia##cw", &wybranaKategoriaCw, kategorieCw, IM_ARRAYSIZE(kategorieCw));
+            
+            ImGui::SetNextItemWidth(150);
+            ImGui::Combo("Dodaj do##dzien", &wybranyDzienDoDodania, nazwyDniUzytkowe, IM_ARRAYSIZE(nazwyDniUzytkowe));
+            ImGui::Spacing();
+
+            if (ImGui::BeginTable("TabelaCwiczen", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 150))) {
+                ImGui::TableSetupColumn("Nazwa", ImGuiTableColumnFlags_WidthStretch);
+                ImGui::TableSetupColumn("Kat.", ImGuiTableColumnFlags_WidthFixed, 80.0f);
+                ImGui::TableSetupColumn("Trud.", ImGuiTableColumnFlags_WidthFixed, 60.0f);
+                ImGui::TableSetupColumn("Akcja", ImGuiTableColumnFlags_WidthFixed, 50.0f);
+                ImGui::TableHeadersRow();
+
+                for (const auto& cw : bazaCwiczen) {
+                    if (wybranaKategoriaCw != 0 && cw.kategoria != kategorieCw[wybranaKategoriaCw]) continue;
+                    if (szukajCw[0] != '\0' && !containsIgnoreCase(cw.nazwa, szukajCw)) continue;
+
+                    ImGui::TableNextRow();
+                    ImGui::TableSetColumnIndex(0); 
+                    ImGui::Text("%s", cw.nazwa.c_str());
+                    if (ImGui::IsItemHovered()) ImGui::SetTooltip("%s", cw.opis.c_str());
+
+                    ImGui::TableSetColumnIndex(1); ImGui::TextColored(ImVec4(0.6f, 0.6f, 0.6f, 1.0f), "%s", cw.kategoria.c_str());
+                    ImGui::TableSetColumnIndex(2);
+                    for (int i = 1; i <= 5; ++i) {
+                        if (i <= cw.trudnosc) ImGui::TextColored((cw.trudnosc <= 2) ? ImVec4(0.2f,1.f,0.2f,1.f) : (cw.trudnosc == 3) ? ImVec4(1.f,0.8f,0.f,1.f) : ImVec4(1.f,0.3f,0.3f,1.f), "*");
+                        else ImGui::TextColored(ImVec4(0.3f, 0.3f, 0.3f, 1.0f), "*");
+                        if (i < 5) { ImGui::SameLine(); ImGui::SetCursorPosX(ImGui::GetCursorPosX() - 3.0f); }
+                    }
+                    ImGui::TableSetColumnIndex(3);
+                    ImGui::PushID(cw.nazwa.c_str()); 
+                    if (ImGui::Button("+", ImVec2(50, 0))) user.aktualnyTrening.dni[wybranyDzienDoDodania].cwiczenia.push_back({cw, 3, 10, 0.0f});
+                    ImGui::PopID();
+                }
+                ImGui::EndTable();
+            }
+        }
+
+        if (ImGui::CollapsingHeader("Dodaj Wlasne Cwiczenie (Kreator)")) {
+            ImGui::Text("Nazwa: "); ImGui::SameLine();
+            ImGui::SetNextItemWidth(150); ImGui::InputText("##noweCwNazwa", noweCwNazwa, IM_ARRAYSIZE(noweCwNazwa)); 
+            ImGui::SameLine();
+            ImGui::Text("Partia: "); ImGui::SameLine();
+            ImGui::SetNextItemWidth(120); ImGui::Combo("##nowaCwKategoria", &nowaCwKategoria, &kategorieCw[1], 7); 
+            
+            ImGui::Text("Porada:"); ImGui::SameLine();
+            ImGui::SetNextItemWidth(250); ImGui::InputText("##noweCwOpis", noweCwOpis, IM_ARRAYSIZE(noweCwOpis));
+            ImGui::SameLine();
+            ImGui::SetNextItemWidth(80);  ImGui::SliderInt("Trudnosc", &noweCwTrudnosc, 1, 5); 
+            
+            if (ImGui::Button("Zapisz do Bazy##btnCw")) {
+                if (strlen(noweCwNazwa) > 0) {
+                    string o = (strlen(noweCwOpis) > 0) ? noweCwOpis : "Brak opisu.";
+                    bazaCwiczen.push_back({noweCwNazwa, kategorieCw[nowaCwKategoria+1], noweCwTrudnosc, o});
+                    ZapiszBazeCwiczen(bazaCwiczen);
+                    noweCwNazwa[0] = '\0'; noweCwOpis[0] = '\0';
+                }
+            }
+        }
+
+        ImGui::EndChild();
         ImGui::SameLine();
 
-        // MODUL 3: PLAN DIETETYCZNY
+        // ==========================================
+        // MODUL 3: PLAN DIETETYCZNY (PRAWA STRONA)
+        // ==========================================
         ImGui::BeginChild("PanelDieta", ImVec2(0, wysokoscDolnych), true);
         
         user.aktualnaDieta.przeliczSumy();
@@ -586,6 +615,7 @@ int main() {
         ImGui::Separator();
         ImGui::Spacing();
 
+        // 3.1 Pasek Postepu
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Zjedzone dzisiaj: %.0f kcal / %.0f kcal", user.aktualnaDieta.sumaKcal, user.zapotrzebowanieKcal);
         float postepKcal = user.zapotrzebowanieKcal > 0.0f ? (user.aktualnaDieta.sumaKcal / user.zapotrzebowanieKcal) : 0.0f;
         if (postepKcal > 1.0f) ImGui::PushStyleColor(ImGuiCol_PlotHistogram, ImVec4(1.0f, 0.2f, 0.2f, 1.0f)); 
@@ -597,75 +627,9 @@ int main() {
         ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), " | T: %.1f g", user.aktualnaDieta.sumaTluszcze);
         ImGui::Spacing();
 
-        ImGui::SetNextItemWidth(180);
-        ImGui::InputText("Szukaj##prod", szukajProd, IM_ARRAYSIZE(szukajProd));
-        ImGui::SameLine();
-        ImGui::SetNextItemWidth(150);
-        ImGui::Combo("Dodaj do##posilek", &wybranyPosilekDoDodania, nazwyPosilkowUzytkowe, IM_ARRAYSIZE(nazwyPosilkowUzytkowe));
-        ImGui::Spacing();
-
-        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Baza produktow (100g):");
-        if (ImGui::BeginTable("BazaProduktow", 6, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY | ImGuiTableFlags_Sortable, ImVec2(0, 150))) {
-            ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_DefaultSort | ImGuiTableColumnFlags_WidthStretch);
-            ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 40.0f);
-            ImGui::TableSetupColumn("B", ImGuiTableColumnFlags_WidthFixed, 35.0f);
-            ImGui::TableSetupColumn("W", ImGuiTableColumnFlags_WidthFixed, 35.0f);
-            ImGui::TableSetupColumn("T", ImGuiTableColumnFlags_WidthFixed, 35.0f);
-            ImGui::TableSetupColumn("+", ImGuiTableColumnFlags_NoSort | ImGuiTableColumnFlags_WidthFixed, 40.0f);
-            ImGui::TableHeadersRow();
-
-            if (ImGuiTableSortSpecs* sorts_specs = ImGui::TableGetSortSpecs()) {
-                if (sorts_specs->SpecsDirty) {
-                    std::sort(bazaProduktow.begin(), bazaProduktow.end(), [sorts_specs](const ProduktSpozywczy& a, const ProduktSpozywczy& b) {
-                        const auto& spec = sorts_specs->Specs[0];
-                        bool asc = spec.SortDirection == ImGuiSortDirection_Ascending;
-                        if (spec.ColumnIndex == 0) return asc ? (a.nazwa < b.nazwa) : (a.nazwa > b.nazwa);
-                        if (spec.ColumnIndex == 1) return asc ? (a.kcal < b.kcal) : (a.kcal > b.kcal);
-                        if (spec.ColumnIndex == 2) return asc ? (a.bialko < b.bialko) : (a.bialko > b.bialko);
-                        if (spec.ColumnIndex == 3) return asc ? (a.weglowodany < b.weglowodany) : (a.weglowodany > b.weglowodany);
-                        if (spec.ColumnIndex == 4) return asc ? (a.tluszcze < b.tluszcze) : (a.tluszcze > b.tluszcze);
-                        return false;
-                    });
-                    sorts_specs->SpecsDirty = false;
-                }
-            }
-
-            for (const auto& prod : bazaProduktow) {
-                if (szukajProd[0] != '\0' && !containsIgnoreCase(prod.nazwa, szukajProd)) continue;
-
-                ImGui::TableNextRow();
-                ImGui::TableSetColumnIndex(0); ImGui::Text("%s", prod.nazwa.c_str());
-                ImGui::TableSetColumnIndex(1); ImGui::TextColored(ImVec4(1.f, 0.8f, 0.f, 1.f), "%.0f", prod.kcal);
-                ImGui::TableSetColumnIndex(2); ImGui::TextColored(ImVec4(0.2f, 1.f, 0.2f, 1.f), "%.1f", prod.bialko);
-                ImGui::TableSetColumnIndex(3); ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.f, 1.f), "%.1f", prod.weglowodany);
-                ImGui::TableSetColumnIndex(4); ImGui::TextColored(ImVec4(1.f, 0.4f, 0.4f, 1.f), "%.1f", prod.tluszcze);
-                ImGui::TableSetColumnIndex(5);
-                ImGui::PushID(prod.nazwa.c_str());
-                if (ImGui::Button("+", ImVec2(40, 0))) user.aktualnaDieta.posilki[wybranyPosilekDoDodania].skladniki.push_back({prod, 100.0f});
-                ImGui::PopID();
-            }
-            ImGui::EndTable();
-        }
-
-        ImGui::Spacing();
-        ImGui::TextColored(ImVec4(0.9f, 0.9f, 0.9f, 1.0f), "Dodaj wlasny produkt (na 100g):");
-        ImGui::SetNextItemWidth(120); ImGui::InputText("Nazwa##nP", nowyProdNazwa, IM_ARRAYSIZE(nowyProdNazwa)); ImGui::SameLine();
-        ImGui::SetNextItemWidth(50);  ImGui::InputFloat("Kcal##nP", &nowyProdKcal, 0, 0, "%.0f"); ImGui::SameLine();
-        ImGui::SetNextItemWidth(50);  ImGui::InputFloat("B##nP", &nowyProdB, 0, 0, "%.1f"); ImGui::SameLine();
-        ImGui::SetNextItemWidth(50);  ImGui::InputFloat("W##nP", &nowyProdW, 0, 0, "%.1f"); ImGui::SameLine();
-        ImGui::SetNextItemWidth(50);  ImGui::InputFloat("T##nP", &nowyProdT, 0, 0, "%.1f"); ImGui::SameLine();
-        if (ImGui::Button("Dodaj do Bazy##btnPr")) {
-            if (strlen(nowyProdNazwa) > 0) {
-                bazaProduktow.push_back({nowyProdNazwa, nowyProdKcal, nowyProdB, nowyProdW, nowyProdT});
-                ZapiszBazeProduktow(bazaProduktow);
-                nowyProdNazwa[0] = '\0'; nowyProdKcal=0; nowyProdB=0; nowyProdW=0; nowyProdT=0;
-            }
-        }
-        ImGui::Separator(); ImGui::Spacing();
-
+        // 3.2 Talerz (Na samej gorze!)
         ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany jadlospis:");
-        
-        if (ImGui::BeginTable("MojTalerz", 7, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY)) {
+        if (ImGui::BeginTable("MojTalerz", 7, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 250))) {
             ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_WidthStretch);
             ImGui::TableSetupColumn("Waga(g)", ImGuiTableColumnFlags_WidthFixed, 60.0f);
             ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 40.0f);
@@ -707,6 +671,85 @@ int main() {
             ImGui::EndTable();
         }
         
+        ImGui::Spacing(); ImGui::Separator(); ImGui::Spacing();
+
+        // 3.3 Baza i dodawanie (Akordion)
+        if (ImGui::CollapsingHeader("Przegladaj Baze Produktow i Dodaj do Talerza")) {
+            ImGui::SetNextItemWidth(180);
+            ImGui::InputText("Szukaj##prod", szukajProd, IM_ARRAYSIZE(szukajProd));
+            ImGui::SameLine();
+            ImGui::SetNextItemWidth(150);
+            ImGui::Combo("Dodaj do##posilek", &wybranyPosilekDoDodania, nazwyPosilkowUzytkowe, IM_ARRAYSIZE(nazwyPosilkowUzytkowe));
+            ImGui::Spacing();
+
+            if (ImGui::BeginTable("BazaProduktow", 6, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY | ImGuiTableFlags_Sortable, ImVec2(0, 150))) {
+                ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_DefaultSort | ImGuiTableColumnFlags_WidthStretch);
+                ImGui::TableSetupColumn("Kcal", ImGuiTableColumnFlags_WidthFixed, 40.0f);
+                ImGui::TableSetupColumn("B", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+                ImGui::TableSetupColumn("W", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+                ImGui::TableSetupColumn("T", ImGuiTableColumnFlags_WidthFixed, 35.0f);
+                ImGui::TableSetupColumn("+", ImGuiTableColumnFlags_NoSort | ImGuiTableColumnFlags_WidthFixed, 40.0f);
+                ImGui::TableHeadersRow();
+
+                if (ImGuiTableSortSpecs* sorts_specs = ImGui::TableGetSortSpecs()) {
+                    if (sorts_specs->SpecsDirty) {
+                        std::sort(bazaProduktow.begin(), bazaProduktow.end(), [sorts_specs](const ProduktSpozywczy& a, const ProduktSpozywczy& b) {
+                            const auto& spec = sorts_specs->Specs[0];
+                            bool asc = spec.SortDirection == ImGuiSortDirection_Ascending;
+                            if (spec.ColumnIndex == 0) return asc ? (a.nazwa < b.nazwa) : (a.nazwa > b.nazwa);
+                            if (spec.ColumnIndex == 1) return asc ? (a.kcal < b.kcal) : (a.kcal > b.kcal);
+                            if (spec.ColumnIndex == 2) return asc ? (a.bialko < b.bialko) : (a.bialko > b.bialko);
+                            if (spec.ColumnIndex == 3) return asc ? (a.weglowodany < b.weglowodany) : (a.weglowodany > b.weglowodany);
+                            if (spec.ColumnIndex == 4) return asc ? (a.tluszcze < b.tluszcze) : (a.tluszcze > b.tluszcze);
+                            return false;
+                        });
+                        sorts_specs->SpecsDirty = false;
+                    }
+                }
+
+                for (const auto& prod : bazaProduktow) {
+                    if (szukajProd[0] != '\0' && !containsIgnoreCase(prod.nazwa, szukajProd)) continue;
+
+                    ImGui::TableNextRow();
+                    ImGui::TableSetColumnIndex(0); ImGui::Text("%s", prod.nazwa.c_str());
+                    ImGui::TableSetColumnIndex(1); ImGui::TextColored(ImVec4(1.f, 0.8f, 0.f, 1.f), "%.0f", prod.kcal);
+                    ImGui::TableSetColumnIndex(2); ImGui::TextColored(ImVec4(0.2f, 1.f, 0.2f, 1.f), "%.1f", prod.bialko);
+                    ImGui::TableSetColumnIndex(3); ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.f, 1.f), "%.1f", prod.weglowodany);
+                    ImGui::TableSetColumnIndex(4); ImGui::TextColored(ImVec4(1.f, 0.4f, 0.4f, 1.f), "%.1f", prod.tluszcze);
+                    ImGui::TableSetColumnIndex(5);
+                    ImGui::PushID(prod.nazwa.c_str());
+                    if (ImGui::Button("+", ImVec2(40, 0))) user.aktualnaDieta.posilki[wybranyPosilekDoDodania].skladniki.push_back({prod, 100.0f});
+                    ImGui::PopID();
+                }
+                ImGui::EndTable();
+            }
+        }
+
+        if (ImGui::CollapsingHeader("Dodaj Wlasny Produkt (Kreator na 100g)")) {
+            ImGui::Text("Nazwa: "); ImGui::SameLine();
+            ImGui::SetNextItemWidth(150); ImGui::InputText("##nP", nowyProdNazwa, IM_ARRAYSIZE(nowyProdNazwa)); ImGui::SameLine();
+            
+            ImGui::Text("Kcal: "); ImGui::SameLine();
+            ImGui::SetNextItemWidth(50);  ImGui::InputFloat("##nK", &nowyProdKcal, 0, 0, "%.0f"); ImGui::SameLine();
+            
+            ImGui::Text("B: "); ImGui::SameLine();
+            ImGui::SetNextItemWidth(40);  ImGui::InputFloat("##nB", &nowyProdB, 0, 0, "%.1f"); ImGui::SameLine();
+            
+            ImGui::Text("W: "); ImGui::SameLine();
+            ImGui::SetNextItemWidth(40);  ImGui::InputFloat("##nW", &nowyProdW, 0, 0, "%.1f"); ImGui::SameLine();
+            
+            ImGui::Text("T: "); ImGui::SameLine();
+            ImGui::SetNextItemWidth(40);  ImGui::InputFloat("##nT", &nowyProdT, 0, 0, "%.1f"); ImGui::SameLine();
+            
+            if (ImGui::Button("Zapisz do Bazy##btnPr")) {
+                if (strlen(nowyProdNazwa) > 0) {
+                    bazaProduktow.push_back({nowyProdNazwa, nowyProdKcal, nowyProdB, nowyProdW, nowyProdT});
+                    ZapiszBazeProduktow(bazaProduktow);
+                    nowyProdNazwa[0] = '\0'; nowyProdKcal=0; nowyProdB=0; nowyProdW=0; nowyProdT=0;
+                }
+            }
+        }
+
         ImGui::EndChild();
 
         ImGui::End();
