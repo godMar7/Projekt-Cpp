@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/imgui_draw.cpp" "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj" "gcc" "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj.d"
   "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/imgui_tables.cpp" "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.obj" "gcc" "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.obj.d"
   "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/imgui_widgets.cpp" "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj" "gcc" "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj.d"
+  "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/src/ZapisOdczyt.cpp" "CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj" "gcc" "CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj.d"
   "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/src/main.cpp" "CMakeFiles/FitPlanner.dir/src/main.cpp.obj" "gcc" "CMakeFiles/FitPlanner.dir/src/main.cpp.obj.d"
   )
 

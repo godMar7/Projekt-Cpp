@@ -23,7 +23,7 @@ set(IMGUI_SOURCES
 )
 
 # Tworzenie aplikacji
-add_executable(FitPlanner src/main.cpp ${IMGUI_SOURCES})
+add_executable(FitPlanner src/main.cpp src/ZapisOdczyt.cpp ${IMGUI_SOURCES})
 
 # Ścieżki do nagłówków 
 target_include_directories(FitPlanner PRIVATE
@@ -35,3 +35,4 @@ target_include_directories(FitPlanner PRIVATE
 
 # Linkowanie bibliotek
 target_link_libraries(FitPlanner PRIVATE glfw opengl32)
+

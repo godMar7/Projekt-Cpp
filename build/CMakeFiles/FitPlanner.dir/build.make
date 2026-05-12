@@ -86,11 +86,26 @@ CMakeFiles/FitPlanner.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FitPlanner.dir/src/main.cpp.s"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\src\main.cpp -o CMakeFiles\FitPlanner.dir\src\main.cpp.s
 
+CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj: CMakeFiles/FitPlanner.dir/flags.make
+CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj: CMakeFiles/FitPlanner.dir/includes_CXX.rsp
+CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj: C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/src/ZapisOdczyt.cpp
+CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj: CMakeFiles/FitPlanner.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj -MF CMakeFiles\FitPlanner.dir\src\ZapisOdczyt.cpp.obj.d -o CMakeFiles\FitPlanner.dir\src\ZapisOdczyt.cpp.obj -c C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\src\ZapisOdczyt.cpp
+
+CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.i"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\src\ZapisOdczyt.cpp > CMakeFiles\FitPlanner.dir\src\ZapisOdczyt.cpp.i
+
+CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.s"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\src\ZapisOdczyt.cpp -o CMakeFiles\FitPlanner.dir\src\ZapisOdczyt.cpp.s
+
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.obj: CMakeFiles/FitPlanner.dir/flags.make
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.obj: CMakeFiles/FitPlanner.dir/includes_CXX.rsp
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.obj: C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/imgui.cpp
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.obj: CMakeFiles/FitPlanner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.obj -MF CMakeFiles\FitPlanner.dir\libs\imgui\imgui.cpp.obj.d -o CMakeFiles\FitPlanner.dir\libs\imgui\imgui.cpp.obj -c C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\libs\imgui\imgui.cpp
 
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.i: cmake_force
@@ -105,7 +120,7 @@ CMakeFiles/FitPlanner.dir/libs/imgui/imgui_demo.cpp.obj: CMakeFiles/FitPlanner.d
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_demo.cpp.obj: CMakeFiles/FitPlanner.dir/includes_CXX.rsp
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_demo.cpp.obj: C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/imgui_demo.cpp
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_demo.cpp.obj: CMakeFiles/FitPlanner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/imgui_demo.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/imgui_demo.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FitPlanner.dir/libs/imgui/imgui_demo.cpp.obj -MF CMakeFiles\FitPlanner.dir\libs\imgui\imgui_demo.cpp.obj.d -o CMakeFiles\FitPlanner.dir\libs\imgui\imgui_demo.cpp.obj -c C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\libs\imgui\imgui_demo.cpp
 
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_demo.cpp.i: cmake_force
@@ -120,7 +135,7 @@ CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj: CMakeFiles/FitPlanner.d
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj: CMakeFiles/FitPlanner.dir/includes_CXX.rsp
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj: C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/imgui_draw.cpp
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj: CMakeFiles/FitPlanner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj -MF CMakeFiles\FitPlanner.dir\libs\imgui\imgui_draw.cpp.obj.d -o CMakeFiles\FitPlanner.dir\libs\imgui\imgui_draw.cpp.obj -c C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\libs\imgui\imgui_draw.cpp
 
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.i: cmake_force
@@ -135,7 +150,7 @@ CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.obj: CMakeFiles/FitPlanner
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.obj: CMakeFiles/FitPlanner.dir/includes_CXX.rsp
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.obj: C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/imgui_tables.cpp
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.obj: CMakeFiles/FitPlanner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.obj -MF CMakeFiles\FitPlanner.dir\libs\imgui\imgui_tables.cpp.obj.d -o CMakeFiles\FitPlanner.dir\libs\imgui\imgui_tables.cpp.obj -c C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\libs\imgui\imgui_tables.cpp
 
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.i: cmake_force
@@ -150,7 +165,7 @@ CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj: CMakeFiles/FitPlanne
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj: CMakeFiles/FitPlanner.dir/includes_CXX.rsp
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj: C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/imgui_widgets.cpp
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj: CMakeFiles/FitPlanner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj -MF CMakeFiles\FitPlanner.dir\libs\imgui\imgui_widgets.cpp.obj.d -o CMakeFiles\FitPlanner.dir\libs\imgui\imgui_widgets.cpp.obj -c C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\libs\imgui\imgui_widgets.cpp
 
 CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.i: cmake_force
@@ -165,7 +180,7 @@ CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj: CMakeFile
 CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj: CMakeFiles/FitPlanner.dir/includes_CXX.rsp
 CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj: C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/backends/imgui_impl_glfw.cpp
 CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj: CMakeFiles/FitPlanner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_glfw.cpp.obj -MF CMakeFiles\FitPlanner.dir\libs\imgui\backends\imgui_impl_glfw.cpp.obj.d -o CMakeFiles\FitPlanner.dir\libs\imgui\backends\imgui_impl_glfw.cpp.obj -c C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\libs\imgui\backends\imgui_impl_glfw.cpp
 
 CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_glfw.cpp.i: cmake_force
@@ -180,7 +195,7 @@ CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: CMakeF
 CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: CMakeFiles/FitPlanner.dir/includes_CXX.rsp
 CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/backends/imgui_impl_opengl3.cpp
 CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj: CMakeFiles/FitPlanner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj"
 	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.obj -MF CMakeFiles\FitPlanner.dir\libs\imgui\backends\imgui_impl_opengl3.cpp.obj.d -o CMakeFiles\FitPlanner.dir\libs\imgui\backends\imgui_impl_opengl3.cpp.obj -c C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\libs\imgui\backends\imgui_impl_opengl3.cpp
 
 CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.i: cmake_force
@@ -194,6 +209,7 @@ CMakeFiles/FitPlanner.dir/libs/imgui/backends/imgui_impl_opengl3.cpp.s: cmake_fo
 # Object files for target FitPlanner
 FitPlanner_OBJECTS = \
 "CMakeFiles/FitPlanner.dir/src/main.cpp.obj" \
+"CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj" \
 "CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.obj" \
 "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_demo.cpp.obj" \
 "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj" \
@@ -206,6 +222,7 @@ FitPlanner_OBJECTS = \
 FitPlanner_EXTERNAL_OBJECTS =
 
 FitPlanner.exe: CMakeFiles/FitPlanner.dir/src/main.cpp.obj
+FitPlanner.exe: CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj
 FitPlanner.exe: CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.obj
 FitPlanner.exe: CMakeFiles/FitPlanner.dir/libs/imgui/imgui_demo.cpp.obj
 FitPlanner.exe: CMakeFiles/FitPlanner.dir/libs/imgui/imgui_draw.cpp.obj
@@ -218,7 +235,7 @@ FitPlanner.exe: libs/glfw/src/libglfw3.a
 FitPlanner.exe: CMakeFiles/FitPlanner.dir/linkLibs.rsp
 FitPlanner.exe: CMakeFiles/FitPlanner.dir/objects1.rsp
 FitPlanner.exe: CMakeFiles/FitPlanner.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable FitPlanner.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\marci\Desktop\Zadania\PROJEKT_CPP\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable FitPlanner.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\FitPlanner.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

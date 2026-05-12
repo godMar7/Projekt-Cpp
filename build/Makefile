@@ -380,6 +380,30 @@ libs/imgui/imgui_widgets.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FitPlanner.dir\build.make CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.s
 .PHONY : libs/imgui/imgui_widgets.cpp.s
 
+src/ZapisOdczyt.obj: src/ZapisOdczyt.cpp.obj
+.PHONY : src/ZapisOdczyt.obj
+
+# target to build an object file
+src/ZapisOdczyt.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FitPlanner.dir\build.make CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj
+.PHONY : src/ZapisOdczyt.cpp.obj
+
+src/ZapisOdczyt.i: src/ZapisOdczyt.cpp.i
+.PHONY : src/ZapisOdczyt.i
+
+# target to preprocess a source file
+src/ZapisOdczyt.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FitPlanner.dir\build.make CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.i
+.PHONY : src/ZapisOdczyt.cpp.i
+
+src/ZapisOdczyt.s: src/ZapisOdczyt.cpp.s
+.PHONY : src/ZapisOdczyt.s
+
+# target to generate assembly for a file
+src/ZapisOdczyt.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FitPlanner.dir\build.make CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.s
+.PHONY : src/ZapisOdczyt.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -441,6 +465,9 @@ help:
 	@echo ... libs/imgui/imgui_widgets.obj
 	@echo ... libs/imgui/imgui_widgets.i
 	@echo ... libs/imgui/imgui_widgets.s
+	@echo ... src/ZapisOdczyt.obj
+	@echo ... src/ZapisOdczyt.i
+	@echo ... src/ZapisOdczyt.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

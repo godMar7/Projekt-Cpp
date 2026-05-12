@@ -37,12 +37,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
       - "/REGISTRY-NOTFOUND/bin/"
       - "c:/MinGW/bin/"
       - "/MinGW/bin/"
@@ -64,6 +67,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -71,6 +76,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -110,6 +116,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -117,6 +125,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "message-v1"
     backtrace:
@@ -169,12 +178,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/ar.com"
     found: "C:/msys64/ucrt64/bin/ar.exe"
@@ -192,6 +204,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -199,6 +213,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -229,12 +244,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/ranlib.com"
     found: "C:/msys64/ucrt64/bin/ranlib.exe"
@@ -252,6 +270,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -259,6 +279,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -289,12 +310,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/strip.com"
     found: "C:/msys64/ucrt64/bin/strip.exe"
@@ -312,6 +336,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -319,6 +345,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -349,12 +376,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/ld.com"
     found: "C:/msys64/ucrt64/bin/ld.exe"
@@ -372,6 +402,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -379,6 +411,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -409,12 +442,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/nm.com"
     found: "C:/msys64/ucrt64/bin/nm.exe"
@@ -432,6 +468,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -439,6 +477,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -469,12 +508,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/objdump.com"
     found: "C:/msys64/ucrt64/bin/objdump.exe"
@@ -492,6 +534,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -499,6 +543,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -529,12 +574,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/objcopy.com"
     found: "C:/msys64/ucrt64/bin/objcopy.exe"
@@ -552,6 +600,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -559,6 +609,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -589,12 +640,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/readelf.com"
     found: "C:/msys64/ucrt64/bin/readelf.exe"
@@ -612,6 +666,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -619,6 +675,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -649,12 +706,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/dlltool.com"
     found: "C:/msys64/ucrt64/bin/dlltool.exe"
@@ -672,6 +732,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -679,6 +741,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -709,12 +772,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/addr2line.com"
     found: "C:/msys64/ucrt64/bin/addr2line.exe"
@@ -732,6 +798,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -739,6 +807,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -769,12 +838,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/tapi.com"
       - "C:/msys64/ucrt64/bin/tapi.exe"
@@ -806,6 +878,12 @@ events:
       - "C:/Program Files/CMake/bin/tapi.com"
       - "C:/Program Files/CMake/bin/tapi.exe"
       - "C:/Program Files/CMake/bin/tapi"
+      - "C:/Program Files/dotnet/tapi.com"
+      - "C:/Program Files/dotnet/tapi.exe"
+      - "C:/Program Files/dotnet/tapi"
+      - "C:/Users/marci/.cargo/bin/tapi.com"
+      - "C:/Users/marci/.cargo/bin/tapi.exe"
+      - "C:/Users/marci/.cargo/bin/tapi"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/tapi.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/tapi.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/tapi"
@@ -824,6 +902,9 @@ events:
       - "C:/php/tapi.com"
       - "C:/php/tapi.exe"
       - "C:/php/tapi"
+      - "C:/Users/marci/.dotnet/tools/tapi.com"
+      - "C:/Users/marci/.dotnet/tools/tapi.exe"
+      - "C:/Users/marci/.dotnet/tools/tapi"
     found: false
     search_context:
       ENV{PATH}:
@@ -839,6 +920,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -846,6 +929,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -879,12 +963,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/gcc-ar-15.2.com"
       - "C:/msys64/ucrt64/bin/gcc-ar-15.2.exe"
@@ -916,6 +1003,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ar-15.2.com"
       - "C:/Program Files/CMake/bin/gcc-ar-15.2.exe"
       - "C:/Program Files/CMake/bin/gcc-ar-15.2"
+      - "C:/Program Files/dotnet/gcc-ar-15.2.com"
+      - "C:/Program Files/dotnet/gcc-ar-15.2.exe"
+      - "C:/Program Files/dotnet/gcc-ar-15.2"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15.2.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15.2.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15.2"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.2.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.2.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.2"
@@ -934,6 +1027,9 @@ events:
       - "C:/php/gcc-ar-15.2.com"
       - "C:/php/gcc-ar-15.2.exe"
       - "C:/php/gcc-ar-15.2"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15.2.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15.2.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15.2"
       - "C:/msys64/ucrt64/bin/gcc-ar-15.com"
       - "C:/msys64/ucrt64/bin/gcc-ar-15.exe"
       - "C:/msys64/ucrt64/bin/gcc-ar-15"
@@ -964,6 +1060,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ar-15.com"
       - "C:/Program Files/CMake/bin/gcc-ar-15.exe"
       - "C:/Program Files/CMake/bin/gcc-ar-15"
+      - "C:/Program Files/dotnet/gcc-ar-15.com"
+      - "C:/Program Files/dotnet/gcc-ar-15.exe"
+      - "C:/Program Files/dotnet/gcc-ar-15"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15"
@@ -982,6 +1084,9 @@ events:
       - "C:/php/gcc-ar-15.com"
       - "C:/php/gcc-ar-15.exe"
       - "C:/php/gcc-ar-15"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15"
       - "C:/msys64/ucrt64/bin/gcc-ar15.com"
       - "C:/msys64/ucrt64/bin/gcc-ar15.exe"
       - "C:/msys64/ucrt64/bin/gcc-ar15"
@@ -1012,6 +1117,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ar15.com"
       - "C:/Program Files/CMake/bin/gcc-ar15.exe"
       - "C:/Program Files/CMake/bin/gcc-ar15"
+      - "C:/Program Files/dotnet/gcc-ar15.com"
+      - "C:/Program Files/dotnet/gcc-ar15.exe"
+      - "C:/Program Files/dotnet/gcc-ar15"
+      - "C:/Users/marci/.cargo/bin/gcc-ar15.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ar15.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ar15"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar15.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar15.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar15"
@@ -1030,6 +1141,9 @@ events:
       - "C:/php/gcc-ar15.com"
       - "C:/php/gcc-ar15.exe"
       - "C:/php/gcc-ar15"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar15.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar15.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar15"
       - "C:/msys64/ucrt64/bin/gcc-ar.com"
     found: "C:/msys64/ucrt64/bin/gcc-ar.exe"
     search_context:
@@ -1046,6 +1160,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -1053,6 +1169,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -1086,12 +1203,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/gcc-ranlib-15.2.com"
       - "C:/msys64/ucrt64/bin/gcc-ranlib-15.2.exe"
@@ -1123,6 +1243,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ranlib-15.2.com"
       - "C:/Program Files/CMake/bin/gcc-ranlib-15.2.exe"
       - "C:/Program Files/CMake/bin/gcc-ranlib-15.2"
+      - "C:/Program Files/dotnet/gcc-ranlib-15.2.com"
+      - "C:/Program Files/dotnet/gcc-ranlib-15.2.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib-15.2"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15.2.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15.2.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15.2"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.2.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.2.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.2"
@@ -1141,6 +1267,9 @@ events:
       - "C:/php/gcc-ranlib-15.2.com"
       - "C:/php/gcc-ranlib-15.2.exe"
       - "C:/php/gcc-ranlib-15.2"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15.2.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15.2.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15.2"
       - "C:/msys64/ucrt64/bin/gcc-ranlib-15.com"
       - "C:/msys64/ucrt64/bin/gcc-ranlib-15.exe"
       - "C:/msys64/ucrt64/bin/gcc-ranlib-15"
@@ -1171,6 +1300,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ranlib-15.com"
       - "C:/Program Files/CMake/bin/gcc-ranlib-15.exe"
       - "C:/Program Files/CMake/bin/gcc-ranlib-15"
+      - "C:/Program Files/dotnet/gcc-ranlib-15.com"
+      - "C:/Program Files/dotnet/gcc-ranlib-15.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib-15"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15"
@@ -1189,6 +1324,9 @@ events:
       - "C:/php/gcc-ranlib-15.com"
       - "C:/php/gcc-ranlib-15.exe"
       - "C:/php/gcc-ranlib-15"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15"
       - "C:/msys64/ucrt64/bin/gcc-ranlib15.com"
       - "C:/msys64/ucrt64/bin/gcc-ranlib15.exe"
       - "C:/msys64/ucrt64/bin/gcc-ranlib15"
@@ -1219,6 +1357,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ranlib15.com"
       - "C:/Program Files/CMake/bin/gcc-ranlib15.exe"
       - "C:/Program Files/CMake/bin/gcc-ranlib15"
+      - "C:/Program Files/dotnet/gcc-ranlib15.com"
+      - "C:/Program Files/dotnet/gcc-ranlib15.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib15"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib15.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib15.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib15"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib15.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib15.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib15"
@@ -1237,6 +1381,9 @@ events:
       - "C:/php/gcc-ranlib15.com"
       - "C:/php/gcc-ranlib15.exe"
       - "C:/php/gcc-ranlib15"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib15.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib15.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib15"
       - "C:/msys64/ucrt64/bin/gcc-ranlib.com"
     found: "C:/msys64/ucrt64/bin/gcc-ranlib.exe"
     search_context:
@@ -1253,6 +1400,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -1260,6 +1409,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -1299,6 +1449,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -1306,6 +1458,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "message-v1"
     backtrace:
@@ -1361,12 +1514,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/gcc-ar-15.2.com"
       - "C:/msys64/ucrt64/bin/gcc-ar-15.2.exe"
@@ -1398,6 +1554,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ar-15.2.com"
       - "C:/Program Files/CMake/bin/gcc-ar-15.2.exe"
       - "C:/Program Files/CMake/bin/gcc-ar-15.2"
+      - "C:/Program Files/dotnet/gcc-ar-15.2.com"
+      - "C:/Program Files/dotnet/gcc-ar-15.2.exe"
+      - "C:/Program Files/dotnet/gcc-ar-15.2"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15.2.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15.2.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15.2"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.2.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.2.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.2"
@@ -1416,6 +1578,9 @@ events:
       - "C:/php/gcc-ar-15.2.com"
       - "C:/php/gcc-ar-15.2.exe"
       - "C:/php/gcc-ar-15.2"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15.2.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15.2.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15.2"
       - "C:/msys64/ucrt64/bin/gcc-ar-15.com"
       - "C:/msys64/ucrt64/bin/gcc-ar-15.exe"
       - "C:/msys64/ucrt64/bin/gcc-ar-15"
@@ -1446,6 +1611,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ar-15.com"
       - "C:/Program Files/CMake/bin/gcc-ar-15.exe"
       - "C:/Program Files/CMake/bin/gcc-ar-15"
+      - "C:/Program Files/dotnet/gcc-ar-15.com"
+      - "C:/Program Files/dotnet/gcc-ar-15.exe"
+      - "C:/Program Files/dotnet/gcc-ar-15"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ar-15"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15"
@@ -1464,6 +1635,9 @@ events:
       - "C:/php/gcc-ar-15.com"
       - "C:/php/gcc-ar-15.exe"
       - "C:/php/gcc-ar-15"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar-15"
       - "C:/msys64/ucrt64/bin/gcc-ar15.com"
       - "C:/msys64/ucrt64/bin/gcc-ar15.exe"
       - "C:/msys64/ucrt64/bin/gcc-ar15"
@@ -1494,6 +1668,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ar15.com"
       - "C:/Program Files/CMake/bin/gcc-ar15.exe"
       - "C:/Program Files/CMake/bin/gcc-ar15"
+      - "C:/Program Files/dotnet/gcc-ar15.com"
+      - "C:/Program Files/dotnet/gcc-ar15.exe"
+      - "C:/Program Files/dotnet/gcc-ar15"
+      - "C:/Users/marci/.cargo/bin/gcc-ar15.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ar15.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ar15"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar15.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar15.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar15"
@@ -1512,6 +1692,9 @@ events:
       - "C:/php/gcc-ar15.com"
       - "C:/php/gcc-ar15.exe"
       - "C:/php/gcc-ar15"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar15.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar15.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ar15"
       - "C:/msys64/ucrt64/bin/gcc-ar.com"
     found: "C:/msys64/ucrt64/bin/gcc-ar.exe"
     search_context:
@@ -1528,6 +1711,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -1535,6 +1720,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -1568,12 +1754,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
     searched_directories:
       - "C:/msys64/ucrt64/bin/gcc-ranlib-15.2.com"
       - "C:/msys64/ucrt64/bin/gcc-ranlib-15.2.exe"
@@ -1605,6 +1794,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ranlib-15.2.com"
       - "C:/Program Files/CMake/bin/gcc-ranlib-15.2.exe"
       - "C:/Program Files/CMake/bin/gcc-ranlib-15.2"
+      - "C:/Program Files/dotnet/gcc-ranlib-15.2.com"
+      - "C:/Program Files/dotnet/gcc-ranlib-15.2.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib-15.2"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15.2.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15.2.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15.2"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.2.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.2.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.2"
@@ -1623,6 +1818,9 @@ events:
       - "C:/php/gcc-ranlib-15.2.com"
       - "C:/php/gcc-ranlib-15.2.exe"
       - "C:/php/gcc-ranlib-15.2"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15.2.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15.2.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15.2"
       - "C:/msys64/ucrt64/bin/gcc-ranlib-15.com"
       - "C:/msys64/ucrt64/bin/gcc-ranlib-15.exe"
       - "C:/msys64/ucrt64/bin/gcc-ranlib-15"
@@ -1653,6 +1851,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ranlib-15.com"
       - "C:/Program Files/CMake/bin/gcc-ranlib-15.exe"
       - "C:/Program Files/CMake/bin/gcc-ranlib-15"
+      - "C:/Program Files/dotnet/gcc-ranlib-15.com"
+      - "C:/Program Files/dotnet/gcc-ranlib-15.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib-15"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib-15"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15"
@@ -1671,6 +1875,9 @@ events:
       - "C:/php/gcc-ranlib-15.com"
       - "C:/php/gcc-ranlib-15.exe"
       - "C:/php/gcc-ranlib-15"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib-15"
       - "C:/msys64/ucrt64/bin/gcc-ranlib15.com"
       - "C:/msys64/ucrt64/bin/gcc-ranlib15.exe"
       - "C:/msys64/ucrt64/bin/gcc-ranlib15"
@@ -1701,6 +1908,12 @@ events:
       - "C:/Program Files/CMake/bin/gcc-ranlib15.com"
       - "C:/Program Files/CMake/bin/gcc-ranlib15.exe"
       - "C:/Program Files/CMake/bin/gcc-ranlib15"
+      - "C:/Program Files/dotnet/gcc-ranlib15.com"
+      - "C:/Program Files/dotnet/gcc-ranlib15.exe"
+      - "C:/Program Files/dotnet/gcc-ranlib15"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib15.com"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib15.exe"
+      - "C:/Users/marci/.cargo/bin/gcc-ranlib15"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib15.com"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib15.exe"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib15"
@@ -1719,6 +1932,9 @@ events:
       - "C:/php/gcc-ranlib15.com"
       - "C:/php/gcc-ranlib15.exe"
       - "C:/php/gcc-ranlib15"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib15.com"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib15.exe"
+      - "C:/Users/marci/.dotnet/tools/gcc-ranlib15"
       - "C:/msys64/ucrt64/bin/gcc-ranlib.com"
     found: "C:/msys64/ucrt64/bin/gcc-ranlib.exe"
     search_context:
@@ -1735,6 +1951,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -1742,6 +1960,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
   -
     kind: "find-v1"
     backtrace:
@@ -1775,12 +1994,15 @@ events:
       - "C:/Windows/System32/OpenSSH/"
       - "C:/Program Files/Git/cmd/"
       - "C:/Program Files/CMake/bin/"
+      - "C:/Program Files/dotnet/"
+      - "C:/Users/marci/.cargo/bin/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Python313/"
       - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
       - "C:/Users/marci/AppData/Local/Microsoft/WindowsApps/"
       - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/php/"
+      - "C:/Users/marci/.dotnet/tools/"
       - "C:/msys64/ucrt64/bin/"
       - "C:/msys64/ucrt64/sbin/"
       - "C:/msys64/ucrt64/"
@@ -1813,6 +2035,8 @@ events:
         - "C:\\WINDOWS\\System32\\OpenSSH\\"
         - "C:/Program Files/Git/cmd"
         - "C:\\Program Files\\CMake\\bin"
+        - "C:/Program Files/dotnet/"
+        - "C:\\Users\\marci\\.cargo\\bin"
         - "C:/Users/marci/AppData/Local/Programs/Python/Python313/Scripts/"
         - "C:\\Users\\marci\\AppData\\Local\\Programs\\Python\\Python313\\"
         - "C:/Users/marci/AppData/Local/Programs/Python/Launcher/"
@@ -1820,6 +2044,7 @@ events:
         - "C:/Users/marci/AppData/Local/Programs/Microsoft VS Code/bin"
         - "C:\\php"
         - "C:/msys64/ucrt64/bin"
+        - "C:\\Users\\marci\\.dotnet\\tools"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/FitPlanner"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/msys64/ucrt64"
@@ -1836,8 +2061,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-mtpese"
-      binary: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-mtpese"
+      source: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-2dku8k"
+      binary: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-2dku8k"
     cmakeVariables:
       CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: ""
@@ -1847,13 +2072,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-mtpese'
+        Change Dir: 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-2dku8k'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_755ba/fast
-        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_755ba.dir\\build.make CMakeFiles/cmTC_755ba.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-mtpese'
-        Building C object CMakeFiles/cmTC_755ba.dir/CMakeCCompilerABI.c.obj
-        C:\\msys64\\ucrt64\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_7f9a6/fast
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_7f9a6.dir\\build.make CMakeFiles/cmTC_7f9a6.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-2dku8k'
+        Building C object CMakeFiles/cmTC_7f9a6.dir/CMakeCCompilerABI.c.obj
+        C:\\msys64\\ucrt64\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
         Using built-in specs.
         COLLECT_GCC=C:\\msys64\\ucrt64\\bin\\gcc.exe
         Target: x86_64-w64-mingw32
@@ -1861,8 +2086,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 15.2.0 (Rev8, Built by MSYS2 project) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_755ba.dir\\'
-         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/cc1.exe -quiet -v -iprefix C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_755ba.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=nocona -version -o C:\\Users\\marci\\AppData\\Local\\Temp\\ccgo2jta.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_7f9a6.dir\\'
+         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/cc1.exe -quiet -v -iprefix C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_7f9a6.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=nocona -version -o C:\\Users\\marci\\AppData\\Local\\Temp\\ccgoa2QU.s
         GNU C23 (Rev8, Built by MSYS2 project) version 15.2.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 15.2.0, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
         
@@ -1881,14 +2106,14 @@ events:
          C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed
         End of search list.
         Compiler executable checksum: f68563dd6aebdc6b84233a210e98d3c3
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_755ba.dir\\'
-         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.obj C:\\Users\\marci\\AppData\\Local\\Temp\\ccgo2jta.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_7f9a6.dir\\'
+         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.obj C:\\Users\\marci\\AppData\\Local\\Temp\\ccgoa2QU.s
         GNU assembler version 2.45.1 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.45.1
         COMPILER_PATH=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/;C:/msys64/ucrt64/bin/../lib/gcc/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/;C:/msys64/ucrt64/bin/../lib/gcc/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.'
-        Linking C executable cmTC_755ba.exe
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_755ba.dir\\link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.'
+        Linking C executable cmTC_7f9a6.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_7f9a6.dir\\link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=C:\\msys64\\ucrt64\\bin\\gcc.exe
         COLLECT_LTO_WRAPPER=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe
@@ -1899,16 +2124,16 @@ events:
         gcc version 15.2.0 (Rev8, Built by MSYS2 project) 
         COMPILER_PATH=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/;C:/msys64/ucrt64/bin/../lib/gcc/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/;C:/msys64/ucrt64/bin/../lib/gcc/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_755ba.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_755ba.'
-         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/collect2.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\ccHLwS7j.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_755ba.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_755ba.dir/objects.a --no-whole-archive --out-implib libcmTC_755ba.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_7f9a6.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_7f9a6.'
+         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/collect2.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\ccyZWSu3.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_7f9a6.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_7f9a6.dir/objects.a --no-whole-archive --out-implib libcmTC_7f9a6.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o
         collect2 version 15.2.0
-        C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\ccHLwS7j.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_755ba.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_755ba.dir/objects.a --no-whole-archive --out-implib libcmTC_755ba.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o
+        C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\ccyZWSu3.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_7f9a6.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_7f9a6.dir/objects.a --no-whole-archive --out-implib libcmTC_7f9a6.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o
         GNU ld (GNU Binutils) 2.45.1
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_755ba.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_755ba.'
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_755ba.dir/objects.a
-        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\cmTC_755ba.dir/objects.a @CMakeFiles\\cmTC_755ba.dir\\objects1.rsp
-        C:\\msys64\\ucrt64\\bin\\gcc.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_755ba.dir/objects.a -Wl,--no-whole-archive -o cmTC_755ba.exe -Wl,--out-implib,libcmTC_755ba.dll.a -Wl,--major-image-version,0,--minor-image-version,0
-        mingw32-make[1]: Leaving directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-mtpese'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_7f9a6.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_7f9a6.'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_7f9a6.dir/objects.a
+        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\cmTC_7f9a6.dir/objects.a @CMakeFiles\\cmTC_7f9a6.dir\\objects1.rsp
+        C:\\msys64\\ucrt64\\bin\\gcc.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_7f9a6.dir/objects.a -Wl,--no-whole-archive -o cmTC_7f9a6.exe -Wl,--out-implib,libcmTC_7f9a6.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        mingw32-make[1]: Leaving directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-2dku8k'
         
       exitCode: 0
   -
@@ -1941,13 +2166,13 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-mtpese']
+        ignore line: [Change Dir: 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-2dku8k']
         ignore line: []
-        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_755ba/fast]
-        ignore line: [C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_755ba.dir\\build.make CMakeFiles/cmTC_755ba.dir/build]
-        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-mtpese']
-        ignore line: [Building C object CMakeFiles/cmTC_755ba.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [C:\\msys64\\ucrt64\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"]
+        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_7f9a6/fast]
+        ignore line: [C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_7f9a6.dir\\build.make CMakeFiles/cmTC_7f9a6.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-2dku8k']
+        ignore line: [Building C object CMakeFiles/cmTC_7f9a6.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [C:\\msys64\\ucrt64\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\msys64\\ucrt64\\bin\\gcc.exe]
         ignore line: [Target: x86_64-w64-mingw32]
@@ -1955,8 +2180,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 15.2.0 (Rev8  Built by MSYS2 project) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_755ba.dir\\']
-        ignore line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/cc1.exe -quiet -v -iprefix C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_755ba.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=nocona -version -o C:\\Users\\marci\\AppData\\Local\\Temp\\ccgo2jta.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_7f9a6.dir\\']
+        ignore line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/cc1.exe -quiet -v -iprefix C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_7f9a6.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=nocona -version -o C:\\Users\\marci\\AppData\\Local\\Temp\\ccgoa2QU.s]
         ignore line: [GNU C23 (Rev8  Built by MSYS2 project) version 15.2.0 (x86_64-w64-mingw32)]
         ignore line: [	compiled by GNU C version 15.2.0  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.27-GMP]
         ignore line: []
@@ -1975,8 +2200,8 @@ events:
         ignore line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: f68563dd6aebdc6b84233a210e98d3c3]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_755ba.dir\\']
-        ignore line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.obj C:\\Users\\marci\\AppData\\Local\\Temp\\ccgo2jta.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_7f9a6.dir\\']
+        ignore line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.obj C:\\Users\\marci\\AppData\\Local\\Temp\\ccgoa2QU.s]
         ignore line: [GNU assembler version 2.45.1 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.45.1]
         ignore line: [COMPILER_PATH=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/]
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/]
@@ -1987,9 +2212,9 @@ events:
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/]
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_755ba.dir\\CMakeCCompilerABI.c.']
-        ignore line: [Linking C executable cmTC_755ba.exe]
-        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_755ba.dir\\link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_7f9a6.dir\\CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_7f9a6.exe]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_7f9a6.dir\\link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\msys64\\ucrt64\\bin\\gcc.exe]
         ignore line: [COLLECT_LTO_WRAPPER=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe]
@@ -2007,13 +2232,13 @@ events:
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/]
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_755ba.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_755ba.']
-        link line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/collect2.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\ccHLwS7j.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_755ba.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_755ba.dir/objects.a --no-whole-archive --out-implib libcmTC_755ba.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_7f9a6.exe' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_7f9a6.']
+        link line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/collect2.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\ccyZWSu3.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_7f9a6.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_7f9a6.dir/objects.a --no-whole-archive --out-implib libcmTC_7f9a6.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o]
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll] ==> ignore
           arg [-plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\ccHLwS7j.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\ccyZWSu3.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
@@ -2035,7 +2260,7 @@ events:
           arg [i386pep] ==> ignore
           arg [-Bdynamic] ==> search dynamic
           arg [-o] ==> ignore
-          arg [cmTC_755ba.exe] ==> ignore
+          arg [cmTC_7f9a6.exe] ==> ignore
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o] ==> obj [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o]
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o] ==> obj [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o]
           arg [-LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0] ==> dir [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0]
@@ -2046,10 +2271,10 @@ events:
           arg [-LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../..] ==> dir [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../..]
           arg [-v] ==> ignore
           arg [--whole-archive] ==> ignore
-          arg [CMakeFiles\\cmTC_755ba.dir/objects.a] ==> ignore
+          arg [CMakeFiles\\cmTC_7f9a6.dir/objects.a] ==> ignore
           arg [--no-whole-archive] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_755ba.dll.a] ==> ignore
+          arg [libcmTC_7f9a6.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -2074,7 +2299,7 @@ events:
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o] ==> obj [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o]
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o] ==> obj [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o]
         ignore line: [collect2 version 15.2.0]
-        ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\ccHLwS7j.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_755ba.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_755ba.dir/objects.a --no-whole-archive --out-implib libcmTC_755ba.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o]
+        ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\ccyZWSu3.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_7f9a6.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_7f9a6.dir/objects.a --no-whole-archive --out-implib libcmTC_7f9a6.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o]
         linker tool for 'C': C:/msys64/ucrt64/x86_64-w64-mingw32/bin/ld.exe
         remove lib [gcc_eh]
         remove lib [msvcrt]
@@ -2115,8 +2340,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-xyslz7"
-      binary: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-xyslz7"
+      source: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-ucoq0s"
+      binary: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-ucoq0s"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -2127,13 +2352,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-xyslz7'
+        Change Dir: 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-ucoq0s'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_0e727/fast
-        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_0e727.dir\\build.make CMakeFiles/cmTC_0e727.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-xyslz7'
-        Building CXX object CMakeFiles/cmTC_0e727.dir/CMakeCXXCompilerABI.cpp.obj
-        C:\\msys64\\ucrt64\\bin\\g++.exe   -v -o CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_70714/fast
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_70714.dir\\build.make CMakeFiles/cmTC_70714.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-ucoq0s'
+        Building CXX object CMakeFiles/cmTC_70714.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\msys64\\ucrt64\\bin\\g++.exe   -v -o CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
         Using built-in specs.
         COLLECT_GCC=C:\\msys64\\ucrt64\\bin\\g++.exe
         Target: x86_64-w64-mingw32
@@ -2141,8 +2366,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 15.2.0 (Rev8, Built by MSYS2 project) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_0e727.dir\\'
-         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/cc1plus.exe -quiet -v -iprefix C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_0e727.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=nocona -version -o C:\\Users\\marci\\AppData\\Local\\Temp\\ccNS1Csf.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_70714.dir\\'
+         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/cc1plus.exe -quiet -v -iprefix C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_70714.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=nocona -version -o C:\\Users\\marci\\AppData\\Local\\Temp\\cchyR1Hm.s
         GNU C++17 (Rev8, Built by MSYS2 project) version 15.2.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 15.2.0, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
         
@@ -2167,14 +2392,14 @@ events:
          C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed
         End of search list.
         Compiler executable checksum: 3a1a95c83f0136a64748ec8c5a2a87f3
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_0e727.dir\\'
-         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\marci\\AppData\\Local\\Temp\\ccNS1Csf.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_70714.dir\\'
+         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\marci\\AppData\\Local\\Temp\\cchyR1Hm.s
         GNU assembler version 2.45.1 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.45.1
         COMPILER_PATH=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/;C:/msys64/ucrt64/bin/../lib/gcc/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/;C:/msys64/ucrt64/bin/../lib/gcc/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_0e727.exe
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_0e727.dir\\link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_70714.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_70714.dir\\link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=C:\\msys64\\ucrt64\\bin\\g++.exe
         COLLECT_LTO_WRAPPER=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe
@@ -2185,16 +2410,16 @@ events:
         gcc version 15.2.0 (Rev8, Built by MSYS2 project) 
         COMPILER_PATH=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/;C:/msys64/ucrt64/bin/../lib/gcc/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/
         LIBRARY_PATH=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/;C:/msys64/ucrt64/bin/../lib/gcc/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/;C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0e727.exe' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_0e727.'
-         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/collect2.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\cci2Diem.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_0e727.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_0e727.dir/objects.a --no-whole-archive --out-implib libcmTC_0e727.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_70714.exe' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_70714.'
+         C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/collect2.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\cc1xF14y.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_70714.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_70714.dir/objects.a --no-whole-archive --out-implib libcmTC_70714.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o
         collect2 version 15.2.0
-        C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\cci2Diem.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_0e727.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_0e727.dir/objects.a --no-whole-archive --out-implib libcmTC_0e727.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o
+        C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\cc1xF14y.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_70714.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_70714.dir/objects.a --no-whole-archive --out-implib libcmTC_70714.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o
         GNU ld (GNU Binutils) 2.45.1
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0e727.exe' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_0e727.'
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_0e727.dir/objects.a
-        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\cmTC_0e727.dir/objects.a @CMakeFiles\\cmTC_0e727.dir\\objects1.rsp
-        C:\\msys64\\ucrt64\\bin\\g++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_0e727.dir/objects.a -Wl,--no-whole-archive -o cmTC_0e727.exe -Wl,--out-implib,libcmTC_0e727.dll.a -Wl,--major-image-version,0,--minor-image-version,0
-        mingw32-make[1]: Leaving directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-xyslz7'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_70714.exe' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_70714.'
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_70714.dir/objects.a
+        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\cmTC_70714.dir/objects.a @CMakeFiles\\cmTC_70714.dir\\objects1.rsp
+        C:\\msys64\\ucrt64\\bin\\g++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_70714.dir/objects.a -Wl,--no-whole-archive -o cmTC_70714.exe -Wl,--out-implib,libcmTC_70714.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        mingw32-make[1]: Leaving directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-ucoq0s'
         
       exitCode: 0
   -
@@ -2233,13 +2458,13 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-xyslz7']
+        ignore line: [Change Dir: 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-ucoq0s']
         ignore line: []
-        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_0e727/fast]
-        ignore line: [C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_0e727.dir\\build.make CMakeFiles/cmTC_0e727.dir/build]
-        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-xyslz7']
-        ignore line: [Building CXX object CMakeFiles/cmTC_0e727.dir/CMakeCXXCompilerABI.cpp.obj]
-        ignore line: [C:\\msys64\\ucrt64\\bin\\g++.exe   -v -o CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"]
+        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_70714/fast]
+        ignore line: [C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_70714.dir\\build.make CMakeFiles/cmTC_70714.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-ucoq0s']
+        ignore line: [Building CXX object CMakeFiles/cmTC_70714.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [C:\\msys64\\ucrt64\\bin\\g++.exe   -v -o CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\msys64\\ucrt64\\bin\\g++.exe]
         ignore line: [Target: x86_64-w64-mingw32]
@@ -2247,8 +2472,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 15.2.0 (Rev8  Built by MSYS2 project) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_0e727.dir\\']
-        ignore line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/cc1plus.exe -quiet -v -iprefix C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_0e727.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=nocona -version -o C:\\Users\\marci\\AppData\\Local\\Temp\\ccNS1Csf.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_70714.dir\\']
+        ignore line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/cc1plus.exe -quiet -v -iprefix C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/ -D_REENTRANT C:\\Program Files\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_70714.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=nocona -version -o C:\\Users\\marci\\AppData\\Local\\Temp\\cchyR1Hm.s]
         ignore line: [GNU C++17 (Rev8  Built by MSYS2 project) version 15.2.0 (x86_64-w64-mingw32)]
         ignore line: [	compiled by GNU C version 15.2.0  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.27-GMP]
         ignore line: []
@@ -2273,8 +2498,8 @@ events:
         ignore line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/include-fixed]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: 3a1a95c83f0136a64748ec8c5a2a87f3]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_0e727.dir\\']
-        ignore line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\marci\\AppData\\Local\\Temp\\ccNS1Csf.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_70714.dir\\']
+        ignore line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\marci\\AppData\\Local\\Temp\\cchyR1Hm.s]
         ignore line: [GNU assembler version 2.45.1 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.45.1]
         ignore line: [COMPILER_PATH=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/]
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/]
@@ -2285,9 +2510,9 @@ events:
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/]
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_0e727.dir\\CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_0e727.exe]
-        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_0e727.dir\\link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles\\cmTC_70714.dir\\CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_70714.exe]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_70714.dir\\link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\msys64\\ucrt64\\bin\\g++.exe]
         ignore line: [COLLECT_LTO_WRAPPER=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe]
@@ -2305,13 +2530,13 @@ events:
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/]
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0e727.exe' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_0e727.']
-        link line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/collect2.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\cci2Diem.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_0e727.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_0e727.dir/objects.a --no-whole-archive --out-implib libcmTC_0e727.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_70714.exe' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'cmTC_70714.']
+        link line: [ C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/collect2.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\cc1xF14y.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_70714.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_70714.dir/objects.a --no-whole-archive --out-implib libcmTC_70714.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o]
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll] ==> ignore
           arg [-plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\cci2Diem.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\cc1xF14y.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
@@ -2333,7 +2558,7 @@ events:
           arg [i386pep] ==> ignore
           arg [-Bdynamic] ==> search dynamic
           arg [-o] ==> ignore
-          arg [cmTC_0e727.exe] ==> ignore
+          arg [cmTC_70714.exe] ==> ignore
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o] ==> obj [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o]
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o] ==> obj [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o]
           arg [-LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0] ==> dir [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0]
@@ -2344,10 +2569,10 @@ events:
           arg [-LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../..] ==> dir [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../..]
           arg [-v] ==> ignore
           arg [--whole-archive] ==> ignore
-          arg [CMakeFiles\\cmTC_0e727.dir/objects.a] ==> ignore
+          arg [CMakeFiles\\cmTC_70714.dir/objects.a] ==> ignore
           arg [--no-whole-archive] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_0e727.dll.a] ==> ignore
+          arg [libcmTC_70714.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -2373,7 +2598,7 @@ events:
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o] ==> obj [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o]
           arg [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o] ==> obj [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o]
         ignore line: [collect2 version 15.2.0]
-        ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\cci2Diem.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_0e727.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_0e727.dir/objects.a --no-whole-archive --out-implib libcmTC_0e727.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o]
+        ignore line: [C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\marci\\AppData\\Local\\Temp\\cc1xF14y.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic -o cmTC_70714.exe C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/crt2.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtbegin.o -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0 -LC:/msys64/ucrt64/bin/../lib/gcc -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../x86_64-w64-mingw32/lib -LC:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_70714.dir/objects.a --no-whole-archive --out-implib libcmTC_70714.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/../../../../lib/default-manifest.o C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.2.0/crtend.o]
         linker tool for 'CXX': C:/msys64/ucrt64/x86_64-w64-mingw32/bin/ld.exe
         remove lib [msvcrt]
         remove lib [msvcrt]
@@ -2414,8 +2639,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-o8hnw8"
-      binary: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-o8hnw8"
+      source: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-pf64js"
+      binary: "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-pf64js"
     cmakeVariables:
       CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: ""
@@ -2426,19 +2651,19 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-o8hnw8'
+        Change Dir: 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-pf64js'
         
-        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_a7405/fast
-        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_a7405.dir\\build.make CMakeFiles/cmTC_a7405.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-o8hnw8'
-        Building C object CMakeFiles/cmTC_a7405.dir/src.c.obj
-        C:\\msys64\\ucrt64\\bin\\gcc.exe -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles\\cmTC_a7405.dir\\src.c.obj -c C:\\Users\\marci\\Desktop\\Zadania\\PROJEKT_CPP\\build\\CMakeFiles\\CMakeScratch\\TryCompile-o8hnw8\\src.c
-        Linking C executable cmTC_a7405.exe
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_a7405.dir\\link.txt --verbose=1
-        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_a7405.dir/objects.a
-        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\cmTC_a7405.dir/objects.a @CMakeFiles\\cmTC_a7405.dir\\objects1.rsp
-        C:\\msys64\\ucrt64\\bin\\gcc.exe -Wl,--whole-archive CMakeFiles\\cmTC_a7405.dir/objects.a -Wl,--no-whole-archive -o cmTC_a7405.exe -Wl,--out-implib,libcmTC_a7405.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_a7405.dir\\linkLibs.rsp
-        mingw32-make[1]: Leaving directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-o8hnw8'
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_ac193/fast
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_ac193.dir\\build.make CMakeFiles/cmTC_ac193.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-pf64js'
+        Building C object CMakeFiles/cmTC_ac193.dir/src.c.obj
+        C:\\msys64\\ucrt64\\bin\\gcc.exe -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles\\cmTC_ac193.dir\\src.c.obj -c C:\\Users\\marci\\Desktop\\Zadania\\PROJEKT_CPP\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pf64js\\src.c
+        Linking C executable cmTC_ac193.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_ac193.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_ac193.dir/objects.a
+        C:\\msys64\\ucrt64\\bin\\ar.exe qc CMakeFiles\\cmTC_ac193.dir/objects.a @CMakeFiles\\cmTC_ac193.dir\\objects1.rsp
+        C:\\msys64\\ucrt64\\bin\\gcc.exe -Wl,--whole-archive CMakeFiles\\cmTC_ac193.dir/objects.a -Wl,--no-whole-archive -o cmTC_ac193.exe -Wl,--out-implib,libcmTC_ac193.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_ac193.dir\\linkLibs.rsp
+        mingw32-make[1]: Leaving directory 'C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build/CMakeFiles/CMakeScratch/TryCompile-pf64js'
         
       exitCode: 0
 ...

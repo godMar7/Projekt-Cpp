@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_tables.cpp.obj.d"
   "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj"
   "CMakeFiles/FitPlanner.dir/libs/imgui/imgui_widgets.cpp.obj.d"
+  "CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj"
+  "CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj.d"
   "CMakeFiles/FitPlanner.dir/src/main.cpp.obj"
   "CMakeFiles/FitPlanner.dir/src/main.cpp.obj.d"
   "FitPlanner.exe"

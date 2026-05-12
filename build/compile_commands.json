@@ -7,6 +7,12 @@
 },
 {
   "directory": "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/FitPlanner.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\FitPlanner.dir\\src\\ZapisOdczyt.cpp.obj -c C:\\Users\\marci\\Desktop\\Zadania\\PROJEKT_CPP\\src\\ZapisOdczyt.cpp",
+  "file": "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/src/ZapisOdczyt.cpp",
+  "output": "CMakeFiles/FitPlanner.dir/src/ZapisOdczyt.cpp.obj"
+},
+{
+  "directory": "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/build",
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/FitPlanner.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\FitPlanner.dir\\libs\\imgui\\imgui.cpp.obj -c C:\\Users\\marci\\Desktop\\Zadania\\PROJEKT_CPP\\libs\\imgui\\imgui.cpp",
   "file": "C:/Users/marci/Desktop/Zadania/PROJEKT_CPP/libs/imgui/imgui.cpp",
   "output": "CMakeFiles/FitPlanner.dir/libs/imgui/imgui.cpp.obj"
