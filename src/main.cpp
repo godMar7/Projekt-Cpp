@@ -264,7 +264,7 @@ void WczytajProfil(ProfilUzytkownika& user) {
                     cw.baza.nazwa = jCw["baza"].value("nazwa", "");
                     cw.baza.kategoria = jCw["baza"].value("kategoria", "");
                     cw.baza.trudnosc = jCw["baza"].value("trudnosc", 1);
-                    cw.baza.opis = jCw["baza"].value("opis", "Technika jest najwazniejsza. Utrzymuj napiecie.");
+                    cw.baza.opis = jCw["baza"].value("opis", "Technika jest najwazniejsza.");
                     cw.serie = jCw.value("serie", 3);
                     cw.powtorzenia = jCw.value("powtorzenia", 10);
                     cw.ciezar = jCw.value("ciezar", 0.0f);
@@ -377,6 +377,17 @@ int main() {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
+        //STAN MOTYWU I DYNAMICZNE KOLORY ---
+        static bool jasnyMotyw = false;
+        ImVec4 colAkcent = jasnyMotyw ? ImVec4(0.0f, 0.4f, 0.8f, 1.0f) : ImVec4(0.4f, 0.8f, 1.0f, 1.0f);
+        ImVec4 colSub = jasnyMotyw ? ImVec4(0.3f, 0.3f, 0.3f, 1.0f) : ImVec4(0.7f, 0.7f, 0.7f, 1.0f);
+        ImVec4 colZielony = jasnyMotyw ? ImVec4(0.0f, 0.5f, 0.0f, 1.0f) : ImVec4(0.2f, 1.0f, 0.2f, 1.0f);
+        ImVec4 colZolty = jasnyMotyw ? ImVec4(0.8f, 0.5f, 0.0f, 1.0f) : ImVec4(1.0f, 0.8f, 0.0f, 1.0f);
+        ImVec4 colCzerwony = jasnyMotyw ? ImVec4(0.8f, 0.0f, 0.0f, 1.0f) : ImVec4(1.0f, 0.4f, 0.4f, 1.0f);
+        ImVec4 colTrening = jasnyMotyw ? ImVec4(0.8f, 0.4f, 0.0f, 1.0f) : ImVec4(1.0f, 0.5f, 0.0f, 1.0f);
+        ImVec4 colWegle = jasnyMotyw ? ImVec4(0.0f, 0.4f, 0.8f, 1.0f) : ImVec4(0.4f, 0.8f, 1.0f, 1.0f);
+        ImVec4 colPustaGwiazdka = jasnyMotyw ? ImVec4(0.8f, 0.8f, 0.8f, 1.0f) : ImVec4(0.3f, 0.3f, 0.3f, 1.0f);
+
         const ImGuiViewport* viewport = ImGui::GetMainViewport();
         ImGui::SetNextWindowPos(viewport->WorkPos);
         ImGui::SetNextWindowSize(viewport->WorkSize);
@@ -390,26 +401,34 @@ int main() {
         float calcWidth = ImGui::GetContentRegionAvail().x;
         float calcHeight = ImGui::GetContentRegionAvail().y;
 
-        //PROFIL
+        //profil
         ImGui::BeginChild("PanelProfil", ImVec2(calcWidth, 160), true);
         
         const char* tytulProfil = "M O J   P R O F I L";
         float windowWidth = ImGui::GetWindowSize().x;
         float textWidth = ImGui::CalcTextSize(tytulProfil).x;
         ImGui::SetCursorPosX((windowWidth - textWidth) * 0.5f);
-        ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), "%s", tytulProfil);
+        ImGui::TextColored(colAkcent, "%s", tytulProfil);
+        
+        // PRZELACZNIK MOTYWU
+        ImGui::SameLine(windowWidth - 120);
+        if (ImGui::Checkbox("Jasny", &jasnyMotyw)) {
+            if (jasnyMotyw) ImGui::StyleColorsLight();
+            else ImGui::StyleColorsDark();
+        }
+
         ImGui::Separator();
         ImGui::Spacing();
 
         ImGui::Columns(3, "kolumny_profil", false); 
         
-        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Podstawowe wymiary:");
+        ImGui::TextColored(colSub, "Podstawowe wymiary:");
         ImGui::SetNextItemWidth(120); ImGui::InputFloat("Waga (kg)", &user.waga, 1.0f, 5.0f, "%.1f");
         ImGui::SetNextItemWidth(120); ImGui::InputFloat("Wzrost (cm)", &user.wzrost, 1.0f, 5.0f, "%.1f");
         ImGui::SetNextItemWidth(120); ImGui::InputInt("Wiek (lata)", &user.wiek);
         ImGui::NextColumn();
 
-        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Plec i aktywnosc:");
+        ImGui::TextColored(colSub, "Plec i aktywnosc:");
         ImGui::RadioButton("Mezczyzna", &user.plec, 0); ImGui::SameLine();
         ImGui::RadioButton("Kobieta", &user.plec, 1);
         ImGui::Spacing();
@@ -434,7 +453,7 @@ int main() {
         }
         ImGui::Spacing();
         
-        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.6f, 0.0f, 1.0f));
+        ImGui::PushStyleColor(ImGuiCol_Button, jasnyMotyw ? ImVec4(0.9f, 0.6f, 0.0f, 1.0f) : ImVec4(0.8f, 0.6f, 0.0f, 1.0f));
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(1.0f, 0.8f, 0.0f, 1.0f));
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.6f, 0.4f, 0.0f, 1.0f));
         if (ImGui::Button("ZAPISZ DANE", ImVec2(140, 30))) {
@@ -446,7 +465,7 @@ int main() {
 
         ImGui::SameLine();
 
-        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.0f, 0.4f, 0.8f, 1.0f));
+        ImGui::PushStyleColor(ImGuiCol_Button, jasnyMotyw ? ImVec4(0.0f, 0.5f, 0.9f, 1.0f) : ImVec4(0.0f, 0.4f, 0.8f, 1.0f));
         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.0f, 0.6f, 1.0f, 1.0f));
         ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.0f, 0.3f, 0.6f, 1.0f));
         if (ImGui::Button("EKSPORT TXT", ImVec2(140, 30))) {
@@ -457,12 +476,12 @@ int main() {
         ImGui::PopStyleColor(3);
 
         if (user.wyliczoneBmi > 0.0f) {
-            ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "Wynik BMI: %.1f (%s) | Zapotrzebowanie: %.0f kcal", user.wyliczoneBmi, user.kategoriaBmi.c_str(), user.zapotrzebowanieKcal);
+            ImGui::TextColored(colZielony, "Wynik BMI: %.1f (%s) | Zapotrzebowanie: %.0f kcal", user.wyliczoneBmi, user.kategoriaBmi.c_str(), user.zapotrzebowanieKcal);
         }
 
         if (czasWyswietlaniaStatusu > 0.0f) {
             czasWyswietlaniaStatusu -= ImGui::GetIO().DeltaTime;
-            ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "%s", statusAkcji.c_str());
+            ImGui::TextColored(colZielony, "%s", statusAkcji.c_str());
         }
 
         ImGui::Columns(1);
@@ -472,18 +491,16 @@ int main() {
         float polowaSzerokosci = (calcWidth / 2.0f) - 4.0f;
         float wysokoscDolnych = ImGui::GetContentRegionAvail().y;
 
-        //PLAN TRENINGOWY (LEWA STRONA)
-
+        //plan treningowy
         ImGui::BeginChild("PanelTrening", ImVec2(polowaSzerokosci, wysokoscDolnych), true);
         
         const char* tytulTrening = "P L A N   T R E N I N G O W Y";
         ImGui::SetCursorPosX((ImGui::GetWindowSize().x - ImGui::CalcTextSize(tytulTrening).x) * 0.5f);
-        ImGui::TextColored(ImVec4(1.0f, 0.5f, 0.0f, 1.0f), "%s", tytulTrening);
+        ImGui::TextColored(colTrening, "%s", tytulTrening);
         ImGui::Separator();
         ImGui::Spacing();
 
-        // PLAN
-        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany tydzien treningowy:");
+        ImGui::TextColored(colSub, "Skonstruowany tydzien treningowy:");
         if (ImGui::BeginTable("MojPlan", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 250))) {
             ImGui::TableSetupColumn("Cwiczenie", ImGuiTableColumnFlags_WidthStretch);
             ImGui::TableSetupColumn("Serie", ImGuiTableColumnFlags_WidthFixed, 60.0f);
@@ -497,13 +514,13 @@ int main() {
                 
                 ImGui::TableNextRow();
                 ImGui::TableSetColumnIndex(0);
-                ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "[ %s ]", dzien.nazwaDnia.c_str());
+                ImGui::TextColored(colZolty, "[ %s ]", dzien.nazwaDnia.c_str());
 
                 if (dzien.cwiczenia.empty()) {
                     ImGui::TableNextRow();
                     ImGui::TableSetColumnIndex(0); 
                     ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 10.0f);
-                    ImGui::TextColored(ImVec4(0.4f, 0.8f, 0.4f, 1.0f), "- Odpoczynek (Rest day)");
+                    ImGui::TextColored(colZielony, "- Odpoczynek (Rest day)");
                 } else {
                     for (int i = 0; i < dzien.cwiczenia.size(); ++i) {
                         ImGui::TableNextRow();
@@ -512,7 +529,6 @@ int main() {
                         ImGui::TableSetColumnIndex(0); 
                         ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 10.0f);
                         ImGui::Text("- %s", dzien.cwiczenia[i].baza.nazwa.c_str());
-                        // Tooltip na hover:
                         if (ImGui::IsItemHovered()) ImGui::SetTooltip("%s", dzien.cwiczenia[i].baza.opis.c_str());
                         
                         ImGui::TableSetColumnIndex(1); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##s", &dzien.cwiczenia[i].serie, 0);
@@ -530,7 +546,6 @@ int main() {
 
         ImGui::Spacing(); ImGui::Separator(); ImGui::Spacing();
 
-        // BAZA I DODAWANIE
         if (ImGui::CollapsingHeader("Przegladaj Baze Cwiczen i Dodaj do Planu")) {
             ImGui::SetNextItemWidth(150);
             ImGui::InputText("Szukaj##cw", szukajCw, IM_ARRAYSIZE(szukajCw));
@@ -558,11 +573,11 @@ int main() {
                     ImGui::Text("%s", cw.nazwa.c_str());
                     if (ImGui::IsItemHovered()) ImGui::SetTooltip("%s", cw.opis.c_str());
 
-                    ImGui::TableSetColumnIndex(1); ImGui::TextColored(ImVec4(0.6f, 0.6f, 0.6f, 1.0f), "%s", cw.kategoria.c_str());
+                    ImGui::TableSetColumnIndex(1); ImGui::TextColored(colSub, "%s", cw.kategoria.c_str());
                     ImGui::TableSetColumnIndex(2);
                     for (int i = 1; i <= 5; ++i) {
-                        if (i <= cw.trudnosc) ImGui::TextColored((cw.trudnosc <= 2) ? ImVec4(0.2f,1.f,0.2f,1.f) : (cw.trudnosc == 3) ? ImVec4(1.f,0.8f,0.f,1.f) : ImVec4(1.f,0.3f,0.3f,1.f), "*");
-                        else ImGui::TextColored(ImVec4(0.3f, 0.3f, 0.3f, 1.0f), "*");
+                        if (i <= cw.trudnosc) ImGui::TextColored((cw.trudnosc <= 2) ? colZielony : (cw.trudnosc == 3) ? colZolty : colCzerwony, "*");
+                        else ImGui::TextColored(colPustaGwiazdka, "*");
                         if (i < 5) { ImGui::SameLine(); ImGui::SetCursorPosX(ImGui::GetCursorPosX() - 3.0f); }
                     }
                     ImGui::TableSetColumnIndex(3);
@@ -599,31 +614,29 @@ int main() {
         ImGui::EndChild();
         ImGui::SameLine();
 
-        // PLAN DIETETYCZNY 
+        //plan dietetyczny
         ImGui::BeginChild("PanelDieta", ImVec2(0, wysokoscDolnych), true);
         
         user.aktualnaDieta.przeliczSumy();
 
         const char* tytulDieta = "P L A N   D I E T E T Y C Z N Y";
         ImGui::SetCursorPosX((ImGui::GetWindowSize().x - ImGui::CalcTextSize(tytulDieta).x) * 0.5f);
-        ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "%s", tytulDieta);
+        ImGui::TextColored(colZielony, "%s", tytulDieta);
         ImGui::Separator();
         ImGui::Spacing();
 
-        //Pasek Postepu
-        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Zjedzone dzisiaj: %.0f kcal / %.0f kcal", user.aktualnaDieta.sumaKcal, user.zapotrzebowanieKcal);
+        ImGui::TextColored(colSub, "Zjedzone dzisiaj: %.0f kcal / %.0f kcal", user.aktualnaDieta.sumaKcal, user.zapotrzebowanieKcal);
         float postepKcal = user.zapotrzebowanieKcal > 0.0f ? (user.aktualnaDieta.sumaKcal / user.zapotrzebowanieKcal) : 0.0f;
-        if (postepKcal > 1.0f) ImGui::PushStyleColor(ImGuiCol_PlotHistogram, ImVec4(1.0f, 0.2f, 0.2f, 1.0f)); 
+        if (postepKcal > 1.0f) ImGui::PushStyleColor(ImGuiCol_PlotHistogram, colCzerwony); 
         ImGui::ProgressBar(postepKcal, ImVec2(-1.0f, 15.0f), "");
         if (postepKcal > 1.0f) ImGui::PopStyleColor();
 
-        ImGui::TextColored(ImVec4(0.2f, 1.0f, 0.2f, 1.0f), "B: %.1f g", user.aktualnaDieta.sumaBialko); ImGui::SameLine();
-        ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.0f, 1.0f), " | W: %.1f g", user.aktualnaDieta.sumaWegle); ImGui::SameLine();
-        ImGui::TextColored(ImVec4(1.0f, 0.4f, 0.4f, 1.0f), " | T: %.1f g", user.aktualnaDieta.sumaTluszcze);
+        ImGui::TextColored(colZielony, "B: %.1f g", user.aktualnaDieta.sumaBialko); ImGui::SameLine();
+        ImGui::TextColored(colWegle, " | W: %.1f g", user.aktualnaDieta.sumaWegle); ImGui::SameLine();
+        ImGui::TextColored(colCzerwony, " | T: %.1f g", user.aktualnaDieta.sumaTluszcze);
         ImGui::Spacing();
 
-        //Talerz
-        ImGui::TextColored(ImVec4(0.7f, 0.7f, 0.7f, 1.0f), "Skonstruowany jadlospis:");
+        ImGui::TextColored(colSub, "Skonstruowany jadlospis:");
         if (ImGui::BeginTable("MojTalerz", 7, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 250))) {
             ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_WidthStretch);
             ImGui::TableSetupColumn("Waga(g)", ImGuiTableColumnFlags_WidthFixed, 60.0f);
@@ -639,7 +652,7 @@ int main() {
                 
                 ImGui::TableNextRow();
                 ImGui::TableSetColumnIndex(0);
-                ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.2f, 1.0f), "[ %s ]", posilek.nazwaPosilku.c_str());
+                ImGui::TextColored(colZolty, "[ %s ]", posilek.nazwaPosilku.c_str());
 
                 for (int i = 0; i < posilek.skladniki.size(); ++i) {
                     ImGui::TableNextRow();
@@ -653,10 +666,10 @@ int main() {
                     ImGui::TableSetColumnIndex(1); ImGui::SetNextItemWidth(50.0f); ImGui::InputFloat("##w", &sk.wagaGramy, 0, 0, "%.0f");
                     if (sk.wagaGramy < 0) sk.wagaGramy = 0; 
                     
-                    ImGui::TableSetColumnIndex(2); ImGui::TextColored(ImVec4(1.f, 0.8f, 0.f, 1.f), "%.0f", sk.obliczKcal());
-                    ImGui::TableSetColumnIndex(3); ImGui::TextColored(ImVec4(0.2f, 1.f, 0.2f, 1.f), "%.1f", sk.obliczBialko());
-                    ImGui::TableSetColumnIndex(4); ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.f, 1.f), "%.1f", sk.obliczWegle());
-                    ImGui::TableSetColumnIndex(5); ImGui::TextColored(ImVec4(1.f, 0.4f, 0.4f, 1.f), "%.1f", sk.obliczTluszcze());
+                    ImGui::TableSetColumnIndex(2); ImGui::TextColored(colZolty, "%.0f", sk.obliczKcal());
+                    ImGui::TableSetColumnIndex(3); ImGui::TextColored(colZielony, "%.1f", sk.obliczBialko());
+                    ImGui::TableSetColumnIndex(4); ImGui::TextColored(colWegle, "%.1f", sk.obliczWegle());
+                    ImGui::TableSetColumnIndex(5); ImGui::TextColored(colCzerwony, "%.1f", sk.obliczTluszcze());
                     
                     ImGui::TableSetColumnIndex(6);
                     if (ImGui::Button("X", ImVec2(40, 0))) { posilek.skladniki.erase(posilek.skladniki.begin() + i); i--; }
@@ -668,7 +681,6 @@ int main() {
         
         ImGui::Spacing(); ImGui::Separator(); ImGui::Spacing();
 
-        //Baza i dodawanie
         if (ImGui::CollapsingHeader("Przegladaj Baze Produktow i Dodaj do Talerza")) {
             ImGui::SetNextItemWidth(180);
             ImGui::InputText("Szukaj##prod", szukajProd, IM_ARRAYSIZE(szukajProd));
@@ -707,10 +719,10 @@ int main() {
 
                     ImGui::TableNextRow();
                     ImGui::TableSetColumnIndex(0); ImGui::Text("%s", prod.nazwa.c_str());
-                    ImGui::TableSetColumnIndex(1); ImGui::TextColored(ImVec4(1.f, 0.8f, 0.f, 1.f), "%.0f", prod.kcal);
-                    ImGui::TableSetColumnIndex(2); ImGui::TextColored(ImVec4(0.2f, 1.f, 0.2f, 1.f), "%.1f", prod.bialko);
-                    ImGui::TableSetColumnIndex(3); ImGui::TextColored(ImVec4(0.4f, 0.8f, 1.f, 1.f), "%.1f", prod.weglowodany);
-                    ImGui::TableSetColumnIndex(4); ImGui::TextColored(ImVec4(1.f, 0.4f, 0.4f, 1.f), "%.1f", prod.tluszcze);
+                    ImGui::TableSetColumnIndex(1); ImGui::TextColored(colZolty, "%.0f", prod.kcal);
+                    ImGui::TableSetColumnIndex(2); ImGui::TextColored(colZielony, "%.1f", prod.bialko);
+                    ImGui::TableSetColumnIndex(3); ImGui::TextColored(colWegle, "%.1f", prod.weglowodany);
+                    ImGui::TableSetColumnIndex(4); ImGui::TextColored(colCzerwony, "%.1f", prod.tluszcze);
                     ImGui::TableSetColumnIndex(5);
                     ImGui::PushID(prod.nazwa.c_str());
                     if (ImGui::Button("+", ImVec2(40, 0))) user.aktualnaDieta.posilki[wybranyPosilekDoDodania].skladniki.push_back({prod, 100.0f});
@@ -753,7 +765,11 @@ int main() {
         int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
         glViewport(0, 0, display_w, display_h);
-        glClearColor(0.12f, 0.12f, 0.12f, 1.0f);
+        
+        // Dynamiczny kolor tla okna GLFW zaleznie od motywu
+        if (jasnyMotyw) glClearColor(0.85f, 0.85f, 0.85f, 1.0f);
+        else glClearColor(0.12f, 0.12f, 0.12f, 1.0f);
+        
         glClear(GL_COLOR_BUFFER_BIT);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
