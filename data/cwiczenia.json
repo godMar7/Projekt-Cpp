@@ -1,14 +1,74 @@
 [
-    { "nazwa": "Wyciskanie sztangi lezac", "kategoria": "Klatka piersiowa", "trudnosc": 3 },
-    { "nazwa": "Przysiady ze sztanga", "kategoria": "Nogi", "trudnosc": 5 },
-    { "nazwa": "Martwy ciag", "kategoria": "Plecy", "trudnosc": 5 },
-    { "nazwa": "Uginanie ramion z hantlami", "kategoria": "Biceps", "trudnosc": 1 },
-    { "nazwa": "Deska (Plank)", "kategoria": "Brzuch", "trudnosc": 2 },
-    { "nazwa": "Wyciskanie zolnierskie", "kategoria": "Barki", "trudnosc": 4 },
-    { "nazwa": "Podciaganie na drazku", "kategoria": "Plecy", "trudnosc": 4 },
-    { "nazwa": "Wykroki z hantlami", "kategoria": "Nogi", "trudnosc": 3 },
-    { "nazwa": "Wyciskanie francuskie", "kategoria": "Triceps", "trudnosc": 2 },
-    { "nazwa": "Rozpietki na lawce", "kategoria": "Klatka piersiowa", "trudnosc": 2 },
-    { "nazwa": "Allahy (spiecia na wyciagu)", "kategoria": "Brzuch", "trudnosc": 3 },
-    { "nazwa": "Wznosy bokiem z hantlami", "kategoria": "Barki", "trudnosc": 2 }
+    {
+        "nazwa": "Wyciskanie sztangi lezac",
+        "kategoria": "Klatka piersiowa",
+        "trudnosc": 3,
+        "opis": "Zlacz lopatki, stopy stabilnie na ziemi. Prowadz sztange do dolnej czesci klatki piersiowej."
+    },
+    {
+        "nazwa": "Przysiady ze sztanga",
+        "kategoria": "Nogi",
+        "trudnosc": 5,
+        "opis": "Plecy proste, klatka wypchnieta, kolana prowadzone w linii palcow stop. Schodz trzymajac napiety brzuch."
+    },
+    {
+        "nazwa": "Martwy ciag",
+        "kategoria": "Plecy",
+        "trudnosc": 5,
+        "opis": "Sztanga blisko piszczeli. Utrzymuj proste plecy i mocno spiety brzuch. Ruch inicjuj z bioder."
+    },
+    {
+        "nazwa": "Uginanie ramion z hantlami",
+        "kategoria": "Biceps",
+        "trudnosc": 1,
+        "opis": "Lokcie blisko tulowia, nieruchomo. Unikaj bujania calym cialem, kontroluj faze opuszczania."
+    },
+    {
+        "nazwa": "Deska (Plank)",
+        "kategoria": "Brzuch",
+        "trudnosc": 2,
+        "opis": "Cialo w jednej linii. Mocno zepnij posladki i brzuch (miednica w tyl). Nie wstrzymuj oddechu."
+    },
+    {
+        "nazwa": "Wyciskanie zolnierskie",
+        "kategoria": "Barki",
+        "trudnosc": 4,
+        "opis": "Zepnij brzuch i posladki, aby chronic odcinek ledzwiowy. Prowadz sztange bardzo blisko twarzy."
+    },
+    {
+        "nazwa": "Podciaganie na drazku",
+        "kategoria": "Plecy",
+        "trudnosc": 4,
+        "opis": "Inicjuj ruch od sciagniecia lopatek w dol i do siebie. Klatka piersiowa wypchnieta do drazka."
+    },
+    {
+        "nazwa": "Wykroki z hantlami",
+        "kategoria": "Nogi",
+        "trudnosc": 3,
+        "opis": "Prosty tulow. Kolano nogi zakrocznej blisko ziemi, noga wyczna zgina sie do kata prostego."
+    },
+    {
+        "nazwa": "Wyciskanie francuskie",
+        "kategoria": "Triceps",
+        "trudnosc": 2,
+        "opis": "Lokcie wasko i maksymalnie nieruchomo. Pracuja tylko przedramiona."
+    },
+    {
+        "nazwa": "Rozpietki na lawce",
+        "kategoria": "Klatka piersiowa",
+        "trudnosc": 2,
+        "opis": "Lekko ugiete lokcie przez caly ruch. Wyobraz sobie, ze 'obejmujesz grube drzewo'."
+    },
+    {
+        "nazwa": "Allahy (spiecia na wyciagu)",
+        "kategoria": "Brzuch",
+        "trudnosc": 3,
+        "opis": "Ruch zwijania tulowia w kleku. Skup sie na zblizaniu klatki do miednicy, nie ciagnij rekami."
+    },
+    {
+        "nazwa": "Wznosy bokiem z hantlami",
+        "kategoria": "Barki",
+        "trudnosc": 2,
+        "opis": "Lekko pochylona sylwetka. Wyobraz sobie, ze wylewasz wode z dzbankow w gornej fazie ruchu."
+    }
 ]

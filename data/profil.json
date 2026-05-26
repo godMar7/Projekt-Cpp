@@ -222,7 +222,7 @@
                     "baza": {
                         "kategoria": "Nogi",
                         "nazwa": "Przysiady ze sztanga",
-                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
+                        "opis": "Plecy proste, klatka wypchnieta, kolana prowadzone w linii palcow stop. Schodz trzymajac napiety brzuch.",
                         "trudnosc": 5
                     },
                     "ciezar": 0.0,
@@ -233,7 +233,7 @@
                     "baza": {
                         "kategoria": "Brzuch",
                         "nazwa": "Deska (Plank)",
-                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
+                        "opis": "Cialo w jednej linii. Mocno zepnij posladki i brzuch (miednica w tyl). Nie wstrzymuj oddechu.",
                         "trudnosc": 2
                     },
                     "ciezar": 0.0,
@@ -242,10 +242,10 @@
                 },
                 {
                     "baza": {
-                        "kategoria": "Biceps",
-                        "nazwa": "Uginanie ramion z hantlami",
-                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
-                        "trudnosc": 1
+                        "kategoria": "Nogi",
+                        "nazwa": "Wykroki z hantlami",
+                        "opis": "Prosty tulow. Kolano nogi zakrocznej blisko ziemi, noga wyczna zgina sie do kata prostego.",
+                        "trudnosc": 3
                     },
                     "ciezar": 0.0,
                     "powtorzenia": 10,
