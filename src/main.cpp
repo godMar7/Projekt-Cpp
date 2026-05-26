@@ -6,16 +6,15 @@
 #include <algorithm>
 #include <cctype>
 #include <fstream>
+#include <ctime>
 #include <nlohmann/json.hpp>
 
-// Nasze naglowki
 #include "Struktury.h"
 #include "ZapisOdczyt.h"
 
 using namespace std;
 using json = nlohmann::json;
 
-// Funkcja pomocnicza do wyszukiwarki (zostaje tutaj bo to tylko do UI)
 bool containsIgnoreCase(const string& str, const string& sub) {
     if (sub.empty()) return true;
     auto it = search(str.begin(), str.end(), sub.begin(), sub.end(),
@@ -40,7 +39,6 @@ int main() {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 130");
 
-    // Ladowanie poczatkowych danych z JSON
     vector<Cwiczenie> bazaCwiczen;
     ifstream plikJSON("data/cwiczenia.json");
     if (!plikJSON.is_open()) plikJSON.open("../data/cwiczenia.json");
@@ -61,12 +59,21 @@ int main() {
     WczytajProfil(user);
     InicjalizujPusteDniIPosilki(user);
 
+    // POBIERANIE DZISIEJSZEJ DATY Z SYSTEMU WINDOWS
+    time_t t = time(nullptr);
+    tm* now = localtime(&t);
+    // Niedziela to wg komputera dzien 0. My chcemy zeby Poniedzialek byl 0.
+    int dzisiejszyDzien = (now->tm_wday == 0) ? 6 : now->tm_wday - 1;
+
     // Zmienne UI
     static char szukajCw[128] = "";
     static int wybranaKategoriaCw = 0;
     const char* kategorieCw[] = {"Wszystkie", "Klatka piersiowa", "Nogi", "Plecy", "Barki", "Biceps", "Triceps", "Brzuch"};
-    static int wybranyDzienDoDodania = 0;
     const char* nazwyDniUzytkowe[] = {"Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela"};
+
+    // Ustawiamy wyswietlanie na obecny dzien
+    static int wybranyDzienTreningu = dzisiejszyDzien;
+    static int wybranyDzienDiety = dzisiejszyDzien;
 
     static char szukajProd[128] = "";
     static int wybranyPosilekDoDodania = 0;
@@ -84,7 +91,12 @@ int main() {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        // Kolory motywu
+        // AKTUALIZACJA ZEGARA
+        time_t currTime = time(nullptr);
+        tm* currNow = localtime(&currTime);
+        char buforDaty[128];
+        strftime(buforDaty, sizeof(buforDaty), "%d-%m-%Y %H:%M:%S", currNow);
+
         static bool jasnyMotyw = false;
         ImVec4 colAkcent = jasnyMotyw ? ImVec4(0.0f, 0.4f, 0.8f, 1.0f) : ImVec4(0.4f, 0.8f, 1.0f, 1.0f);
         ImVec4 colSub = jasnyMotyw ? ImVec4(0.3f, 0.3f, 0.3f, 1.0f) : ImVec4(0.7f, 0.7f, 0.7f, 1.0f);
@@ -111,6 +123,10 @@ int main() {
         float textWidth = ImGui::CalcTextSize(tytulProfil).x;
         ImGui::SetCursorPosX((windowWidth - textWidth) * 0.5f);
         ImGui::TextColored(colAkcent, "%s", tytulProfil);
+        
+        ImGui::SameLine(10);
+        ImGui::TextColored(colSub, "Data: %s", buforDaty);
+
         ImGui::SameLine(windowWidth - 120);
         if (ImGui::Checkbox("Jasny", &jasnyMotyw)) {
             if (jasnyMotyw) ImGui::StyleColorsLight(); else ImGui::StyleColorsDark();
@@ -176,7 +192,12 @@ int main() {
         ImGui::SetCursorPosX((ImGui::GetWindowSize().x - ImGui::CalcTextSize("P L A N   T R E N I N G O W Y").x) * 0.5f);
         ImGui::TextColored(colTrening, "P L A N   T R E N I N G O W Y");
         ImGui::Separator(); ImGui::Spacing();
-        ImGui::TextColored(colSub, "Skonstruowany tydzien treningowy:");
+        
+        ImGui::TextColored(colSub, "Przegladasz plan na dzien:"); ImGui::SameLine();
+        ImGui::SetNextItemWidth(150);
+        ImGui::Combo("##TreningDzien", &wybranyDzienTreningu, nazwyDniUzytkowe, IM_ARRAYSIZE(nazwyDniUzytkowe));
+        ImGui::Spacing();
+
         if (ImGui::BeginTable("MojPlan", 5, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 250))) {
             ImGui::TableSetupColumn("Cwiczenie", ImGuiTableColumnFlags_WidthStretch);
             ImGui::TableSetupColumn("Serie", ImGuiTableColumnFlags_WidthFixed, 60.0f);
@@ -184,22 +205,20 @@ int main() {
             ImGui::TableSetupColumn("Kg", ImGuiTableColumnFlags_WidthFixed, 60.0f);
             ImGui::TableSetupColumn("X", ImGuiTableColumnFlags_WidthFixed, 40.0f);
             ImGui::TableHeadersRow();
-            for (int d = 0; d < user.aktualnyTrening.dni.size(); ++d) {
-                auto& dzien = user.aktualnyTrening.dni[d];
-                ImGui::TableNextRow(); ImGui::TableSetColumnIndex(0); ImGui::TextColored(colZolty, "[ %s ]", dzien.nazwaDnia.c_str());
-                if (dzien.cwiczenia.empty()) {
-                    ImGui::TableNextRow(); ImGui::TableSetColumnIndex(0); ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 10.0f); ImGui::TextColored(colZielony, "- Odpoczynek (Rest day)");
-                } else {
-                    for (int i = 0; i < dzien.cwiczenia.size(); ++i) {
-                        ImGui::TableNextRow(); ImGui::PushID((d * 1000) + i + 5000); 
-                        ImGui::TableSetColumnIndex(0); ImGui::SetCursorPosX(ImGui::GetCursorPosX() + 10.0f); ImGui::Text("- %s", dzien.cwiczenia[i].baza.nazwa.c_str());
-                        if (ImGui::IsItemHovered()) ImGui::SetTooltip("%s", dzien.cwiczenia[i].baza.opis.c_str());
-                        ImGui::TableSetColumnIndex(1); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##s", &dzien.cwiczenia[i].serie, 0);
-                        ImGui::TableSetColumnIndex(2); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##p", &dzien.cwiczenia[i].powtorzenia, 0);
-                        ImGui::TableSetColumnIndex(3); ImGui::SetNextItemWidth(50.0f); ImGui::InputFloat("##kg", &dzien.cwiczenia[i].ciezar, 0, 0, "%.1f");
-                        ImGui::TableSetColumnIndex(4); if (ImGui::Button("X", ImVec2(40, 0))) { dzien.cwiczenia.erase(dzien.cwiczenia.begin() + i); i--; }
-                        ImGui::PopID();
-                    }
+            
+            auto& aktywnyDzien = user.aktualnyTrening.dni[wybranyDzienTreningu];
+            if (aktywnyDzien.cwiczenia.empty()) {
+                ImGui::TableNextRow(); ImGui::TableSetColumnIndex(0); ImGui::TextColored(colZielony, "Odpoczynek (Rest day)");
+            } else {
+                for (int i = 0; i < aktywnyDzien.cwiczenia.size(); ++i) {
+                    ImGui::TableNextRow(); ImGui::PushID(i + 5000); 
+                    ImGui::TableSetColumnIndex(0); ImGui::Text("%s", aktywnyDzien.cwiczenia[i].baza.nazwa.c_str());
+                    if (ImGui::IsItemHovered()) ImGui::SetTooltip("%s", aktywnyDzien.cwiczenia[i].baza.opis.c_str());
+                    ImGui::TableSetColumnIndex(1); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##s", &aktywnyDzien.cwiczenia[i].serie, 0);
+                    ImGui::TableSetColumnIndex(2); ImGui::SetNextItemWidth(50.0f); ImGui::InputInt("##p", &aktywnyDzien.cwiczenia[i].powtorzenia, 0);
+                    ImGui::TableSetColumnIndex(3); ImGui::SetNextItemWidth(50.0f); ImGui::InputFloat("##kg", &aktywnyDzien.cwiczenia[i].ciezar, 0, 0, "%.1f");
+                    ImGui::TableSetColumnIndex(4); if (ImGui::Button("X", ImVec2(40, 0))) { aktywnyDzien.cwiczenia.erase(aktywnyDzien.cwiczenia.begin() + i); i--; }
+                    ImGui::PopID();
                 }
             }
             ImGui::EndTable();
@@ -210,7 +229,7 @@ int main() {
         if (ImGui::CollapsingHeader("Przegladaj Baze Cwiczen i Dodaj do Planu")) {
             ImGui::SetNextItemWidth(150); ImGui::InputText("Szukaj##cw", szukajCw, IM_ARRAYSIZE(szukajCw)); ImGui::SameLine();
             ImGui::SetNextItemWidth(120); ImGui::Combo("Partia##cw", &wybranaKategoriaCw, kategorieCw, IM_ARRAYSIZE(kategorieCw));
-            ImGui::SetNextItemWidth(150); ImGui::Combo("Dodaj do##dzien", &wybranyDzienDoDodania, nazwyDniUzytkowe, IM_ARRAYSIZE(nazwyDniUzytkowe)); ImGui::Spacing();
+            ImGui::Spacing();
             if (ImGui::BeginTable("TabelaCwiczen", 4, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 150))) {
                 ImGui::TableSetupColumn("Nazwa", ImGuiTableColumnFlags_WidthStretch);
                 ImGui::TableSetupColumn("Kat.", ImGuiTableColumnFlags_WidthFixed, 80.0f);
@@ -230,7 +249,8 @@ int main() {
                         if (i < 5) { ImGui::SameLine(); ImGui::SetCursorPosX(ImGui::GetCursorPosX() - 3.0f); }
                     }
                     ImGui::TableSetColumnIndex(3); ImGui::PushID(cw.nazwa.c_str()); 
-                    if (ImGui::Button("+", ImVec2(50, 0))) user.aktualnyTrening.dni[wybranyDzienDoDodania].cwiczenia.push_back({cw, 3, 10, 0.0f});
+                    // Przycisk dodaje zawsze do dnia wybranego u gory
+                    if (ImGui::Button("+", ImVec2(50, 0))) user.aktualnyTrening.dni[wybranyDzienTreningu].cwiczenia.push_back({cw, 3, 10, 0.0f});
                     ImGui::PopID();
                 }
                 ImGui::EndTable();
@@ -254,22 +274,30 @@ int main() {
 
         // DIETA
         ImGui::BeginChild("PanelDieta", ImVec2(0, wysokoscDolnych), true);
-        user.aktualnaDieta.przeliczSumy();
+        
+        // Sumy liczymy tylko dla wybranego dnia
+        auto& aktywnyDzienDiety = user.aktualnaDieta.dni[wybranyDzienDiety];
+        aktywnyDzienDiety.przeliczSumy();
+
         ImGui::SetCursorPosX((ImGui::GetWindowSize().x - ImGui::CalcTextSize("P L A N   D I E T E T Y C Z N Y").x) * 0.5f);
         ImGui::TextColored(colZielony, "P L A N   D I E T E T Y C Z N Y");
         ImGui::Separator(); ImGui::Spacing();
 
-        ImGui::TextColored(colSub, "Zjedzone dzisiaj: %.0f kcal / %.0f kcal", user.aktualnaDieta.sumaKcal, user.zapotrzebowanieKcal);
-        float postepKcal = user.zapotrzebowanieKcal > 0.0f ? (user.aktualnaDieta.sumaKcal / user.zapotrzebowanieKcal) : 0.0f;
+        ImGui::TextColored(colSub, "Przegladasz plan na dzien:"); ImGui::SameLine();
+        ImGui::SetNextItemWidth(150);
+        ImGui::Combo("##DietaDzien", &wybranyDzienDiety, nazwyDniUzytkowe, IM_ARRAYSIZE(nazwyDniUzytkowe));
+        ImGui::Spacing();
+
+        ImGui::TextColored(colSub, "Zjedzone dzisiaj: %.0f kcal / %.0f kcal", aktywnyDzienDiety.sumaKcal, user.zapotrzebowanieKcal);
+        float postepKcal = user.zapotrzebowanieKcal > 0.0f ? (aktywnyDzienDiety.sumaKcal / user.zapotrzebowanieKcal) : 0.0f;
         if (postepKcal > 1.0f) ImGui::PushStyleColor(ImGuiCol_PlotHistogram, colCzerwony); 
         ImGui::ProgressBar(postepKcal, ImVec2(-1.0f, 15.0f), "");
         if (postepKcal > 1.0f) ImGui::PopStyleColor();
 
-        ImGui::TextColored(colZielony, "B: %.1f g", user.aktualnaDieta.sumaBialko); ImGui::SameLine();
-        ImGui::TextColored(colWegle, " | W: %.1f g", user.aktualnaDieta.sumaWegle); ImGui::SameLine();
-        ImGui::TextColored(colCzerwony, " | T: %.1f g", user.aktualnaDieta.sumaTluszcze); ImGui::Spacing();
+        ImGui::TextColored(colZielony, "B: %.1f g", aktywnyDzienDiety.sumaBialko); ImGui::SameLine();
+        ImGui::TextColored(colWegle, " | W: %.1f g", aktywnyDzienDiety.sumaWegle); ImGui::SameLine();
+        ImGui::TextColored(colCzerwony, " | T: %.1f g", aktywnyDzienDiety.sumaTluszcze); ImGui::Spacing();
 
-        ImGui::TextColored(colSub, "Skonstruowany jadlospis:");
         if (ImGui::BeginTable("MojTalerz", 7, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg | ImGuiTableFlags_ScrollY, ImVec2(0, 250))) {
             ImGui::TableSetupColumn("Produkt", ImGuiTableColumnFlags_WidthStretch);
             ImGui::TableSetupColumn("Waga(g)", ImGuiTableColumnFlags_WidthFixed, 60.0f);
@@ -280,8 +308,8 @@ int main() {
             ImGui::TableSetupColumn("X", ImGuiTableColumnFlags_WidthFixed, 40.0f);
             ImGui::TableHeadersRow();
 
-            for (int m = 0; m < user.aktualnaDieta.posilki.size(); ++m) {
-                auto& posilek = user.aktualnaDieta.posilki[m];
+            for (int m = 0; m < aktywnyDzienDiety.posilki.size(); ++m) {
+                auto& posilek = aktywnyDzienDiety.posilki[m];
                 ImGui::TableNextRow(); ImGui::TableSetColumnIndex(0); ImGui::TextColored(colZolty, "[ %s ]", posilek.nazwaPosilku.c_str());
                 for (int i = 0; i < posilek.skladniki.size(); ++i) {
                     ImGui::TableNextRow(); auto& sk = posilek.skladniki[i]; ImGui::PushID((m * 1000) + i); 
@@ -337,7 +365,8 @@ int main() {
                     ImGui::TableSetColumnIndex(3); ImGui::TextColored(colWegle, "%.1f", prod.weglowodany);
                     ImGui::TableSetColumnIndex(4); ImGui::TextColored(colCzerwony, "%.1f", prod.tluszcze);
                     ImGui::TableSetColumnIndex(5); ImGui::PushID(prod.nazwa.c_str());
-                    if (ImGui::Button("+", ImVec2(40, 0))) user.aktualnaDieta.posilki[wybranyPosilekDoDodania].skladniki.push_back({prod, 100.0f});
+                    // Dodajemy produkt bezposrednio do wybranego dnia
+                    if (ImGui::Button("+", ImVec2(40, 0))) aktywnyDzienDiety.posilki[wybranyPosilekDoDodania].skladniki.push_back({prod, 100.0f});
                     ImGui::PopID();
                 }
                 ImGui::EndTable();

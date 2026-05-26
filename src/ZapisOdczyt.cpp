@@ -39,22 +39,29 @@ bool ZapiszProfil(const ProfilUzytkownika& user) {
     j["aktualnyTrening"] = jTrening;
 
     json jDieta = json::array();
-    for (const auto& posilek : user.aktualnaDieta.posilki) {
-        json jPosilek;
-        jPosilek["nazwaPosilku"] = posilek.nazwaPosilku;
-        json jSkladniki = json::array();
-        for (const auto& sk : posilek.skladniki) {
-            json jSk;
-            jSk["baza"]["nazwa"] = sk.baza.nazwa;
-            jSk["baza"]["kcal"] = sk.baza.kcal;
-            jSk["baza"]["bialko"] = sk.baza.bialko;
-            jSk["baza"]["weglowodany"] = sk.baza.weglowodany;
-            jSk["baza"]["tluszcze"] = sk.baza.tluszcze;
-            jSk["wagaGramy"] = sk.wagaGramy;
-            jSkladniki.push_back(jSk);
+    for (const auto& dzien : user.aktualnaDieta.dni) {
+        json jDzienD;
+        jDzienD["nazwaDnia"] = dzien.nazwaDnia;
+        json jPosilki = json::array();
+        for (const auto& posilek : dzien.posilki) {
+            json jPosilek;
+            jPosilek["nazwaPosilku"] = posilek.nazwaPosilku;
+            json jSkladniki = json::array();
+            for (const auto& sk : posilek.skladniki) {
+                json jSk;
+                jSk["baza"]["nazwa"] = sk.baza.nazwa;
+                jSk["baza"]["kcal"] = sk.baza.kcal;
+                jSk["baza"]["bialko"] = sk.baza.bialko;
+                jSk["baza"]["weglowodany"] = sk.baza.weglowodany;
+                jSk["baza"]["tluszcze"] = sk.baza.tluszcze;
+                jSk["wagaGramy"] = sk.wagaGramy;
+                jSkladniki.push_back(jSk);
+            }
+            jPosilek["skladniki"] = jSkladniki;
+            jPosilki.push_back(jPosilek);
         }
-        jPosilek["skladniki"] = jSkladniki;
-        jDieta.push_back(jPosilek);
+        jDzienD["posilki"] = jPosilki;
+        jDieta.push_back(jDzienD);
     }
     j["aktualnaDieta"] = jDieta;
 
@@ -109,13 +116,11 @@ bool EksportujPlanTXT(const ProfilUzytkownika& user) {
     }
 
     file << "[ PLAN DIETETYCZNY ]\n";
-    file << "Lacznie: " << user.aktualnaDieta.sumaKcal << " kcal | Bialko: " << user.aktualnaDieta.sumaBialko 
-         << "g | Wegle: " << user.aktualnaDieta.sumaWegle << "g | Tluszcze: " << user.aktualnaDieta.sumaTluszcze << "g\n\n";
-         
-    for(const auto& p : user.aktualnaDieta.posilki) {
-        file << ">> " << p.nazwaPosilku << ":\n";
-        if(p.skladniki.empty()) file << "   Brak jedzenia\n";
-        else {
+    for(const auto& d : user.aktualnaDieta.dni) {
+        file << ">> " << d.nazwaDnia << ":\n";
+        for(const auto& p : d.posilki) {
+            if(p.skladniki.empty()) continue;
+            file << "   [" << p.nazwaPosilku << "]\n";
             for(const auto& sk : p.skladniki) {
                 file << "   - " << sk.baza.nazwa << " (" << sk.wagaGramy << "g) -> " 
                      << sk.obliczKcal() << " kcal (B:" << sk.obliczBialko() << " W:" << sk.obliczWegle() << " T:" << sk.obliczTluszcze() << ")\n";
@@ -164,33 +169,45 @@ void WczytajProfil(ProfilUzytkownika& user) {
         }
 
         if (j.contains("aktualnaDieta")) {
-            user.aktualnaDieta.posilki.clear();
-            for (const auto& jPosilek : j["aktualnaDieta"]) {
-                Posilek p;
-                p.nazwaPosilku = jPosilek.value("nazwaPosilku", "");
-                for (const auto& jSk : jPosilek["skladniki"]) {
-                    SkladnikPosilku sk;
-                    sk.baza.nazwa = jSk["baza"].value("nazwa", "");
-                    sk.baza.kcal = jSk["baza"].value("kcal", 0.0f);
-                    sk.baza.bialko = jSk["baza"].value("bialko", 0.0f);
-                    sk.baza.weglowodany = jSk["baza"].value("weglowodany", 0.0f);
-                    sk.baza.tluszcze = jSk["baza"].value("tluszcze", 0.0f);
-                    sk.wagaGramy = jSk.value("wagaGramy", 100.0f);
-                    p.skladniki.push_back(sk);
+            user.aktualnaDieta.dni.clear();
+            for (const auto& jDzienD : j["aktualnaDieta"]) {
+                DzienDietetyczny dd;
+                dd.nazwaDnia = jDzienD.value("nazwaDnia", "");
+                for (const auto& jPosilek : jDzienD["posilki"]) {
+                    Posilek p;
+                    p.nazwaPosilku = jPosilek.value("nazwaPosilku", "");
+                    for (const auto& jSk : jPosilek["skladniki"]) {
+                        SkladnikPosilku sk;
+                        sk.baza.nazwa = jSk["baza"].value("nazwa", "");
+                        sk.baza.kcal = jSk["baza"].value("kcal", 0.0f);
+                        sk.baza.bialko = jSk["baza"].value("bialko", 0.0f);
+                        sk.baza.weglowodany = jSk["baza"].value("weglowodany", 0.0f);
+                        sk.baza.tluszcze = jSk["baza"].value("tluszcze", 0.0f);
+                        sk.wagaGramy = jSk.value("wagaGramy", 100.0f);
+                        p.skladniki.push_back(sk);
+                    }
+                    dd.posilki.push_back(p);
                 }
-                user.aktualnaDieta.posilki.push_back(p);
+                user.aktualnaDieta.dni.push_back(dd);
             }
         }
-    } catch (...) { cout << "Blad podczas wczytywania profilu." << endl; }
+    } catch (...) { cout << "Blad podczas wczytywania profilu. Usun stary plik profil.json." << endl; }
 }
 
 void InicjalizujPusteDniIPosilki(ProfilUzytkownika& user) {
+    const char* dni[] = {"Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela"};
+    const char* posilki[] = {"Sniadanie", "Drugie Sniadanie", "Obiad", "Przekaska", "Kolacja"};
+
     if (user.aktualnyTrening.dni.empty()) {
-        const char* dni[] = {"Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela"};
         for(int i=0; i<7; i++) user.aktualnyTrening.dni.push_back({dni[i], {}});
     }
-    if (user.aktualnaDieta.posilki.empty()) {
-        const char* posilki[] = {"Sniadanie", "Drugie Sniadanie", "Obiad", "Przekaska", "Kolacja"};
-        for(int i=0; i<5; i++) user.aktualnaDieta.posilki.push_back({posilki[i], {}});
+    
+    if (user.aktualnaDieta.dni.empty()) {
+        for(int i=0; i<7; i++) {
+            DzienDietetyczny d;
+            d.nazwaDnia = dni[i];
+            for(int p=0; p<5; p++) d.posilki.push_back({posilki[p], {}});
+            user.aktualnaDieta.dni.push_back(d);
+        }
     }
 }

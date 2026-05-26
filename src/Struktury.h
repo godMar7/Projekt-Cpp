@@ -48,8 +48,11 @@ struct Posilek {
     std::vector<SkladnikPosilku> skladniki;
 };
 
-struct PlanDietetyczny {
+// Dzien dietetyczny przechowujacy 5 posilkow
+struct DzienDietetyczny {
+    std::string nazwaDnia;
     std::vector<Posilek> posilki;
+    
     float sumaKcal = 0.0f;
     float sumaBialko = 0.0f;
     float sumaWegle = 0.0f;
@@ -66,6 +69,10 @@ struct PlanDietetyczny {
             }
         }
     }
+};
+
+struct PlanDietetyczny {
+    std::vector<DzienDietetyczny> dni;
 };
 
 struct ProfilUzytkownika {

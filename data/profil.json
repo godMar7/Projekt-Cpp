@@ -1,112 +1,219 @@
 {
     "aktualnaDieta": [
         {
-            "nazwaPosilku": "Sniadanie",
-            "skladniki": [
+            "nazwaDnia": "Poniedzialek",
+            "posilki": [
                 {
-                    "baza": {
-                        "bialko": 12.5,
-                        "kcal": 143.0,
-                        "nazwa": "Jajko kurze (cale)",
-                        "tluszcze": 9.699999809265137,
-                        "weglowodany": 0.6000000238418579
-                    },
-                    "wagaGramy": 100.0
+                    "nazwaPosilku": "Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Drugie Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Obiad",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Przekaska",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Kolacja",
+                    "skladniki": []
                 }
             ]
         },
         {
-            "nazwaPosilku": "Drugie Sniadanie",
-            "skladniki": []
-        },
-        {
-            "nazwaPosilku": "Obiad",
-            "skladniki": [
+            "nazwaDnia": "Wtorek",
+            "posilki": [
                 {
-                    "baza": {
-                        "bialko": 12.0,
-                        "kcal": 360.0,
-                        "nazwa": "Makaron z pszenicy durum",
-                        "tluszcze": 1.5,
-                        "weglowodany": 73.0
-                    },
-                    "wagaGramy": 100.0
+                    "nazwaPosilku": "Sniadanie",
+                    "skladniki": [
+                        {
+                            "baza": {
+                                "bialko": 1.100000023841858,
+                                "kcal": 89.0,
+                                "nazwa": "Banan",
+                                "tluszcze": 0.30000001192092896,
+                                "weglowodany": 22.799999237060547
+                            },
+                            "wagaGramy": 100.0
+                        },
+                        {
+                            "baza": {
+                                "bialko": 19.899999618530273,
+                                "kcal": 201.0,
+                                "nazwa": "Losos swiezy",
+                                "tluszcze": 13.600000381469727,
+                                "weglowodany": 0.0
+                            },
+                            "wagaGramy": 100.0
+                        },
+                        {
+                            "baza": {
+                                "bialko": 12.5,
+                                "kcal": 143.0,
+                                "nazwa": "Jajko kurze (cale)",
+                                "tluszcze": 9.699999809265137,
+                                "weglowodany": 0.6000000238418579
+                            },
+                            "wagaGramy": 100.0
+                        }
+                    ]
+                },
+                {
+                    "nazwaPosilku": "Drugie Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Obiad",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Przekaska",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Kolacja",
+                    "skladniki": []
                 }
             ]
         },
         {
-            "nazwaPosilku": "Przekaska",
-            "skladniki": [
+            "nazwaDnia": "Sroda",
+            "posilki": [
                 {
-                    "baza": {
-                        "bialko": 19.899999618530273,
-                        "kcal": 201.0,
-                        "nazwa": "Losos swiezy",
-                        "tluszcze": 13.600000381469727,
-                        "weglowodany": 0.0
-                    },
-                    "wagaGramy": 100.0
+                    "nazwaPosilku": "Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Drugie Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Obiad",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Przekaska",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Kolacja",
+                    "skladniki": []
                 }
             ]
         },
         {
-            "nazwaPosilku": "Kolacja",
-            "skladniki": [
+            "nazwaDnia": "Czwartek",
+            "posilki": [
                 {
-                    "baza": {
-                        "bialko": 21.5,
-                        "kcal": 99.0,
-                        "nazwa": "Piers z kurczaka",
-                        "tluszcze": 1.2999999523162842,
-                        "weglowodany": 0.0
-                    },
-                    "wagaGramy": 100.0
+                    "nazwaPosilku": "Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Drugie Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Obiad",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Przekaska",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Kolacja",
+                    "skladniki": []
+                }
+            ]
+        },
+        {
+            "nazwaDnia": "Piatek",
+            "posilki": [
+                {
+                    "nazwaPosilku": "Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Drugie Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Obiad",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Przekaska",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Kolacja",
+                    "skladniki": []
+                }
+            ]
+        },
+        {
+            "nazwaDnia": "Sobota",
+            "posilki": [
+                {
+                    "nazwaPosilku": "Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Drugie Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Obiad",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Przekaska",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Kolacja",
+                    "skladniki": []
+                }
+            ]
+        },
+        {
+            "nazwaDnia": "Niedziela",
+            "posilki": [
+                {
+                    "nazwaPosilku": "Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Drugie Sniadanie",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Obiad",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Przekaska",
+                    "skladniki": []
+                },
+                {
+                    "nazwaPosilku": "Kolacja",
+                    "skladniki": []
                 }
             ]
         }
     ],
     "aktualnyTrening": [
         {
-            "cwiczenia": [
-                {
-                    "baza": {
-                        "kategoria": "Biceps",
-                        "nazwa": "Uginanie ramion z hantlami",
-                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
-                        "trudnosc": 1
-                    },
-                    "ciezar": 0.0,
-                    "powtorzenia": 10,
-                    "serie": 3
-                },
-                {
-                    "baza": {
-                        "kategoria": "Biceps",
-                        "nazwa": "Uginanie ramion z hantlami",
-                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
-                        "trudnosc": 1
-                    },
-                    "ciezar": 0.0,
-                    "powtorzenia": 10,
-                    "serie": 3
-                }
-            ],
+            "cwiczenia": [],
             "nazwaDnia": "Poniedzialek"
         },
         {
-            "cwiczenia": [
-                {
-                    "baza": {
-                        "kategoria": "Klatka piersiowa",
-                        "nazwa": "Wyciskanie sztangi lezac",
-                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
-                        "trudnosc": 3
-                    },
-                    "ciezar": 0.0,
-                    "powtorzenia": 10,
-                    "serie": 3
-                }
-            ],
+            "cwiczenia": [],
             "nazwaDnia": "Wtorek"
         },
         {
@@ -124,10 +231,21 @@
                 },
                 {
                     "baza": {
-                        "kategoria": "Plecy",
-                        "nazwa": "Martwy ciag",
+                        "kategoria": "Brzuch",
+                        "nazwa": "Deska (Plank)",
                         "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
-                        "trudnosc": 5
+                        "trudnosc": 2
+                    },
+                    "ciezar": 0.0,
+                    "powtorzenia": 10,
+                    "serie": 3
+                },
+                {
+                    "baza": {
+                        "kategoria": "Biceps",
+                        "nazwa": "Uginanie ramion z hantlami",
+                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
+                        "trudnosc": 1
                     },
                     "ciezar": 0.0,
                     "powtorzenia": 10,
@@ -145,19 +263,7 @@
             "nazwaDnia": "Piatek"
         },
         {
-            "cwiczenia": [
-                {
-                    "baza": {
-                        "kategoria": "Nogi",
-                        "nazwa": "Przysiady ze sztanga",
-                        "opis": "Technika jest najwazniejsza. Utrzymuj napiecie.",
-                        "trudnosc": 5
-                    },
-                    "ciezar": 0.0,
-                    "powtorzenia": 10,
-                    "serie": 3
-                }
-            ],
+            "cwiczenia": [],
             "nazwaDnia": "Sobota"
         },
         {
@@ -165,12 +271,12 @@
             "nazwaDnia": "Niedziela"
         }
     ],
-    "aktywnosc": 2,
-    "kategoriaBmi": "Waga w normie",
+    "aktywnosc": 1,
+    "kategoriaBmi": "",
     "plec": 0,
-    "waga": 68.0,
-    "wiek": 22,
-    "wyliczoneBmi": 22.204082489013672,
+    "waga": 70.0,
+    "wiek": 25,
+    "wyliczoneBmi": 0.0,
     "wzrost": 175.0,
-    "zapotrzebowanieKcal": 2878.59375
+    "zapotrzebowanieKcal": 2500.0
 }
